@@ -1,0 +1,15 @@
+# Python environment
+backend/venv/
+
+# Secret environment variables
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Notes
+learning.md
