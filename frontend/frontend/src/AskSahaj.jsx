@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMode } from "./copy.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
@@ -8,6 +9,7 @@ export default function AskSahaj() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [listening, setListening] = useState(false);
+  const mode = useMode();
 
   const micSupported =
     typeof window !== "undefined" &&
@@ -21,7 +23,7 @@ export default function AskSahaj() {
       const r = await fetch(`${API}/api/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q }),
+        body: JSON.stringify({ question: q, mode }),
       });
       const data = await r.json();
       if (!r.ok) throw new Error(data.detail || "Could not answer.");

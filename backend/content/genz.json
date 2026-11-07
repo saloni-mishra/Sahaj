@@ -1,0 +1,44 @@
+[
+  {
+    "id": "genz-nocap",
+    "word": "no cap",
+    "meaning": "No lie — for real. Say it when you mean something truly.",
+    "desi": "Like saying 'sach mein!' when your grandchild does not believe you.",
+    "example": "This mango pickle is the best, no cap."
+  },
+  {
+    "id": "genz-ate",
+    "word": "you ate that",
+    "meaning": "You did great! A big compliment, nothing to do with food.",
+    "desi": "Like clapping and saying 'kya baat hai!' after a dance.",
+    "example": "You fixed the Wi-Fi yourself? You ate that!"
+  },
+  {
+    "id": "genz-lowkey",
+    "word": "lowkey",
+    "meaning": "Quietly, in a small way. Not showing off.",
+    "desi": "Like quietly taking one extra ladoo when nobody is looking.",
+    "example": "I lowkey love learning new phone tricks."
+  },
+  {
+    "id": "genz-cook",
+    "word": "let him cook",
+    "meaning": "Let someone do their thing. Do not disturb them.",
+    "desi": "Like not entering the kitchen when your daughter is making biryani.",
+    "example": "He is fixing my phone — let him cook!"
+  },
+  {
+    "id": "genz-slay",
+    "word": "slay",
+    "meaning": "To do something perfectly, like a hero.",
+    "desi": "Like a Bollywood hero entry with wind in the background.",
+    "example": "You sent your first photo on WhatsApp? Slay!"
+  },
+  {
+    "id": "genz-vibe",
+    "word": "vibe",
+    "meaning": "The mood or feeling of a place or person.",
+    "desi": "Like the happy feeling inside a wedding hall with music.",
+    "example": "Learning together has such a nice vibe."
+  }
+]

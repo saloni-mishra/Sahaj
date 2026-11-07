@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
-import { Confetti, saveCompleted, loadCompleted } from "./Progress.jsx";
+import { useEffect, useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { Confetti, saveCompleted, loadCompleted, completeMission } from "./Progress.jsx";
+import { useMode, COPY, withSlang } from "./copy.jsx";
+import Mascot from "./Mascot.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
@@ -17,18 +20,61 @@ function WhatsAppHelp({ step }) {
 function FinishGuide({ guideId, isLast }) {
   const [finished, setFinished] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [reward, setReward] = useState(null);
+  const [nextGuide, setNextGuide] = useState(null);
+  const mode = useMode();
 
   useEffect(() => {
     setFinished(loadCompleted().includes(guideId));
     setShowConfetti(false);
   }, [guideId]);
 
+  // Look up this guide's mission reward + a suggested next guide.
+  useEffect(() => {
+    if (!isLast) return;
+    Promise.all([
+      fetch(`${API}/api/missions`).then((r) => r.json()).catch(() => null),
+      fetch(`${API}/api/guides`).then((r) => r.json()).catch(() => []),
+    ]).then(([mData, guides]) => {
+      const missions = (mData && (mData.missions || mData)) || [];
+      const match = missions.find((m) => m.guide_id === guideId);
+      if (match) setReward(match.reward);
+      const done = loadCompleted();
+      const next =
+        (guides || []).find((g) => g.id !== guideId && !done.includes(g.id)) ||
+        (guides || []).find((g) => g.id !== guideId) ||
+        null;
+      setNextGuide(next);
+    });
+  }, [isLast, guideId]);
+
   if (!isLast) return null;
-  if (finished) return <p className="stamp">★ Guide finished — well done!</p>;
+  if (finished) return (
+    <div className="celebrate">
+      {showConfetti && <Confetti />}
+      <Mascot mood="celebrating" size={110} />
+      <h2>You did it!</h2>
+      <p className="stamp">★ {mode === "genz" && reward ? withSlang(COPY.finished.genz) : COPY.finished.normal}</p>
+      {reward && <p className="stamp">🎁 Sticker earned: {mode === "genz" ? withSlang(reward) : reward}</p>}
+      <div className="step-nav">
+        <Link className="big-btn" to="/">Back to Home</Link>
+        {nextGuide && <Link className="big-btn" to={`/learn?guide=${nextGuide.id}`}>Next Guide: {nextGuide.title} →</Link>}
+      </div>
+    </div>
+  );
 
   function finish() {
     saveCompleted(guideId);
     window.dispatchEvent(new Event("sahaj-progress"));
+    // Auto-complete the mission linked to this guide (m1-m5).
+    fetch(`${API}/api/missions`)
+      .then((r) => r.json())
+      .then((data) => {
+        const list = data.missions || data || [];
+        const match = list.find((m) => m.guide_id === guideId);
+        if (match) completeMission(match.id);
+      })
+      .catch(() => {});
     setFinished(true);
     setShowConfetti(true);
   }
@@ -36,7 +82,7 @@ function FinishGuide({ guideId, isLast }) {
   return (
     <div className="learn-row">
       {showConfetti && <Confetti />}
-      <button className="big-btn" onClick={finish}>🎉 I finished this guide</button>
+      <button className="big-btn" onClick={finish}>🎉 {COPY.finishButton[mode]}</button>
     </div>
   );
 }
@@ -109,12 +155,50 @@ export default function Learn() {
   const [error, setError] = useState("");
   const [explanation, setExplanation] = useState("");
   const [explaining, setExplaining] = useState(false);
+  const mode = useMode();
+  const [searchParams] = useSearchParams();
+  const lastAppliedGuide = useRef(null);
 
-  // Load brands + guides once.
+  // Load brands + guides once. A ?guide= link (e.g. Next Guide) preselects it.
   useEffect(() => {
     fetch(`${API}/api/brands`).then((r) => r.json()).then(setBrands);
-    fetch(`${API}/api/guides`).then((r) => r.json()).then(setGuides);
+    fetch(`${API}/api/guides`).then((r) => r.json()).then((data) => {
+      setGuides(data);
+      const g = searchParams.get("guide");
+      if (g && data.some((x) => x.id === g)) {
+        lastAppliedGuide.current = g;
+        setGuideId(g);
+        setStepNum(1);
+      }
+    });
   }, []);
+
+  // Follow ?guide= links while staying on the Learn page (Next Guide button).
+  useEffect(() => {
+    const g = searchParams.get("guide");
+    if (g && g !== lastAppliedGuide.current && guides.some((x) => x.id === g)) {
+      lastAppliedGuide.current = g;
+      setBrandId("");
+      setGuideId(g);
+      setStepNum(1);
+      setStep(null);
+    }
+  }, [searchParams]);
+
+  // Auto-pick a matching brand when a guide arrives without one (?guide= link).
+  useEffect(() => {
+    if (guideId && !brandId && guides.length > 0 && brands.length > 0) {
+      const guide = guides.find((x) => x.id === guideId);
+      if (guide) {
+        const firstType = (guide.device_types || [])[0];
+        const match = brands.find((b) => b.device_type === firstType);
+        if (match) {
+          setDeviceType(match.device_type);
+          setBrandId(match.id);
+        }
+      }
+    }
+  }, [guideId, brandId, guides, brands]);
 
   const visibleBrands = brands.filter((b) => b.device_type === deviceType);
   const visibleGuides = guides.filter((g) => g.device_types.includes(deviceType));
@@ -141,7 +225,7 @@ export default function Learn() {
       const r = await fetch(`${API}/api/guide/explain`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ guide_id: guideId, brand: brandId, step: stepNum }),
+        body: JSON.stringify({ guide_id: guideId, brand: brandId, step: stepNum, mode }),
       });
       const data = await r.json();
       if (!r.ok) throw new Error(data.detail || "Could not explain.");
@@ -171,6 +255,7 @@ export default function Learn() {
 
   return (
     <div className="learn">
+      <p><Link className="link-more" to="/">← Home</Link></p>
       <h1>Learn</h1>
       <p className="learn-sub">Pick your device, then pick what to learn.</p>
 

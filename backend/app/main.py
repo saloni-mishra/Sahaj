@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz
+from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz, get_missions, get_genz_words
 from pydantic import BaseModel
 from app.safety import check_message
 from app.llm import explain_guide, ask_question
@@ -33,10 +33,12 @@ class ExplainRequest(BaseModel):
     brand: str
     step: int = 1
     question: str = "Please explain this step in very simple words."
+    mode: str = "normal"
 
 
 class AskRequest(BaseModel):
     question: str
+    mode: str = "normal"
 
 
 @app.get("/api/health")
@@ -74,6 +76,16 @@ def emoji_quiz():
     return get_emoji_quiz()
 
 
+@app.get("/api/missions")
+def missions():
+    return get_missions()
+
+
+@app.get("/api/genz")
+def genz():
+    return get_genz_words()
+
+
 @app.get("/api/guide/{guide_id}")
 def guide(guide_id: str, brand: str, step: int = 1):
     result = get_guide_step(guide_id, brand, step)
@@ -105,11 +117,13 @@ def guide_explain(request: ExplainRequest):
     try:
         # Use the official step text as context so Gemini stays accurate.
         context = f"Step {step_data['step_number']} of {step_data['total_steps']}: {step_data['text']}"
+        mode = "genz" if request.mode == "genz" else "normal"
         explanation = explain_guide(
             request.question,
             step_data["title"],
             context,
             step_data["text"],
+            mode,
         )
     except Exception:
         # Never crash: always return a friendly message instead.
@@ -137,9 +151,10 @@ def ask(request: AskRequest):
     matches = find_guides_for_question(question)
     guide = matches[0] if matches else None
     context = get_guide_context(guide)
+    mode = "genz" if request.mode == "genz" else "normal"
     try:
         answer = ask_question(
-            question, context, guide["title"] if guide else None
+            question, context, guide["title"] if guide else None, mode
         )
     except Exception:
         answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."

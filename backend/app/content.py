@@ -6,6 +6,8 @@ SCAM_QUIZ_FILE = Path(__file__).resolve().parent.parent / "content" / "scam_quiz
 TIPS_FILE = Path(__file__).resolve().parent.parent / "content" / "tips.json"
 WORDS_FILE = Path(__file__).resolve().parent.parent / "content" / "slang.json"
 EMOJI_FILE = Path(__file__).resolve().parent.parent / "content" / "emoji.json"
+MISSIONS_FILE = Path(__file__).resolve().parent.parent / "content" / "missions.json"
+GENZ_FILE = Path(__file__).resolve().parent.parent / "content" / "genz.json"
 def load_content():
     with open(CONTENT_FILE, "r", encoding="utf-8") as file:
         return json.load(file)
@@ -20,6 +22,12 @@ def get_words():
         return json.load(file)
 def get_emoji_quiz():
     with open(EMOJI_FILE, "r", encoding="utf-8") as file:
+        return json.load(file)
+def get_missions():
+    with open(MISSIONS_FILE, "r", encoding="utf-8") as file:
+        return json.load(file)
+def get_genz_words():
+    with open(GENZ_FILE, "r", encoding="utf-8") as file:
         return json.load(file)
 def get_brands():
     data = load_content()

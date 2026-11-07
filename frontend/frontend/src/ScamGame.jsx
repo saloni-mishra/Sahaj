@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { completeMission } from "./Progress.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
@@ -24,6 +25,12 @@ export default function ScamGame() {
       })
       .catch(() => setLoadError("The game could not load right now."));
   }, []);
+
+  useEffect(() => {
+    if (index >= quiz.length && quiz.length > 0) {
+      completeMission("m6"); // Scam detective: finish one round
+    }
+  }, [index, quiz.length]);
 
   if (loadError) return <p role="alert">{loadError}</p>;
   if (quiz.length === 0) return <p>Loading the game…</p>;

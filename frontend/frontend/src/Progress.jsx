@@ -25,6 +25,63 @@ export function saveCompleted(guideId) {
   }
 }
 
+const MISSION_KEY = "sahaj-missions";
+const STREAK_KEY = "sahaj-streak";
+
+export function loadMissions() {
+  try {
+    const raw = localStorage.getItem(MISSION_KEY);
+    const list = raw ? JSON.parse(raw) : [];
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
+}
+
+export function completeMission(missionId) {
+  try {
+    const list = loadMissions();
+    if (!list.includes(missionId)) {
+      localStorage.setItem(MISSION_KEY, JSON.stringify([...list, missionId]));
+      touchStreak();
+      window.dispatchEvent(new Event("sahaj-missions"));
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// Streak: counts consecutive days with at least one mission done.
+export function loadStreak() {
+  try {
+    const raw = localStorage.getItem(STREAK_KEY);
+    const data = raw ? JSON.parse(raw) : null;
+    if (!data || typeof data.count !== "number") return { count: 0, lastDay: null };
+    const today = new Date().toDateString();
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    if (data.lastDay === today || data.lastDay === yesterday) return data;
+    return { count: 0, lastDay: null }; // streak broken
+  } catch {
+    return { count: 0, lastDay: null };
+  }
+}
+
+function touchStreak() {
+  try {
+    const today = new Date().toDateString();
+    const prev = loadStreak();
+    if (prev.lastDay === today) return prev;
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    const count = prev.lastDay === yesterday ? prev.count + 1 : 1;
+    const next = { count, lastDay: today };
+    localStorage.setItem(STREAK_KEY, JSON.stringify(next));
+    return next;
+  } catch {
+    return { count: 0, lastDay: null };
+  }
+}
+
 export function Confetti() {
   const reduced =
     typeof window !== "undefined" &&

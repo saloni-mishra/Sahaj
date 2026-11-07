@@ -1,10 +1,6 @@
 # Sahaj — AI tech-buddy for older adults ("the grandkid you can always ask")
 
-Learn (step-by-step phone/laptop guides with pictures) + Practice (PayPal Sandbox payments, scam checker, Spot-the-Scam game) + Ask Sahaj (chat) + Fun (word + emoji games). Warm notebook design, big text, big tactile buttons.
-
-## Practice Mode uses Sandbox test money
-
-The "Try a practice payment" button uses **PayPal Sandbox**. No real money is charged or moved. You log in with a PayPal Sandbox buyer account, not a real account.
+Learn (step-by-step phone/laptop guides with pictures) + Practice (PayPal Sandbox practice payment) + Safe or Scam? (detective game + checker) + Missions (sticker collection + streak) + Ask Sahaj (chat, floating button everywhere) + Fun (words + emoji + WhatsApp share). Warm notebook design, big text, big tactile buttons, Normal/Gen-Z style toggle.
 
 ## Practice Mode uses Sandbox test money
 
@@ -39,9 +35,9 @@ Run it:
 
 Swagger docs: http://127.0.0.1:8000/docs
 
-Routes: `GET /api/health`, `GET /api/brands`, `GET /api/guides`, `GET /api/guide/{id}?brand=&step=`, `POST /api/guide/explain`, `POST /api/ask`, `POST /api/safety/check`, `GET /api/scam-quiz`, `GET /api/tips`, `GET /api/words`, `GET /api/emoji-quiz`, `GET /api/paypal/check`, `POST /api/paypal/create-order`, `POST /api/paypal/capture/{order_id}`.
+Routes: `GET /api/health`, `GET /api/brands`, `GET /api/guides`, `GET /api/guide/{id}?brand=&step=`, `POST /api/guide/explain`, `POST /api/ask`, `POST /api/safety/check`, `GET /api/missions`, `GET /api/scam-quiz`, `GET /api/tips`, `GET /api/words`, `GET /api/genz`, `GET /api/emoji-quiz`, `GET /api/paypal/check`, `POST /api/paypal/create-order`, `POST /api/paypal/capture/{order_id}`.
 
-Features: Learn step-through with pictures, "Read this to me" (browser speech) and "Explain this step simply" (Gemini), "Ask family on WhatsApp" share link on every step, Ask Sahaj chat (voice input optional, safety warning on OTP/PIN questions), Spot-the-Scam game (10 India-context messages), My-progress stars (saved in browser), Tip of the day, Fun page (Word of the day + emoji quiz).
+Features: Learn step-through with pictures, read-aloud, "Explain this step simply" (Gemini), "Ask family on WhatsApp" on every step, floating Ask Sahaj chat (voice in + read-aloud, safety warnings), Normal/Gen-Z style toggle with tap-to-understand slang, Safe or Scam? detective game in a phone mockup + paste-a-message checker, Missions page (7 stickers, streak, Today's Mission, auto-complete from guides/games), My-progress stars (browser-saved), Tip of the day, Fun page (tech word, Gen-Z word with desi analogies, emoji quiz, share stars on WhatsApp), mascot + celebration screens + mobile bottom nav.
 
 ### 2. Frontend (React + Vite)
 
@@ -71,7 +67,7 @@ cd backend
 
 ### 4. Deploy notes
 
-- Frontend on Vercel: `frontend/frontend/vercel.json` rewrites all routes to `/index.html` so `/learn`, `/fun` and `/practice/payment/success` work on refresh.
+- Frontend on Vercel: `frontend/frontend/vercel.json` rewrites all routes to `/index.html` so `/learn`, `/missions`, `/safe-or-scam`, `/fun` and `/practice/payment/success` work on refresh.
 - Backend: set the same `backend/.env` values as environment variables on your host, and set `FRONTEND_URL` to your Vercel URL.
 - Fonts work offline: headings (Fraunces) + body (Atkinson Hyperlegible) are bundled via `@fontsource`.
 

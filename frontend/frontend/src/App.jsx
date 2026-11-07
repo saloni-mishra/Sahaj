@@ -4,65 +4,52 @@ import { useEffect, useRef, useState } from "react";
 import { Routes, Route, useSearchParams, Link } from "react-router-dom";
 import Learn from "./Learn.jsx";
 import AskSahaj from "./AskSahaj.jsx";
-import ScamGame from "./ScamGame.jsx";
 import { ProgressStrip, TipOfDay } from "./Progress.jsx";
 import Fun from "./Fun.jsx";
+import Missions, { TodaysMission } from "./Missions.jsx";
+import SafeOrScam from "./SafeOrScam.jsx";
+import FloatingAsk from "./FloatingAsk.jsx";
+import Mascot from "./Mascot.jsx";
 
-function ScamChecker() {
-  const [text, setText] = useState("");
-  const [result, setResult] = useState(null);
-  const [checking, setChecking] = useState(false);
-
-  async function check() {
-    if (!text.trim()) return;
-    setChecking(true);
-    setResult(null);
-    try {
-      const r = await fetch(`${API}/api/safety/check`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
-      });
-      const data = await r.json();
-      setResult(data);
-    } catch {
-      setResult({ risk: "ERROR" });
-    }
-    setChecking(false);
-  }
-
+function BottomNav() {
   return (
-    <div className="scam-box">
-      <label htmlFor="scam-input"><strong>Scam checker:</strong> paste a message you received.</label>
-      <textarea
-        id="scam-input"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Paste the message here…"
-        rows={3}
-      />
-      <button className="big-btn" onClick={check} disabled={checking || !text.trim()}>
-        {checking ? "Checking…" : "Check this message"}
+    <nav className="bottom-nav" aria-label="Quick">
+      <Link to="/">🏠<span>Home</span></Link>
+      <Link to="/learn">📖<span>Learn</span></Link>
+      <Link to="/missions">⭐<span>Stars</span></Link>
+      <Link to="/safe-or-scam">🛡<span>Safe?</span></Link>
+      <Link to="/fun">🎮<span>Fun</span></Link>
+    </nav>
+  );
+}
+import { useMode, setMode, COPY, withSlang } from "./copy.jsx";
+
+function ModeToggle() {
+  const mode = useMode();
+  return (
+    <div className="mode-toggle" role="group" aria-label="Sahaj style">
+      <button
+        className={mode === "normal" ? "mode-on" : ""}
+        aria-pressed={mode === "normal"}
+        onClick={() => setMode("normal")}
+      >
+        Normal
       </button>
-      {result?.risk === "LOW" && (
-        <p role="status" className="scam-safe">✅ Looks safe. No scam signs found. Still, never share OTP or passwords.</p>
-      )}
-      {result?.risk === "MEDIUM" && (
-        <p role="status" className="scam-warn">⚠️ Be careful — this looks suspicious. {result.reasons?.[0] || ""} {result.actions?.[0] || ""}</p>
-      )}
-      {result?.risk === "HIGH" && (
-        <p role="status" className="scam-danger">🛑 Danger — very likely a scam! {result.reasons?.[0] || ""} {result.actions?.[0] || "Do not reply or send money."}</p>
-      )}
-      {result?.risk === "ERROR" && (
-        <p role="alert">Sorry, the checker is not working right now.</p>
-      )}
+      <button
+        className={mode === "genz" ? "mode-on" : ""}
+        aria-pressed={mode === "genz"}
+        onClick={() => setMode("genz")}
+      >
+        Gen-Z
+      </button>
     </div>
   );
 }
 
 function Home() {
  const [paying, setPaying] = useState(false);
-const [payError, setPayError] = useState("");
+ const [payError, setPayError] = useState("");
+ const mode = useMode();
 
 async function startPracticePayment() {
   setPaying(true);
@@ -101,9 +88,12 @@ async function startPracticePayment() {
   <nav aria-label="Main">
     <Link to="/">Home</Link>
     <Link to="/learn">Learn</Link>
+    <Link to="/missions">Missions</Link>
+    <Link to="/safe-or-scam">Safe or Scam?</Link>
     <a href="/#practice">Practice</a>
     <a href="/#fun">Fun</a>
   </nav>
+  <ModeToggle />
 </header>
 
 
@@ -118,8 +108,7 @@ async function startPracticePayment() {
             </svg>
 
             <p>
-              A little help with your phone, whenever you need it.
-              Learn new things, practise safely, and have fun along the way.
+              {mode === "genz" ? withSlang(COPY.heroSub.genz) : COPY.heroSub.normal}
             </p>
 
             <div className="hero-actions">
@@ -146,8 +135,9 @@ async function startPracticePayment() {
 
         <section className="activities">
           <h2>What would you like to do today?</h2>
-          <p className="activities-sub">Three doors, pick one. No rush — Sahaj waits for you.</p>
+          <p className="activities-sub">Four doors, pick one. No rush — Sahaj waits for you.</p>
           <ProgressStrip />
+          <TodaysMission />
 
           <div className="activity-list">
             <article className="activity-card card-learn" id="learn">
@@ -160,7 +150,7 @@ async function startPracticePayment() {
             <article className="activity-card card-practice" id="practice">
   <span className="card-num" aria-hidden="true">2</span>
   <h3>Practice</h3>
-  <p>Learn to use digital services safely.</p>
+  <p>Try a pretend payment with test money.</p>
   <p className="sandbox-note">Practice Mode: uses PayPal Sandbox test money — no real money is used.</p>
 
   <button onClick={startPracticePayment} disabled={paying}>
@@ -168,13 +158,17 @@ async function startPracticePayment() {
   </button>
 
   {payError && <p role="alert">{payError}</p>}
-
-  <ScamChecker />
-  <ScamGame />
 </article>
 
-            <article className="activity-card card-fun" id="fun">
+            <article className="activity-card card-safe" id="safe-or-scam">
               <span className="card-num" aria-hidden="true">3</span>
+              <h3>Safe or Scam?</h3>
+              <p>Play detective. Spot scam messages before they spot you.</p>
+              <Link className="link-more" to="/safe-or-scam">Play detective →</Link>
+            </article>
+
+            <article className="activity-card card-fun" id="fun">
+              <span className="card-num" aria-hidden="true">4</span>
               <h3>Fun</h3>
               <p>Explore words, emojis, and little activities.</p>
               <Link className="link-more" to="/fun">Play and learn →</Link>
@@ -260,13 +254,19 @@ function PaymentCancel() {
 
 function App() {
   return (
-    <Routes>
+    <>
+      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/learn" element={<Learn />} />
+      <Route path="/missions" element={<Missions />} />
+      <Route path="/safe-or-scam" element={<SafeOrScam />} />
       <Route path="/fun" element={<Fun />} />
       <Route path="/practice/payment/success" element={<PaymentSuccess />} />
       <Route path="/practice/payment/cancel" element={<PaymentCancel />} />
-    </Routes>
+      </Routes>
+      <FloatingAsk />
+      <BottomNav />
+    </>
   );
 }
 
