@@ -1,0 +1,1401 @@
+{
+  "device_types": [
+    {
+      "id": "phone",
+      "name": "Phone",
+      "icon": "phone"
+    },
+    {
+      "id": "laptop",
+      "name": "Laptop",
+      "icon": "laptop"
+    }
+  ],
+  "brands": [
+    {
+      "id": "iphone",
+      "name": "Apple iPhone",
+      "device_type": "phone",
+      "platform": "ios",
+      "models": [
+        {
+          "id": "iphone_15",
+          "name": "iPhone 15"
+        },
+        {
+          "id": "iphone_16",
+          "name": "iPhone 16"
+        },
+        {
+          "id": "iphone_17",
+          "name": "iPhone 17"
+        }
+      ]
+    },
+    {
+      "id": "samsung",
+      "name": "Samsung",
+      "device_type": "phone",
+      "platform": "android",
+      "models": [
+        {
+          "id": "galaxy_a16_5g",
+          "name": "Galaxy A16 5G"
+        },
+        {
+          "id": "galaxy_a36_5g",
+          "name": "Galaxy A36 5G"
+        },
+        {
+          "id": "galaxy_m35_5g",
+          "name": "Galaxy M35 5G"
+        }
+      ]
+    },
+    {
+      "id": "xiaomi",
+      "name": "Xiaomi / Redmi",
+      "device_type": "phone",
+      "platform": "android",
+      "models": [
+        {
+          "id": "redmi_13_5g",
+          "name": "Redmi 13 5G"
+        },
+        {
+          "id": "redmi_note_14_5g",
+          "name": "Redmi Note 14 5G"
+        },
+        {
+          "id": "redmi_14c_5g",
+          "name": "Redmi 14C 5G"
+        }
+      ]
+    },
+    {
+      "id": "oppo",
+      "name": "OPPO",
+      "device_type": "phone",
+      "platform": "android",
+      "models": [
+        {
+          "id": "oppo_a3x_5g",
+          "name": "OPPO A3x 5G"
+        },
+        {
+          "id": "oppo_a5_5g",
+          "name": "OPPO A5 5G"
+        },
+        {
+          "id": "oppo_reno13_5g",
+          "name": "OPPO Reno13 5G"
+        }
+      ]
+    },
+    {
+      "id": "windows",
+      "name": "Windows laptop",
+      "device_type": "laptop",
+      "platform": "windows",
+      "models": [
+        {
+          "id": "windows_11",
+          "name": "Windows 11 laptop (Dell, HP, Lenovo, Asus, Acer and others)"
+        }
+      ]
+    },
+    {
+      "id": "macbook",
+      "name": "Apple MacBook",
+      "device_type": "laptop",
+      "platform": "macos",
+      "models": [
+        {
+          "id": "macbook_air",
+          "name": "MacBook Air"
+        },
+        {
+          "id": "macbook_pro",
+          "name": "MacBook Pro"
+        }
+      ]
+    }
+  ],
+  "guides": [
+    {
+      "id": "increase_text_size",
+      "title": "Make Text Bigger",
+      "description": "Make the letters on your screen larger so they are easier to read.",
+      "category": "Display",
+      "device_types": [
+        "phone",
+        "laptop"
+      ],
+      "keywords": [
+        "font",
+        "text",
+        "letters",
+        "bigger",
+        "larger",
+        "zoom",
+        "cannot read",
+        "small writing"
+      ],
+      "settings_search_term": "font size",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/102453"
+            ],
+            "applies_to": "iPhone with a recent iOS. iPhone 15, 16 and 17 use the same path.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": null,
+              "image_alt": "Settings app icon on the Home screen"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Display & Brightness.",
+              "image": null,
+              "image_alt": "Display & Brightness row in Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Text Size.",
+              "image": null,
+              "image_alt": "Text Size row"
+            },
+            {
+              "step_number": 4,
+              "text": "Drag the slider to the right to make the text bigger.",
+              "image": null,
+              "image_alt": "Text size slider"
+            }
+          ],
+          "tips": [
+            "Need it even bigger? Go to Settings > Accessibility > Display & Text Size > Larger Text, turn on Larger Accessibility Sizes, then drag the slider.",
+            "For thicker, clearer letters, go to Settings > Accessibility > Display & Text Size and turn on Bold Text.",
+            "A few apps ignore this setting. Look inside the app for its own text size option."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand. Used only when no brand guide exists.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": null,
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Look for Display or Display & Brightness and open it.",
+              "image": null,
+              "image_alt": "Display row in Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Look for Font Size or Text Size.",
+              "image": null,
+              "image_alt": "Font size row"
+            },
+            {
+              "step_number": 4,
+              "text": "Choose a larger text size.",
+              "image": null,
+              "image_alt": "Font size slider"
+            }
+          ],
+          "tips": []
+        },
+        "windows": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.microsoft.com/en-US/accessibility/windows/change-the-size-of-text-in-windows"
+            ],
+            "applies_to": "Windows 11",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Press the Windows key and the letter U together. This opens Accessibility settings. (Or click Start, then Settings, then Accessibility.)",
+              "image": null,
+              "image_alt": "Settings app icon on the Home screen"
+            },
+            {
+              "step_number": 2,
+              "text": "Click Text size.",
+              "image": null,
+              "image_alt": "Text size option under Vision"
+            },
+            {
+              "step_number": 3,
+              "text": "Drag the Text size slider to the right to make letters bigger.",
+              "image": null,
+              "image_alt": "Text size slider with preview box"
+            },
+            {
+              "step_number": 4,
+              "text": "Click Apply.",
+              "image": null,
+              "image_alt": "Apply button"
+            }
+          ],
+          "tips": [
+            "This changes only the text. To make pictures, buttons and everything else bigger too, go to Settings > System > Display and raise the Scale percentage.",
+            "Pressing the Windows key and the plus (+) key opens Magnifier for a quick zoom."
+          ]
+        },
+        "macos": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/guide/mac-help/unac089",
+              "https://mcmw.abilitynet.org.uk/how-to-make-the-text-larger-on-your-apple-mac-computer-by-changing-the-screen-resolution-in-macos-26-tahoe"
+            ],
+            "applies_to": "Recent macOS that has the Text size option under Accessibility > Display (Sequoia or newer). Older versions may not have it.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Click the Apple icon in the top-left corner of the screen, then click System Settings.",
+              "image": null,
+              "image_alt": "Apple menu with System Settings"
+            },
+            {
+              "step_number": 2,
+              "text": "Click Accessibility in the left-hand list.",
+              "image": null,
+              "image_alt": "Accessibility in the sidebar"
+            },
+            {
+              "step_number": 3,
+              "text": "Click Display.",
+              "image": null,
+              "image_alt": "Display option inside Accessibility"
+            },
+            {
+              "step_number": 4,
+              "text": "Find Text size and choose a bigger size.",
+              "image": null,
+              "image_alt": "Text size control"
+            }
+          ],
+          "tips": [
+            "Not every app follows this. Some apps have their own text size setting.",
+            "To make everything bigger: System Settings > Displays, then choose a Larger Text option (on Apple screens) or a lower resolution."
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://www.samsung.com/us/support/answer/ANS10001572/",
+              "https://www.samsung.com/ae/support/mobile-devices/how-to-adjust-the-font-size-and-style-on-your-galaxy-phone/"
+            ],
+            "applies_to": "Galaxy phones on One UI. Samsung says screens vary by software version and model.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": "/guides/samsung/increase_text_size/step1.jpeg",
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Display.",
+              "image": "/guides/samsung/increase_text_size/step2.jpeg",
+              "image_alt": "Display row in Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Font size and style.",
+              "image": "/guides/samsung/increase_text_size/step3.jpeg",
+              "image_alt": "Font size and style row"
+            },
+            {
+              "step_number": 4,
+              "text": "Drag the Font size slider to the right to make the text bigger.",
+              "image": "/guides/samsung/increase_text_size/step4.jpeg",
+              "image_alt": "Font size slider"
+            }
+          ],
+          "tips": [
+            "Turn on Bold font on the same screen for thicker letters.",
+            "To make icons and everything else bigger too, go back to Display and tap Screen zoom."
+          ]
+        },
+        "xiaomi": {
+          "verification": {
+            "status": "community_sourced",
+            "source_type": "community",
+            "sources": [
+              "https://www.makeuseof.com/how-to-change-font-xiaomi/"
+            ],
+            "applies_to": "Xiaomi, Redmi and POCO on MIUI or HyperOS. No official Xiaomi page was found for this task. Menu names may differ on newer HyperOS.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": null,
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Display.",
+              "image": null,
+              "image_alt": "Display row in Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Text size.",
+              "image": null,
+              "image_alt": "Text size row"
+            },
+            {
+              "step_number": 4,
+              "text": "Choose a bigger size.",
+              "image": null,
+              "image_alt": "Row of text size choices"
+            }
+          ],
+          "tips": [
+            "If you cannot find it, tap the search box at the top of Settings and type: font",
+            "If the biggest size is still too small, search Settings for Display size to make icons and text bigger together."
+          ]
+        },
+        "oppo": {
+          "verification": {
+            "status": "community_sourced",
+            "source_type": "community",
+            "sources": [
+              "https://www.techbone.net/oppo/smartphone/font-size"
+            ],
+            "applies_to": "OPPO phones on ColorOS. No official OPPO page was found for this task. Menu names may differ by ColorOS version.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": null,
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Display & brightness.",
+              "image": null,
+              "image_alt": "Display & brightness row"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Font & display size.",
+              "image": null,
+              "image_alt": "Font & display size row"
+            },
+            {
+              "step_number": 4,
+              "text": "Drag the Font size slider to the right, then tap Apply.",
+              "image": null,
+              "image_alt": "Font size slider and Apply button"
+            }
+          ],
+          "tips": [
+            "The Display size slider on the same screen makes icons and menus bigger too.",
+            "If you cannot find it, tap the search box at the top of Settings and type: font"
+          ]
+        },
+        "windows": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.microsoft.com/en-US/accessibility/windows/change-the-size-of-text-in-windows"
+            ],
+            "applies_to": "Windows 11",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Press the Windows key and the letter U together. This opens Accessibility settings. (Or click Start, then Settings, then Accessibility.)",
+              "image": "/guides/windows/increase_text_size/step1.png",
+              "image_alt": "Settings app icon on the Home screen"
+            },
+            {
+              "step_number": 2,
+              "text": "Click Text size.",
+              "image": "/guides/windows/increase_text_size/step2.png",
+              "image_alt": "Text size option under Vision"
+            },
+            {
+              "step_number": 3,
+              "text": "Drag the Text size slider to the right to make letters bigger.",
+              "image": "/guides/windows/increase_text_size/step3.png",
+              "image_alt": "Text size slider with preview box"
+            },
+            {
+              "step_number": 4,
+              "text": "Click Apply.",
+              "image": "/guides/windows/increase_text_size/step4.png",
+              "image_alt": "Apply button"
+            }
+          ],
+          "tips": [
+            "This changes only the text. To make pictures, buttons and everything else bigger too, go to Settings > System > Display and raise the Scale percentage.",
+            "Pressing the Windows key and the plus (+) key opens Magnifier for a quick zoom."
+          ]
+        },
+        "macbook": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/guide/mac-help/unac089",
+              "https://mcmw.abilitynet.org.uk/how-to-make-the-text-larger-on-your-apple-mac-computer-by-changing-the-screen-resolution-in-macos-26-tahoe"
+            ],
+            "applies_to": "Recent macOS that has the Text size option under Accessibility > Display (Sequoia or newer). Older versions may not have it.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Click the Apple icon in the top-left corner of the screen, then click System Settings.",
+              "image": "/guides/macbook/increase_text_size/step1.jpeg",
+              "image_alt": "Apple menu with System Settings"
+            },
+            {
+              "step_number": 2,
+              "text": "Click Accessibility in the left-hand list.",
+              "image": "/guides/macbook/increase_text_size/step2.jpeg",
+              "image_alt": "Accessibility in the sidebar"
+            },
+            {
+              "step_number": 3,
+              "text": "Click Display.",
+              "image": "/guides/macbook/increase_text_size/step3.jpeg",
+              "image_alt": "Display option inside Accessibility"
+            },
+            {
+              "step_number": 4,
+              "text": "Find Text size and choose a bigger size.",
+              "image": "/guides/macbook/increase_text_size/step4.jpeg",
+              "image_alt": "Text size control"
+            }
+          ],
+          "tips": [
+            "Not every app follows this. Some apps have their own text size setting.",
+            "To make everything bigger: System Settings > Displays, then choose a Larger Text option (on Apple screens) or a lower resolution."
+          ]
+        }
+      }
+    },
+    {
+      "id": "take_screenshot",
+      "title": "Take a Screenshot",
+      "description": "Save a picture of what is on your screen, for example a message or a bill.",
+      "category": "Everyday",
+      "device_types": [
+        "phone",
+        "laptop"
+      ],
+      "keywords": [
+        "screenshot",
+        "screen shot",
+        "capture",
+        "save screen",
+        "picture of screen",
+        "snip"
+      ],
+      "settings_search_term": null,
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/102616"
+            ],
+            "applies_to": "iPhones with Face ID (no Home button). iPhone 15, 16 and 17 all qualify. On iOS 26 the screenshot may open full screen afterwards; that detail comes from a third-party page.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": null,
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the Side button (right edge) and the Volume Up button (upper button on the left edge) at the same time.",
+              "image": null,
+              "image_alt": "Side button and Volume Up button highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "Let go quickly. The screen flashes and a small preview appears. Your screenshot is saved in the Photos app.",
+              "image": null,
+              "image_alt": "Screenshot preview in the lower-left corner"
+            }
+          ],
+          "tips": [
+            "To find it later: open Photos, scroll down to Media Types, then tap Screenshots.",
+            "On iOS 26 the screenshot may open full screen. Tap the tick or Done and choose Save to Photos.",
+            "Press and release quickly. Holding the buttons down does something else."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "community_sourced",
+            "source_type": "community",
+            "sources": [
+              "https://www.91mobiles.com/hub/take-screenshot-on-android-how-to/amp/"
+            ],
+            "applies_to": "Most Android phones. Used only when no brand guide exists.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": null,
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the Power button and the Volume Down button at the same time.",
+              "image": null,
+              "image_alt": "Power and Volume Down buttons highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "The screen flashes. Your screenshot is saved in your Gallery or Photos app.",
+              "image": null,
+              "image_alt": "Screenshot preview"
+            }
+          ],
+          "tips": []
+        },
+        "windows": {
+          "verification": {
+            "status": "community_sourced",
+            "source_type": "community",
+            "sources": [
+              "https://ionos.co.uk/digitalguide/server/configuration/windows-11-screenshot",
+              "https://pureinfotech.com/windows-11-take-screenshot/"
+            ],
+            "applies_to": "Windows 11. The Windows + Shift + S shortcut also appears in a copy of Microsoft's own Snipping Tool article, but the official page itself was not opened.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": null,
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the Windows key, the Shift key and the letter S together.",
+              "image": null,
+              "image_alt": "Windows, Shift and S keys highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "The screen goes dark. Click and drag over the part you want to keep.",
+              "image": null,
+              "image_alt": "Dimmed screen with a selection rectangle"
+            },
+            {
+              "step_number": 4,
+              "text": "The picture is copied. To use it, open an email or document and press Ctrl and V together to paste it.",
+              "image": null,
+              "image_alt": "Pasted screenshot in a document"
+            },
+            {
+              "step_number": 5,
+              "text": "If you don't want to do all these steps you can search for Snipping Tool in the Start menu and can do step 3.",
+              "image": null,
+              "image_alt": "Save As dialog"
+            },
+            {
+              "step_number": 6,
+              "text": "To save the screenshot as a file, click the notification that appears after step 4. Then click the Save icon and choose where to save it.",
+              "image": null,
+              "image_alt": "Save icon in Snipping Tool"
+            }
+          ],
+          "tips": [
+            "To save the whole screen as a file instead, press the Windows key and the Print Screen key (PrtSc). It goes into Pictures > Screenshots."
+          ]
+        },
+        "macos": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/102646",
+              "https://support.apple.com/guide/mac-help/mh26782"
+            ],
+            "applies_to": "MacBook Air and MacBook Pro on current macOS.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "To save the whole screen, press Shift, Command and 3 together.",
+              "image": null,
+              "image_alt": "Shift, Command and 3 keys highlighted"
+            },
+            {
+              "step_number": 2,
+              "text": "To save only part of the screen, press Shift, Command and 4 together, then click and drag over the part you want.",
+              "image": null,
+              "image_alt": "Crosshair selecting part of the screen"
+            },
+            {
+              "step_number": 3,
+              "text": "By default the picture is saved on your Desktop. A small preview may also appear in the corner of the screen.",
+              "image": null,
+              "image_alt": "Screenshot file on the Desktop"
+            }
+          ],
+          "tips": [
+            "Shift, Command and 5 opens the Screenshot app with buttons for everything, including screen recording.",
+            "Add the Control key to copy the picture instead of saving it, for example Control, Shift, Command and 3."
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://www.samsung.com/us/support/answer/ANS10002500/",
+              "https://www.samsung.com/uk/support/mobile-devices/how-do-i-take-a-screenshot-on-my-samsung-galaxy-device"
+            ],
+            "applies_to": "Galaxy phones and tablets. Samsung says button positions can vary slightly by model.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": null,
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the Side (power) button and the Volume Down button together, then let go after a moment.",
+              "image": null,
+              "image_alt": "Side button and Volume Down button highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "The screen flashes. Your screenshot is saved in the Gallery app.",
+              "image": "/guides/samsung/take_screenshot/step3.jpeg",
+              "image_alt": "Screenshot preview toolbar"
+            }
+          ],
+          "tips": [
+            "Press briefly. Holding the Side button too long opens the power menu instead.",
+            "Most Galaxy phones also let you swipe the edge of your hand across the screen (palm swipe). It may need to be switched on in Settings."
+          ]
+        },
+        "xiaomi": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://www.mi.com/uk/support/article/KA-33146/",
+              "https://www.mi.com/global/support/faq/details/KA-503306/"
+            ],
+            "applies_to": "Xiaomi and Redmi phones. Xiaomi's pages cover Redmi 12 and 13C; the three models in this app were not individually checked.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": null,
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Swipe down from the top-right corner of the screen to open Control Center.",
+              "image": null,
+              "image_alt": "Swipe from top-right corner"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Screenshot.",
+              "image": null,
+              "image_alt": "Screenshot button in Control Center"
+            }
+          ],
+          "tips": [
+            "To use the buttons or a three-finger swipe instead: Settings > Additional settings > Gesture shortcuts > Take a screenshot. Then choose Slide 3 fingers down or Volume down + Power.",
+            "Not every Redmi model can take a long (scrolling) screenshot. Xiaomi says the Redmi 13C cannot."
+          ]
+        },
+        "oppo": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.oppo.com/ke/answer/?aid=neu86"
+            ],
+            "applies_to": "OPPO phones on ColorOS. The gesture menu path depends on the ColorOS version.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": null,
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Press and hold the Power button and the Volume Down button together for about 2 seconds.",
+              "image": null,
+              "image_alt": "Power and Volume Down buttons highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "The screen flashes white. Your screenshot is saved.",
+              "image": null,
+              "image_alt": "Screenshot preview"
+            }
+          ],
+          "tips": [
+            "To use a three-finger swipe down: on ColorOS 15 or newer go to Settings > Accessibility & convenience > Screenshot and turn on 3-finger swipe down. On ColorOS 13 or 14 go to Settings > Additional Settings > Screenshot."
+          ]
+        },
+        "windows": {
+          "verification": {
+            "status": "community_sourced",
+            "source_type": "community",
+            "sources": [
+              "https://ionos.co.uk/digitalguide/server/configuration/windows-11-screenshot",
+              "https://pureinfotech.com/windows-11-take-screenshot/"
+            ],
+            "applies_to": "Windows 11. The Windows + Shift + S shortcut also appears in a copy of Microsoft's own Snipping Tool article, but the official page itself was not opened.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the screen you want to save.",
+              "image": "/guides/windows/take_screenshot/step1.png",
+              "image_alt": "Any screen you want to capture"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the Windows key, the Shift key and the letter S together.",
+              "image": "/guides/windows/take_screenshot/step2.png",
+              "image_alt": "Windows, Shift and S keys highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "The screen goes dark. Click and drag over the part you want to keep.",
+              "image": "/guides/windows/take_screenshot/step3.png",
+              "image_alt": "Dimmed screen with a selection rectangle"
+            },
+            {
+              "step_number": 4,
+              "text": "The picture is copied. To use it, open an email or document and press Ctrl and V together to paste it.",
+              "image": "/guides/windows/take_screenshot/step4.png",
+              "image_alt": "Pasted screenshot in a document"
+            },
+            {
+              "step_number": 5,
+              "text": "If you don't want to do all these steps you can search for Snipping Tool in the Start menu and can do step 3.",
+              "image": "/guides/windows/take_screenshot/step5.png",
+              "image_alt": "Save As dialog"
+            },
+            {
+              "step_number": 6,
+              "text": "To save the screenshot as a file, click the notification that appears after step 4. Then click the Save icon and choose where to save it.",
+              "image": "/guides/windows/take_screenshot/step6.png",
+              "image_alt": "Save icon in Snipping Tool"
+            }
+          ],
+          "tips": [
+            "To save the whole screen as a file instead, press the Windows key and the Print Screen key (PrtSc). It goes into Pictures > Screenshots."
+          ]
+        }
+      }
+    },
+    {
+      "id": "turn_on_flashlight",
+      "title": "Turn On the Flashlight",
+      "description": "Use your phone's built-in torch in the dark.",
+      "category": "Everyday",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "flashlight",
+        "torch",
+        "light",
+        "dark",
+        "battery torch"
+      ],
+      "settings_search_term": null,
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/105001"
+            ],
+            "applies_to": "iPhones with Face ID (iPhone 15, 16, 17).",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Swipe down from the top-right corner of the screen to open Control Center.",
+              "image": null,
+              "image_alt": "Swipe from top-right corner"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the Flashlight button (it looks like a torch).",
+              "image": null,
+              "image_alt": "Flashlight button in Control Center"
+            },
+            {
+              "step_number": 3,
+              "text": "To turn it off, tap the same button again.",
+              "image": null,
+              "image_alt": "Flashlight button highlighted when on"
+            }
+          ],
+          "tips": [
+            "If you do not see the Flashlight button, go to Settings > Control Center and add Flashlight.",
+            "On the Lock Screen there may be a flashlight button at the bottom. Press and hold it to turn the light on or off."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android steps, used for Xiaomi and OPPO until their own pages are checked.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Swipe down from the top of the screen to open the quick settings panel.",
+              "image": null,
+              "image_alt": "Quick settings panel"
+            },
+            {
+              "step_number": 2,
+              "text": "Look for the Flashlight icon. If you cannot see it, swipe left or right on the panel.",
+              "image": null,
+              "image_alt": "Flashlight icon among quick settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the Flashlight icon. Tap it again to turn the light off.",
+              "image": null,
+              "image_alt": "Flashlight icon highlighted when on"
+            }
+          ],
+          "tips": []
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://www.samsung.com/us/support/answer/ANS10003351/",
+              "https://www.samsung.com/ca/support/mobile-devices/galaxy-phone-use-the-flashlight"
+            ],
+            "applies_to": "Galaxy phones. The icon may be on a second page of the panel.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Swipe down from the top of the screen with two fingers to open the Quick settings panel.",
+              "image": null,
+              "image_alt": "Two-finger swipe from the top"
+            },
+            {
+              "step_number": 2,
+              "text": "Find the Flashlight icon. If you cannot see it, swipe right on the panel.",
+              "image": "/guides/samsung/turn_on_flashlight/step2.jpeg",
+              "image_alt": "Flashlight icon in Quick settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the Flashlight icon to turn it on. Tap it again to turn it off.",
+              "image": "/guides/samsung/turn_on_flashlight/step3.jpeg",
+              "image_alt": "Flashlight icon highlighted when on"
+            }
+          ],
+          "tips": [
+            "Press and hold the Flashlight icon to change how bright it is."
+          ]
+        }
+      }
+    },
+    {
+      "id": "connect_wifi",
+      "title": "Connect to Wi-Fi",
+      "description": "Join your home Wi-Fi so you can use the internet without using mobile data.",
+      "category": "Internet",
+      "device_types": [
+        "phone",
+        "laptop"
+      ],
+      "keywords": [
+        "wifi",
+        "wi-fi",
+        "wlan",
+        "internet",
+        "network",
+        "password",
+        "connect"
+      ],
+      "settings_search_term": "Wi-Fi",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.apple.com/111107"
+            ],
+            "applies_to": "iPhone with a recent iOS.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": null,
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Wi-Fi.",
+              "image": null,
+              "image_alt": "Wi-Fi row at the top of Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Make sure the Wi-Fi switch at the top is turned on.",
+              "image": null,
+              "image_alt": "Wi-Fi switch turned on (green)"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the name of your Wi-Fi network in the list.",
+              "image": null,
+              "image_alt": "List of nearby Wi-Fi networks"
+            },
+            {
+              "step_number": 5,
+              "text": "If it asks, type the Wi-Fi password and tap Join. A blue tick next to the name means you are connected.",
+              "image": null,
+              "image_alt": "Password box and blue tick next to the network"
+            }
+          ],
+          "tips": [
+            "The Wi-Fi password is usually printed on a sticker on the router.",
+            "Never share a Wi-Fi password with a stranger who calls you."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android steps, used for Xiaomi and OPPO until their own pages are checked. On some phones this is called WLAN.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": null,
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Wi-Fi. On some phones this may be called WLAN or be inside Network & internet.",
+              "image": null,
+              "image_alt": "Wi-Fi row in Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Turn the Wi-Fi switch on.",
+              "image": null,
+              "image_alt": "Wi-Fi switch turned on"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the name of your Wi-Fi network.",
+              "image": null,
+              "image_alt": "List of nearby Wi-Fi networks"
+            },
+            {
+              "step_number": 5,
+              "text": "Type the Wi-Fi password and tap Connect.",
+              "image": null,
+              "image_alt": "Password box and Connect button"
+            }
+          ],
+          "tips": [
+            "The Wi-Fi password is usually printed on a sticker on the router."
+          ]
+        },
+        "windows": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.microsoft.com/en-gb/help/4027925"
+            ],
+            "applies_to": "Windows 11",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Click the small icons (Wi-Fi, speaker, battery) at the bottom-right corner of the screen.",
+              "image": null,
+              "image_alt": "Network, sound and battery icons in the taskbar"
+            },
+            {
+              "step_number": 2,
+              "text": "Click the small arrow next to the Wi-Fi button to see the list of networks and turn on the Wi-Fi.",
+              "image": null,
+              "image_alt": "Arrow next to the Wi-Fi button"
+            },
+            {
+              "step_number": 3,
+              "text": "Click the name of your Wi-Fi network, then click Connect.",
+              "image": null,
+              "image_alt": "Network list with Connect button"
+            },
+            {
+              "step_number": 4,
+              "text": "Type the Wi-Fi password and click Next. When it says Connected, you are done.",
+              "image": null,
+              "image_alt": "Password box and Connected message"
+            }
+          ],
+          "tips": [
+            "If the Wi-Fi button is grey, click the button itself once to turn Wi-Fi on.",
+            "The Wi-Fi password is usually printed on a sticker on the router."
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://www.samsung.com/ca/support/mobile-devices/connect-your-samsung-galaxy-to-the-internet/"
+            ],
+            "applies_to": "Galaxy phones.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Settings app.",
+              "image": "/guides/samsung/connect_wifi/step1.jpeg",
+              "image_alt": "Settings app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Connections.",
+              "image": "/guides/samsung/connect_wifi/step2.jpeg",
+              "image_alt": "Connections row in Settings"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Wi-Fi, and turn it on if it is off.",
+              "image": "/guides/samsung/connect_wifi/step3.jpeg",
+              "image_alt": "Wi-Fi switch"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the name of your Wi-Fi network.",
+              "image": null,
+              "image_alt": "List of nearby Wi-Fi networks"
+            },
+            {
+              "step_number": 5,
+              "text": "Type the Wi-Fi password and tap Connect.",
+              "image": "/guides/samsung/connect_wifi/step5.jpeg",
+              "image_alt": "Password box and Connect button"
+            },
+            {
+              "step_number": 6,
+              "text": "You can swipe down and click on Wi-Fi directly too and then follow steps 4 and 5.",
+              "image": "/guides/samsung/connect_wifi/step6.jpeg",
+              "image_alt": "Connected message"
+            }
+          ],
+          "tips": [
+            "You can also swipe down from the top with two fingers and tap the Wi-Fi icon to turn Wi-Fi on quickly.",
+            "The Wi-Fi password is usually printed on a sticker on the router."
+          ]
+        },
+        "windows": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://support.microsoft.com/en-gb/help/4027925"
+            ],
+            "applies_to": "Windows 11",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Click the small icons (Wi-Fi, speaker, battery) at the bottom-right corner of the screen.",
+              "image": "/guides/windows/connect_wifi/step1.png",
+              "image_alt": "Network, sound and battery icons in the taskbar"
+            },
+            {
+              "step_number": 2,
+              "text": "Click the small arrow next to the Wi-Fi button to see the list of networks and turn on the Wi-Fi.",
+              "image": "/guides/windows/connect_wifi/step2.png",
+              "image_alt": "Arrow next to the Wi-Fi button"
+            },
+            {
+              "step_number": 3,
+              "text": "Click the name of your Wi-Fi network, then click Connect.",
+              "image": "/guides/windows/connect_wifi/step3.png",
+              "image_alt": "Network list with Connect button"
+            },
+            {
+              "step_number": 4,
+              "text": "Type the Wi-Fi password and click Next. When it says Connected, you are done.",
+              "image": "/guides/windows/connect_wifi/step4.png",
+              "image_alt": "Password box and Connected message"
+            }
+          ],
+          "tips": [
+            "If the Wi-Fi button is grey, click the button itself once to turn Wi-Fi on.",
+            "The Wi-Fi password is usually printed on a sticker on the router."
+          ]
+        }
+      }
+    },
+    {
+      "id": "whatsapp_video_call",
+      "title": "Make a WhatsApp Video Call",
+      "description": "See and talk to family and friends on a video call using WhatsApp.",
+      "category": "Calls and Messages",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "whatsapp",
+        "video call",
+        "video chat",
+        "see grandchildren",
+        "call family"
+      ],
+      "settings_search_term": null,
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://whatsapp.com/faq/en/android/26000026"
+            ],
+            "applies_to": "WhatsApp on iPhone. The first three steps come from WhatsApp's help page; the permissions tip comes from a third-party page.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the WhatsApp app.",
+              "image": null,
+              "image_alt": "WhatsApp app icon (green)"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the chat with the person you want to call.",
+              "image": null,
+              "image_alt": "Chat list with one chat highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the video camera icon at the top of the chat.",
+              "image": null,
+              "image_alt": "Video camera icon at the top of the chat"
+            },
+            {
+              "step_number": 4,
+              "text": "If WhatsApp asks to use the camera or microphone, tap Allow. Wait for the other person to answer.",
+              "image": null,
+              "image_alt": "Camera and microphone permission pop-up"
+            }
+          ],
+          "tips": [
+            "If the camera or sound does not work: open Settings, scroll down to WhatsApp, and turn on Camera and Microphone.",
+            "A video call uses a lot of internet. Joining Wi-Fi first saves your mobile data."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://whatsapp.com/faq/en/android/26000026"
+            ],
+            "applies_to": "WhatsApp on any Android phone (Samsung, Xiaomi, OPPO). The first three steps come from WhatsApp's help page; the permissions tip comes from a third-party page.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the WhatsApp app.",
+              "image": null,
+              "image_alt": "WhatsApp app icon (green)"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the chat with the person you want to call.",
+              "image": null,
+              "image_alt": "Chat list with one chat highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the video camera icon at the top of the chat. If it asks you to confirm, tap Call.",
+              "image": null,
+              "image_alt": "Video camera icon at the top of the chat"
+            },
+            {
+              "step_number": 4,
+              "text": "If WhatsApp asks to use the camera or microphone, tap Allow. Wait for the other person to answer.",
+              "image": null,
+              "image_alt": "Camera and microphone permission pop-up"
+            }
+          ],
+          "tips": [
+            "If the camera or sound does not work: open Settings > Apps > WhatsApp > Permissions and allow Camera and Microphone.",
+            "A video call uses a lot of internet. Joining Wi-Fi first saves your mobile data."
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "verification": {
+            "status": "verified_official",
+            "source_type": "official",
+            "sources": [
+              "https://whatsapp.com/faq/en/android/26000026"
+            ],
+            "applies_to": "WhatsApp on any Android phone (Samsung, Xiaomi, OPPO). The first three steps come from WhatsApp's help page; the permissions tip comes from a third-party page.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-07"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the WhatsApp app.",
+              "image": "/guides/samsung/whatsapp_video_call/step1.jpeg",
+              "image_alt": "WhatsApp app icon (green)"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the chat with the person you want to call.",
+              "image": null,
+              "image_alt": "Chat list with one chat highlighted"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the video camera icon at the top of the chat. If it asks you to confirm, tap Call.",
+              "image": "/guides/samsung/whatsapp_video_call/step3.jpeg",
+              "image_alt": "Video camera icon at the top of the chat"
+            },
+            {
+              "step_number": 4,
+              "text": "If WhatsApp asks to use the camera or microphone, tap Allow. Wait for the other person to answer.",
+              "image": null,
+              "image_alt": "Camera and microphone permission pop-up"
+            }
+          ],
+          "tips": [
+            "If the camera or sound does not work: open Settings > Apps > WhatsApp > Permissions and allow Camera and Microphone.",
+            "A video call uses a lot of internet. Joining Wi-Fi first saves your mobile data."
+          ]
+        }
+      }
+    }
+  ]
+}
