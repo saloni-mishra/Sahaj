@@ -1,3 +1,40 @@
+/* Sahaj design tokens — one place for colors, type, spacing, radius. */
+:root {
+  --paper: #faf3e7;
+  --paper-deep: #f2e7d0;
+  --card: #fffdf6;
+  --ink: #26211a;
+  --ink-soft: #4a4237;
+  --green: #2e5d56;
+  --green-dark: #21423d;
+  --marigold: #eba937;
+  --marigold-deep: #d18f1f;
+  --terra: #b94e24;
+  --danger-bg: #fce8e6;
+  --warn-bg: #fef3d8;
+  --safe-bg: #e3f0e6;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Atkinson Hyperlegible", Verdana, Geneva, sans-serif;
+
+  --text-body: 1.1875rem; /* 19px */
+  --text-big: 1.5rem; /* 24px */
+  --text-h1: 2.75rem; /* 44px */
+  --text-h2: 1.875rem; /* 30px */
+  --text-h3: 1.5rem;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  --radius: 14px;
+  --radius-small: 10px;
+  --shadow-hard: 4px 4px 0 var(--ink);
+  --shadow-small: 2px 2px 0 var(--ink);
+}
 
 * {
   margin: 0;
@@ -12,12 +49,40 @@ html {
 body {
   min-width: 320px;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #F9F7EF;
-  color: #273C3A;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  background-color: var(--paper);
+  color: var(--ink);
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--terra);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

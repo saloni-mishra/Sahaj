@@ -1,0 +1,9 @@
+[
+  { "id": "word-wifi", "word": "Wi-Fi", "meaning": "Invisible string that brings the internet to your phone without using your mobile pack. At home, use your own Wi-Fi." },
+  { "id": "word-app", "word": "App", "meaning": "A small tool inside your phone. WhatsApp is an app for talking. Each app is like one shop in a big market." },
+  { "id": "word-update", "word": "Update", "meaning": "Making an app new again, like stitching a torn pocket. Updates fix mistakes and keep bad people out." },
+  { "id": "word-screenshot", "word": "Screenshot", "meaning": "A photo of what is on your screen right now. Like clicking a photo of your phone's face." },
+  { "id": "word-otp", "word": "OTP", "meaning": "A secret number the bank sends only to you. It is like a one-time key. Never tell it to anyone." },
+  { "id": "word-data", "word": "Mobile data", "meaning": "Internet that comes from your SIM card pack. Videos eat it fast. Wi-Fi does not eat your pack." },
+  { "id": "word-notification", "word": "Notification", "meaning": "A small knock on your phone's door. It tells you someone sent a message or something happened." }
+]

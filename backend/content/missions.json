@@ -1,0 +1,11 @@
+{
+  "missions": [
+    { "id": "m1", "emoji": "🔦", "title": "Torch mode: unlocked", "task": "Turn on your phone flashlight and wave it at someone.", "guide_id": "turn_on_flashlight", "reward": "Lowkey a Light Wizard" },
+    { "id": "m2", "emoji": "🔠", "title": "Big text, big energy", "task": "Make your text bigger so you can actually read it.", "guide_id": "increase_text_size", "reward": "Eagle Eyes badge" },
+    { "id": "m3", "emoji": "📸", "title": "Screenshot speedrun", "task": "Take a screenshot of anything on your phone.", "guide_id": "take_screenshot", "reward": "Screenshot Pro" },
+    { "id": "m4", "emoji": "📶", "title": "Wi-Fi, but make it easy", "task": "Connect to Wi-Fi without asking anyone.", "guide_id": "connect_wifi", "reward": "Connected, no cap" },
+    { "id": "m5", "emoji": "📹", "title": "Hello, grandkid!", "task": "Make a WhatsApp video call to family.", "guide_id": "whatsapp_video_call", "reward": "Call Champ" },
+    { "id": "m6", "emoji": "🕵️", "title": "Scam detective", "task": "Finish one round of Spot the Scam.", "guide_id": null, "reward": "Scam Spotter badge" },
+    { "id": "m7", "emoji": "🤙", "title": "Decode the slang", "task": "Learn today's Gen Z word and use it in a sentence.", "guide_id": null, "reward": "Certified Cool" }
+  ]
+}

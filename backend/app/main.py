@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException
-from app.content import get_brands, get_all_guides,  get_guide_step
+from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz
 from pydantic import BaseModel
 from app.safety import check_message
-from app.llm import explain_guide
+from app.llm import explain_guide, ask_question
 from fastapi.middleware.cors import CORSMiddleware
 from app.paypal import (
     get_access_token,
@@ -35,6 +35,10 @@ class ExplainRequest(BaseModel):
     question: str = "Please explain this step in very simple words."
 
 
+class AskRequest(BaseModel):
+    question: str
+
+
 @app.get("/api/health")
 def health():
     return {"status": "ok"}
@@ -48,6 +52,26 @@ def brands():
 @app.get("/api/guides")
 def guides():
     return get_all_guides()
+
+
+@app.get("/api/scam-quiz")
+def scam_quiz():
+    return get_scam_quiz()
+
+
+@app.get("/api/tips")
+def tips():
+    return get_tips()
+
+
+@app.get("/api/words")
+def words():
+    return get_words()
+
+
+@app.get("/api/emoji-quiz")
+def emoji_quiz():
+    return get_emoji_quiz()
 
 
 @app.get("/api/guide/{guide_id}")
@@ -94,6 +118,36 @@ def guide_explain(request: ExplainRequest):
         "guide_id": request.guide_id,
         "step_number": step_data["step_number"],
         "explanation": explanation,
+    }
+
+
+@app.post("/api/ask")
+def ask(request: AskRequest):
+    question = (request.question or "").strip()
+    if not question:
+        raise HTTPException(status_code=400, detail="Please ask a question.")
+    # Safety first: warn if the question smells like OTP/PIN/password sharing.
+    safety = check_message(question)
+    safety_warning = None
+    if safety.get("risk") in ("MEDIUM", "HIGH"):
+        safety_warning = (
+            "Safety note: never share your OTP, PIN, password, or bank details "
+            "with anyone. " + " ".join(safety.get("actions", []))
+        )
+    matches = find_guides_for_question(question)
+    guide = matches[0] if matches else None
+    context = get_guide_context(guide)
+    try:
+        answer = ask_question(
+            question, context, guide["title"] if guide else None
+        )
+    except Exception:
+        answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
+    return {
+        "answer": answer,
+        "guide_id": guide["id"] if guide else None,
+        "guide_title": guide["title"] if guide else None,
+        "safety_warning": safety_warning,
     }
 
 

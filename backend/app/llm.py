@@ -43,3 +43,35 @@ def explain_guide(question, guide_title, guide_steps, current_step):
 
     except Exception:
         return "Sorry, I couldn't explain this right now. Please try again."
+
+
+def ask_question(question, context_text, guide_title=None):
+    if client is None:
+        return "AI help is off right now. Please try the Learn steps on this screen instead."
+    guide_line = f"Best matching guide: {guide_title}." if guide_title else "No matching guide found."
+    prompt = f"""
+    You are Sahaj, a friendly technology assistant for older adults.
+
+    The user asked: {question}
+
+    {guide_line}
+    Helper notes from the official guides:
+    {context_text}
+
+    Rules:
+    1. Answer in very simple English, like explaining to a grandparent.
+    2. Use short numbered steps (at most 5). No jargon, no abbreviations.
+    3. Only use steps supported by the helper notes. Never invent phone settings.
+    4. Never ask for or repeat OTPs, PINs, passwords, or bank details.
+    5. If the question is not about phones or the guides, politely say you can only help with phone topics.
+
+    Return only the answer.
+    """
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+        return response.text
+    except Exception:
+        return "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."

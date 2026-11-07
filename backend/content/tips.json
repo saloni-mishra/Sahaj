@@ -1,0 +1,9 @@
+[
+  { "id": "tip-brightness", "text": "Screen too dim in sunlight? Make it brighter — it is easier on your eyes." },
+  { "id": "tip-otp", "text": "No bank or officer will ever ask for your OTP. If someone asks, it is a scam." },
+  { "id": "tip-wifi", "text": "At home, use your own Wi-Fi instead of mobile data. Videos will not eat your pack." },
+  { "id": "tip-screenshot", "text": "Seen a bill or message you need later? Take a screenshot to keep it." },
+  { "id": "tip-update", "text": "Update your apps once a month. Updates fix mistakes and keep you safe." },
+  { "id": "tip-storage", "text": "Phone says storage full? Delete blurry photos and old videos first." },
+  { "id": "tip-family", "text": "Stuck on a step? Take a screenshot and send it to family on WhatsApp to ask for help." }
+]

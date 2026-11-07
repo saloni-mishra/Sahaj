@@ -1,6 +1,102 @@
 import { useEffect, useState } from "react";
+import { Confetti, saveCompleted, loadCompleted } from "./Progress.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
+function WhatsAppHelp({ step }) {
+  const text = `Namaste! I need help with "${step.title}", step ${step.step_number} of ${step.total_steps}: ${step.text}. Can you help me? (sent from Sahaj)`;
+  const href = `https://wa.me/?text=${encodeURIComponent(text)}`;
+  return (
+    <div className="learn-row">
+      <a className="big-btn btn-ghost" href={href} target="_blank" rel="noreferrer">
+        💬 Ask family on WhatsApp
+      </a>
+    </div>
+  );
+}
+function FinishGuide({ guideId, isLast }) {
+  const [finished, setFinished] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    setFinished(loadCompleted().includes(guideId));
+    setShowConfetti(false);
+  }, [guideId]);
+
+  if (!isLast) return null;
+  if (finished) return <p className="stamp">★ Guide finished — well done!</p>;
+
+  function finish() {
+    saveCompleted(guideId);
+    window.dispatchEvent(new Event("sahaj-progress"));
+    setFinished(true);
+    setShowConfetti(true);
+  }
+
+  return (
+    <div className="learn-row">
+      {showConfetti && <Confetti />}
+      <button className="big-btn" onClick={finish}>🎉 I finished this guide</button>
+    </div>
+  );
+}
+
+function pickVoice(voices) {
+  if (!voices || voices.length === 0) return null;
+  return (
+    voices.find((v) => /en[-_]IN/i.test(v.lang)) ||
+    voices.find((v) => /^hi/i.test(v.lang)) ||
+    voices.find((v) => /^en/i.test(v.lang)) ||
+    null
+  );
+}
+
+function ReadAloud({ text }) {
+  const supported =
+    typeof window !== "undefined" && "speechSynthesis" in window;
+  const [speaking, setSpeaking] = useState(false);
+
+  // Stop speech when the step changes or the component unmounts.
+  useEffect(() => {
+    return () => {
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    };
+  }, [text]);
+
+  if (!supported) return null; // hide gracefully if unsupported
+
+  function speak() {
+    window.speechSynthesis.cancel();
+    const voiceText = new SpeechSynthesisUtterance(text);
+    voiceText.rate = 0.85; // slow and clear
+    voiceText.pitch = 1;
+    const voice = pickVoice(window.speechSynthesis.getVoices());
+    if (voice) voiceText.voice = voice;
+    voiceText.onend = () => setSpeaking(false);
+    voiceText.onerror = () => setSpeaking(false);
+    setSpeaking(true);
+    window.speechSynthesis.speak(voiceText);
+  }
+
+  function stop() {
+    window.speechSynthesis.cancel();
+    setSpeaking(false);
+  }
+
+  return (
+    <div className="learn-row">
+      {!speaking ? (
+        <button className="big-btn btn-ghost" onClick={speak}>
+          🔊 Read this to me
+        </button>
+      ) : (
+        <button className="big-btn btn-ghost" onClick={stop} aria-live="polite">
+          ⏹ Stop
+        </button>
+      )}
+    </div>
+  );
+}
 
 export default function Learn() {
   const [brands, setBrands] = useState([]);
@@ -131,15 +227,24 @@ export default function Learn() {
 
       {/* Step viewer */}
       {step && (
-        <div className="step-card">
+        <div className="step-card" key={`${guideId}-${brandId}-${step.step_number}`}>
+          <p className="welcome-label">GUIDE · {step.brand}</p>
           <h2>{step.title}</h2>
-          <p className="step-count">
+          <p className="step-count" aria-live="polite">
             Step {step.step_number} of {step.total_steps}
           </p>
+          <div className="progress" role="progressbar" aria-valuenow={step.step_number} aria-valuemin={1} aria-valuemax={step.total_steps} aria-label={`Step ${step.step_number} of ${step.total_steps}`}>
+            <div className="progress-fill" style={{ width: `${(step.step_number / step.total_steps) * 100}%` }} />
+          </div>
           {step.image && (
-            <img src={step.image} alt={step.image_alt || step.text} className="step-image" />
+            <figure className="step-figure">
+              <img src={step.image} alt={step.image_alt || step.text} className="step-image" />
+              {step.image_alt && <figcaption>{step.image_alt}</figcaption>}
+            </figure>
           )}
+          <FinishGuide guideId={guideId} isLast={step.step_number >= step.total_steps} />
           <p className="step-text">{step.text}</p>
+          <ReadAloud text={step.tips?.length > 0 ? `${step.text}. Tip: ${step.tips[0]}` : step.text} />
           {step.tips?.length > 0 && (
             <p className="step-tip">Tip: {step.tips[0]}</p>
           )}
@@ -149,7 +254,8 @@ export default function Learn() {
             </button>
           </div>
           {explanation && <p className="step-tip">{explanation}</p>}
-          <div className="learn-row">
+          <WhatsAppHelp step={step} />
+          <div className="step-nav">
             <button
               className="big-btn"
               disabled={step.step_number <= 1}
