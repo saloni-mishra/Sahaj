@@ -77,6 +77,8 @@ def get_guide_step(guide_id, brand_id, step_number):
         "image": selected_step.get("image"),
         "image_alt": selected_step.get("image_alt"),
         "tips": selected_guide.get("tips", []),
+        # Optional per-step Gen-Z reaction line. May be absent.
+        "genz_note": selected_step.get("genz_note"),
     }
 
 

@@ -159,25 +159,29 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": null,
-              "image_alt": "Settings app icon on the Home screen"
+              "image_alt": "Settings app icon on the Home screen",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Tap Display & Brightness.",
               "image": null,
-              "image_alt": "Display & Brightness row in Settings"
+              "image_alt": "Display & Brightness row in Settings",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Tap Text Size.",
               "image": null,
-              "image_alt": "Text Size row"
+              "image_alt": "Text Size row",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Drag the slider to the right to make the text bigger.",
               "image": null,
-              "image_alt": "Text size slider"
+              "image_alt": "Text size slider",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -200,25 +204,29 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": null,
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Look for Display or Display & Brightness and open it.",
               "image": null,
-              "image_alt": "Display row in Settings"
+              "image_alt": "Display row in Settings",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Look for Font Size or Text Size.",
               "image": null,
-              "image_alt": "Font size row"
+              "image_alt": "Font size row",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Choose a larger text size.",
               "image": null,
-              "image_alt": "Font size slider"
+              "image_alt": "Font size slider",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": []
@@ -239,25 +247,29 @@
               "step_number": 1,
               "text": "Press the Windows key and the letter U together. This opens Accessibility settings. (Or click Start, then Settings, then Accessibility.)",
               "image": null,
-              "image_alt": "Settings app icon on the Home screen"
+              "image_alt": "Settings app icon on the Home screen",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Click Text size.",
               "image": null,
-              "image_alt": "Text size option under Vision"
+              "image_alt": "Text size option under Vision",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Drag the Text size slider to the right to make letters bigger.",
               "image": null,
-              "image_alt": "Text size slider with preview box"
+              "image_alt": "Text size slider with preview box",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Click Apply.",
               "image": null,
-              "image_alt": "Apply button"
+              "image_alt": "Apply button",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -282,25 +294,29 @@
               "step_number": 1,
               "text": "Click the Apple icon in the top-left corner of the screen, then click System Settings.",
               "image": null,
-              "image_alt": "Apple menu with System Settings"
+              "image_alt": "Apple menu with System Settings",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Click Accessibility in the left-hand list.",
               "image": null,
-              "image_alt": "Accessibility in the sidebar"
+              "image_alt": "Accessibility in the sidebar",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Click Display.",
               "image": null,
-              "image_alt": "Display option inside Accessibility"
+              "image_alt": "Display option inside Accessibility",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Find Text size and choose a bigger size.",
               "image": null,
-              "image_alt": "Text size control"
+              "image_alt": "Text size control",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -327,25 +343,29 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": "/guides/samsung/increase_text_size/step1.jpeg",
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Tap Display.",
               "image": "/guides/samsung/increase_text_size/step2.jpeg",
-              "image_alt": "Display row in Settings"
+              "image_alt": "Display row in Settings",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Tap Font size and style.",
               "image": "/guides/samsung/increase_text_size/step3.jpeg",
-              "image_alt": "Font size and style row"
+              "image_alt": "Font size and style row",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Drag the Font size slider to the right to make the text bigger.",
               "image": "/guides/samsung/increase_text_size/step4.jpeg",
-              "image_alt": "Font size slider"
+              "image_alt": "Font size slider",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -369,25 +389,29 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": null,
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Tap Display.",
               "image": null,
-              "image_alt": "Display row in Settings"
+              "image_alt": "Display row in Settings",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Tap Text size.",
               "image": null,
-              "image_alt": "Text size row"
+              "image_alt": "Text size row",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Choose a bigger size.",
               "image": null,
-              "image_alt": "Row of text size choices"
+              "image_alt": "Row of text size choices",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -411,25 +435,29 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": null,
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Tap Display & brightness.",
               "image": null,
-              "image_alt": "Display & brightness row"
+              "image_alt": "Display & brightness row",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Tap Font & display size.",
               "image": null,
-              "image_alt": "Font & display size row"
+              "image_alt": "Font & display size row",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Drag the Font size slider to the right, then tap Apply.",
               "image": null,
-              "image_alt": "Font size slider and Apply button"
+              "image_alt": "Font size slider and Apply button",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -453,25 +481,29 @@
               "step_number": 1,
               "text": "Press the Windows key and the letter U together. This opens Accessibility settings. (Or click Start, then Settings, then Accessibility.)",
               "image": "/guides/windows/increase_text_size/step1.png",
-              "image_alt": "Settings app icon on the Home screen"
+              "image_alt": "Settings app icon on the Home screen",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Click Text size.",
               "image": "/guides/windows/increase_text_size/step2.png",
-              "image_alt": "Text size option under Vision"
+              "image_alt": "Text size option under Vision",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Drag the Text size slider to the right to make letters bigger.",
               "image": "/guides/windows/increase_text_size/step3.png",
-              "image_alt": "Text size slider with preview box"
+              "image_alt": "Text size slider with preview box",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Click Apply.",
               "image": "/guides/windows/increase_text_size/step4.png",
-              "image_alt": "Apply button"
+              "image_alt": "Apply button",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -496,25 +528,29 @@
               "step_number": 1,
               "text": "Click the Apple icon in the top-left corner of the screen, then click System Settings.",
               "image": "/guides/macbook/increase_text_size/step1.jpeg",
-              "image_alt": "Apple menu with System Settings"
+              "image_alt": "Apple menu with System Settings",
+              "genz_note": "Small text? No stress. We fix it together, no cap."
             },
             {
               "step_number": 2,
               "text": "Click Accessibility in the left-hand list.",
               "image": "/guides/macbook/increase_text_size/step2.jpeg",
-              "image_alt": "Accessibility in the sidebar"
+              "image_alt": "Accessibility in the sidebar",
+              "genz_note": "One tap at a time. You ate that."
             },
             {
               "step_number": 3,
               "text": "Click Display.",
               "image": "/guides/macbook/increase_text_size/step3.jpeg",
-              "image_alt": "Display option inside Accessibility"
+              "image_alt": "Display option inside Accessibility",
+              "genz_note": "Almost there. Let me cook."
             },
             {
               "step_number": 4,
               "text": "Find Text size and choose a bigger size.",
               "image": "/guides/macbook/increase_text_size/step4.jpeg",
-              "image_alt": "Text size control"
+              "image_alt": "Text size control",
+              "genz_note": "Big letters! let's gooo!"
             }
           ],
           "tips": [
@@ -559,7 +595,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": null,
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -596,7 +633,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": null,
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -630,7 +668,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": null,
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -684,7 +723,8 @@
               "step_number": 1,
               "text": "To save the whole screen, press Shift, Command and 3 together.",
               "image": null,
-              "image_alt": "Shift, Command and 3 keys highlighted"
+              "image_alt": "Shift, Command and 3 keys highlighted",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -723,7 +763,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": null,
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -760,7 +801,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": null,
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -796,7 +838,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": null,
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -832,7 +875,8 @@
               "step_number": 1,
               "text": "Open the screen you want to save.",
               "image": "/guides/windows/take_screenshot/step1.png",
-              "image_alt": "Any screen you want to capture"
+              "image_alt": "Any screen you want to capture",
+              "genz_note": "This one is fun. Let me cook."
             },
             {
               "step_number": 2,
@@ -904,7 +948,8 @@
               "step_number": 1,
               "text": "Swipe down from the top-right corner of the screen to open Control Center.",
               "image": null,
-              "image_alt": "Swipe from top-right corner"
+              "image_alt": "Swipe from top-right corner",
+              "genz_note": "Torch time. let's gooo!"
             },
             {
               "step_number": 2,
@@ -938,7 +983,8 @@
               "step_number": 1,
               "text": "Swipe down from the top of the screen to open the quick settings panel.",
               "image": null,
-              "image_alt": "Quick settings panel"
+              "image_alt": "Quick settings panel",
+              "genz_note": "Torch time. let's gooo!"
             },
             {
               "step_number": 2,
@@ -974,7 +1020,8 @@
               "step_number": 1,
               "text": "Swipe down from the top of the screen with two fingers to open the Quick settings panel.",
               "image": null,
-              "image_alt": "Two-finger swipe from the top"
+              "image_alt": "Two-finger swipe from the top",
+              "genz_note": "Torch time. let's gooo!"
             },
             {
               "step_number": 2,
@@ -1031,13 +1078,15 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": null,
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "First step soon. Lowkey easy."
             },
             {
               "step_number": 2,
               "text": "Tap Wi-Fi.",
               "image": null,
-              "image_alt": "Wi-Fi row at the top of Settings"
+              "image_alt": "Wi-Fi row at the top of Settings",
+              "genz_note": "You are doing great, no cap."
             },
             {
               "step_number": 3,
@@ -1077,13 +1126,15 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": null,
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "First step soon. Lowkey easy."
             },
             {
               "step_number": 2,
               "text": "Tap Wi-Fi. On some phones this may be called WLAN or be inside Network & internet.",
               "image": null,
-              "image_alt": "Wi-Fi row in Settings"
+              "image_alt": "Wi-Fi row in Settings",
+              "genz_note": "You are doing great, no cap."
             },
             {
               "step_number": 3,
@@ -1124,13 +1175,15 @@
               "step_number": 1,
               "text": "Click the small icons (Wi-Fi, speaker, battery) at the bottom-right corner of the screen.",
               "image": null,
-              "image_alt": "Network, sound and battery icons in the taskbar"
+              "image_alt": "Network, sound and battery icons in the taskbar",
+              "genz_note": "First step soon. Lowkey easy."
             },
             {
               "step_number": 2,
               "text": "Click the small arrow next to the Wi-Fi button to see the list of networks and turn on the Wi-Fi.",
               "image": null,
-              "image_alt": "Arrow next to the Wi-Fi button"
+              "image_alt": "Arrow next to the Wi-Fi button",
+              "genz_note": "You are doing great, no cap."
             },
             {
               "step_number": 3,
@@ -1168,13 +1221,15 @@
               "step_number": 1,
               "text": "Open the Settings app.",
               "image": "/guides/samsung/connect_wifi/step1.jpeg",
-              "image_alt": "Settings app icon"
+              "image_alt": "Settings app icon",
+              "genz_note": "First step soon. Lowkey easy."
             },
             {
               "step_number": 2,
               "text": "Tap Connections.",
               "image": "/guides/samsung/connect_wifi/step2.jpeg",
-              "image_alt": "Connections row in Settings"
+              "image_alt": "Connections row in Settings",
+              "genz_note": "You are doing great, no cap."
             },
             {
               "step_number": 3,
@@ -1222,13 +1277,15 @@
               "step_number": 1,
               "text": "Click the small icons (Wi-Fi, speaker, battery) at the bottom-right corner of the screen.",
               "image": "/guides/windows/connect_wifi/step1.png",
-              "image_alt": "Network, sound and battery icons in the taskbar"
+              "image_alt": "Network, sound and battery icons in the taskbar",
+              "genz_note": "First step soon. Lowkey easy."
             },
             {
               "step_number": 2,
               "text": "Click the small arrow next to the Wi-Fi button to see the list of networks and turn on the Wi-Fi.",
               "image": "/guides/windows/connect_wifi/step2.png",
-              "image_alt": "Arrow next to the Wi-Fi button"
+              "image_alt": "Arrow next to the Wi-Fi button",
+              "genz_note": "You are doing great, no cap."
             },
             {
               "step_number": 3,
@@ -1283,7 +1340,8 @@
               "step_number": 1,
               "text": "Open the WhatsApp app.",
               "image": null,
-              "image_alt": "WhatsApp app icon (green)"
+              "image_alt": "WhatsApp app icon (green)",
+              "genz_note": "Family time! You ate that."
             },
             {
               "step_number": 2,
@@ -1325,7 +1383,8 @@
               "step_number": 1,
               "text": "Open the WhatsApp app.",
               "image": null,
-              "image_alt": "WhatsApp app icon (green)"
+              "image_alt": "WhatsApp app icon (green)",
+              "genz_note": "Family time! You ate that."
             },
             {
               "step_number": 2,
@@ -1369,7 +1428,8 @@
               "step_number": 1,
               "text": "Open the WhatsApp app.",
               "image": "/guides/samsung/whatsapp_video_call/step1.jpeg",
-              "image_alt": "WhatsApp app icon (green)"
+              "image_alt": "WhatsApp app icon (green)",
+              "genz_note": "Family time! You ate that."
             },
             {
               "step_number": 2,
@@ -1396,6 +1456,760 @@
           ]
         }
       }
+    },
+    {
+      "id": "check-payment-request",
+      "title": "Check a Payment Request",
+      "description": "Pause and check who asks for money and how much, before you tap Pay.",
+      "category": "Safety",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "payment",
+        "request",
+        "pay",
+        "check",
+        "upi",
+        "collect",
+        "verify",
+        "before paying"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Stop. Read who is asking for money.",
+              "image": null,
+              "image_alt": "Name on the payment request",
+              "genz_note": "Hold up — check first, no cap."
+            },
+            {
+              "step_number": 2,
+              "text": "Check the amount. Does it match what you agreed?",
+              "image": null,
+              "image_alt": "Amount on the request"
+            },
+            {
+              "step_number": 3,
+              "text": "If anyone rushes you or asks for OTP or PIN, stop.",
+              "image": null,
+              "image_alt": "Warning signs to stop"
+            },
+            {
+              "step_number": 4,
+              "text": "Only tap Pay for people and amounts you already know.",
+              "image": null,
+              "image_alt": "Pay button"
+            },
+            {
+              "step_number": 5,
+              "text": "Not sure? Show the screen to Sahaj or ask family first.",
+              "image": null,
+              "image_alt": "Ask for help"
+            }
+          ],
+          "tips": [
+            "To receive money you never press Pay or enter a PIN.",
+            "Real sellers never rush you."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Stop. Read who is asking for money.",
+              "image": null,
+              "image_alt": "Name on the payment request",
+              "genz_note": "Hold up — check first, no cap."
+            },
+            {
+              "step_number": 2,
+              "text": "Check the amount. Does it match what you agreed?",
+              "image": null,
+              "image_alt": "Amount on the request"
+            },
+            {
+              "step_number": 3,
+              "text": "If anyone rushes you or asks for OTP or PIN, stop.",
+              "image": null,
+              "image_alt": "Warning signs to stop"
+            },
+            {
+              "step_number": 4,
+              "text": "Only tap Pay for people and amounts you already know.",
+              "image": null,
+              "image_alt": "Pay button"
+            },
+            {
+              "step_number": 5,
+              "text": "Not sure? Show the screen to Sahaj or ask family first.",
+              "image": null,
+              "image_alt": "Ask for help"
+            }
+          ],
+          "tips": [
+            "To receive money you never press Pay or enter a PIN.",
+            "Real sellers never rush you."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "scan-qr-safely",
+      "title": "Scan a QR Code Safely",
+      "description": "Scan shop QR codes the safe way, and know when to stop.",
+      "category": "Safety",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "qr",
+        "scan",
+        "code",
+        "upi",
+        "shop",
+        "receive",
+        "refund"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Only scan QR codes you trust, in shops you know.",
+              "image": null,
+              "image_alt": "QR code in a shop"
+            },
+            {
+              "step_number": 2,
+              "text": "Open your own UPI or bank app and tap Scan.",
+              "image": null,
+              "image_alt": "Scan button in the app",
+              "genz_note": "Let me cook — slow and safe."
+            },
+            {
+              "step_number": 3,
+              "text": "Point the camera at the code and wait for the name.",
+              "image": null,
+              "image_alt": "Name after scanning"
+            },
+            {
+              "step_number": 4,
+              "text": "Read the name and amount. Wrong name? Stop.",
+              "image": null,
+              "image_alt": "Checking the name"
+            },
+            {
+              "step_number": 5,
+              "text": "Never scan a QR to receive money or a refund.",
+              "image": null,
+              "image_alt": "Stop sign for receive scams"
+            }
+          ],
+          "tips": [
+            "Scanning plus PIN sends money out.",
+            "A QR pasted over another QR is a trick. Ask the shopkeeper."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Only scan QR codes you trust, in shops you know.",
+              "image": null,
+              "image_alt": "QR code in a shop"
+            },
+            {
+              "step_number": 2,
+              "text": "Open your own UPI or bank app and tap Scan.",
+              "image": null,
+              "image_alt": "Scan button in the app",
+              "genz_note": "Let me cook — slow and safe."
+            },
+            {
+              "step_number": 3,
+              "text": "Point the camera at the code and wait for the name.",
+              "image": null,
+              "image_alt": "Name after scanning"
+            },
+            {
+              "step_number": 4,
+              "text": "Read the name and amount. Wrong name? Stop.",
+              "image": null,
+              "image_alt": "Checking the name"
+            },
+            {
+              "step_number": 5,
+              "text": "Never scan a QR to receive money or a refund.",
+              "image": null,
+              "image_alt": "Stop sign for receive scams"
+            }
+          ],
+          "tips": [
+            "Scanning plus PIN sends money out.",
+            "A QR pasted over another QR is a trick. Ask the shopkeeper."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "pay-online-safely",
+      "title": "Pay Online Safely",
+      "description": "Small habits that keep every online payment safe.",
+      "category": "Payments",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "pay",
+        "online",
+        "safe",
+        "order",
+        "otp",
+        "receipt",
+        "shopping"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Buy only inside the shop app or website you know.",
+              "image": null,
+              "image_alt": "Shop app icon",
+              "genz_note": "Smart shopping — no cap."
+            },
+            {
+              "step_number": 2,
+              "text": "Check the amount before you tap Pay.",
+              "image": null,
+              "image_alt": "Amount before paying"
+            },
+            {
+              "step_number": 3,
+              "text": "Never share your OTP or PIN on any call.",
+              "image": null,
+              "image_alt": "OTP warning"
+            },
+            {
+              "step_number": 4,
+              "text": "After paying, read the receipt message.",
+              "image": null,
+              "image_alt": "Receipt message"
+            }
+          ],
+          "tips": [
+            "Prefer cash on delivery for shops you are trying first.",
+            "Save the receipt message."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Buy only inside the shop app or website you know.",
+              "image": null,
+              "image_alt": "Shop app icon",
+              "genz_note": "Smart shopping — no cap."
+            },
+            {
+              "step_number": 2,
+              "text": "Check the amount before you tap Pay.",
+              "image": null,
+              "image_alt": "Amount before paying"
+            },
+            {
+              "step_number": 3,
+              "text": "Never share your OTP or PIN on any call.",
+              "image": null,
+              "image_alt": "OTP warning"
+            },
+            {
+              "step_number": 4,
+              "text": "After paying, read the receipt message.",
+              "image": null,
+              "image_alt": "Receipt message"
+            }
+          ],
+          "tips": [
+            "Prefer cash on delivery for shops you are trying first.",
+            "Save the receipt message."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "block-spam-calls",
+      "title": "Block Spam Calls",
+      "description": "Stop unknown numbers from calling you again and again.",
+      "category": "Safety",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "block",
+        "spam",
+        "call",
+        "unknown",
+        "number",
+        "stop calls"
+      ],
+      "settings_search_term": "block number",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Do not answer numbers that call again and again.",
+              "image": null,
+              "image_alt": "Unknown caller on screen"
+            },
+            {
+              "step_number": 2,
+              "text": "Open your recent calls list.",
+              "image": null,
+              "image_alt": "Recent calls list",
+              "genz_note": "You ate that — taking control."
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the number, then tap Block this Caller.",
+              "image": null,
+              "image_alt": "Block button"
+            },
+            {
+              "step_number": 4,
+              "text": "If it was important, they will message you.",
+              "image": null,
+              "image_alt": "Message inbox"
+            }
+          ],
+          "tips": [
+            "Blocking is free and safe. You can unblock later."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Do not answer numbers that call again and again.",
+              "image": null,
+              "image_alt": "Unknown caller on screen"
+            },
+            {
+              "step_number": 2,
+              "text": "Open your recent calls list.",
+              "image": null,
+              "image_alt": "Recent calls list",
+              "genz_note": "You ate that — taking control."
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the number, then tap Block.",
+              "image": null,
+              "image_alt": "Block button"
+            },
+            {
+              "step_number": 4,
+              "text": "If it was important, they will message you.",
+              "image": null,
+              "image_alt": "Message inbox"
+            }
+          ],
+          "tips": [
+            "Blocking is free and safe. You can unblock later."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "volume-and-brightness",
+      "title": "Volume and Brightness",
+      "description": "Make your phone louder and your screen easy on the eyes.",
+      "category": "Display",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "volume",
+        "loud",
+        "sound",
+        "brightness",
+        "screen",
+        "dim",
+        "light"
+      ],
+      "settings_search_term": "brightness",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Find the volume buttons on the side of your phone.",
+              "image": null,
+              "image_alt": "Side buttons on the phone"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the top one to make sound louder.",
+              "image": null,
+              "image_alt": "Volume up button",
+              "genz_note": "Louder and clearer — no cap."
+            },
+            {
+              "step_number": 3,
+              "text": "Open Settings, then Display and Brightness.",
+              "image": null,
+              "image_alt": "Display row in Settings"
+            },
+            {
+              "step_number": 4,
+              "text": "Drag the brightness slider until it feels good.",
+              "image": null,
+              "image_alt": "Brightness slider"
+            }
+          ],
+          "tips": [
+            "Loud enough to hear, dim enough to save battery."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Find the volume buttons on the side of your phone.",
+              "image": null,
+              "image_alt": "Side buttons on the phone"
+            },
+            {
+              "step_number": 2,
+              "text": "Press the top one to make sound louder.",
+              "image": null,
+              "image_alt": "Volume up button",
+              "genz_note": "Louder and clearer — no cap."
+            },
+            {
+              "step_number": 3,
+              "text": "Open Settings, then look for Display or Sound.",
+              "image": null,
+              "image_alt": "Display row in Settings"
+            },
+            {
+              "step_number": 4,
+              "text": "Drag the brightness slider until it feels good.",
+              "image": null,
+              "image_alt": "Brightness slider"
+            }
+          ],
+          "tips": [
+            "Loud enough to hear, dim enough to save battery."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "update-an-app",
+      "title": "Update an App",
+      "description": "Keep apps like WhatsApp new and safe with updates.",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "update",
+        "app",
+        "upgrade",
+        "play store",
+        "app store",
+        "new version"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the App Store.",
+              "image": null,
+              "image_alt": "App Store icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Search and type the app name, like WhatsApp.",
+              "image": null,
+              "image_alt": "Search in the store",
+              "genz_note": "Almost new — let me cook."
+            },
+            {
+              "step_number": 3,
+              "text": "If you see Update, tap it.",
+              "image": null,
+              "image_alt": "Update button"
+            },
+            {
+              "step_number": 4,
+              "text": "Wait. Do not close the store.",
+              "image": null,
+              "image_alt": "Waiting for download"
+            },
+            {
+              "step_number": 5,
+              "text": "Open the app. It looks the same, just safer.",
+              "image": null,
+              "image_alt": "Updated app icon"
+            }
+          ],
+          "tips": [
+            "Updates fix safety problems. They are free."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Play Store.",
+              "image": null,
+              "image_alt": "Play Store icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Search and type the app name, like WhatsApp.",
+              "image": null,
+              "image_alt": "Search in the store",
+              "genz_note": "Almost new — let me cook."
+            },
+            {
+              "step_number": 3,
+              "text": "If you see Update, tap it.",
+              "image": null,
+              "image_alt": "Update button"
+            },
+            {
+              "step_number": 4,
+              "text": "Wait. Do not close the store.",
+              "image": null,
+              "image_alt": "Waiting for download"
+            },
+            {
+              "step_number": 5,
+              "text": "Open the app. It looks the same, just safer.",
+              "image": null,
+              "image_alt": "Updated app icon"
+            }
+          ],
+          "tips": [
+            "Update on Wi-Fi so mobile data is not used."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "share-photo-whatsapp",
+      "title": "Share a Photo on WhatsApp",
+      "description": "Send your photo to family on WhatsApp in four taps.",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "share",
+        "photo",
+        "send",
+        "picture",
+        "whatsapp",
+        "family"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open WhatsApp and open the family chat.",
+              "image": null,
+              "image_alt": "WhatsApp chat",
+              "genz_note": "Family photos — you ate that."
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the plus button.",
+              "image": null,
+              "image_alt": "Plus button in chat"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Photo, then choose your photo.",
+              "image": null,
+              "image_alt": "Choosing a photo"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap Send.",
+              "image": null,
+              "image_alt": "Send button"
+            }
+          ],
+          "tips": [
+            "Send only your own photos, and only to people you trust."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand — not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open WhatsApp and open the family chat.",
+              "image": null,
+              "image_alt": "WhatsApp chat",
+              "genz_note": "Family photos — you ate that."
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the paperclip button.",
+              "image": null,
+              "image_alt": "Paperclip button in chat"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap Gallery, then choose your photo.",
+              "image": null,
+              "image_alt": "Choosing a photo"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap Send.",
+              "image": null,
+              "image_alt": "Send button"
+            }
+          ],
+          "tips": [
+            "Send only your own photos, and only to people you trust."
+          ]
+        }
+      },
+      "brand_guides": {}
     }
   ]
 }

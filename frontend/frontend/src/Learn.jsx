@@ -1,22 +1,37 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Confetti, saveCompleted, loadCompleted, completeMission } from "./Progress.jsx";
-import { useMode, COPY, withSlang } from "./copy.jsx";
+import { Confetti, saveCompleted, loadCompleted, completeMission, markPayPass } from "./Progress.jsx";
+import { useMode, say, tx, pick } from "./copy.jsx";
 import Mascot from "./Mascot.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 function WhatsAppHelp({ step }) {
+  const mode = useMode();
   const text = `Namaste! I need help with "${step.title}", step ${step.step_number} of ${step.total_steps}: ${step.text}. Can you help me? (sent from Sahaj)`;
   const href = `https://wa.me/?text=${encodeURIComponent(text)}`;
   return (
     <div className="learn-row">
       <a className="big-btn btn-ghost" href={href} target="_blank" rel="noreferrer">
-        💬 Ask family on WhatsApp
+        {tx(mode, "whatsappHelp")}
       </a>
     </div>
   );
 }
+
+// Per-step "Sahaj says" reaction line (guides.json field "genz_note", optional).
+// Shown only in Gen-Z mode. Slang is tap-to-reveal; instructions stay plain.
+function SahajSays({ note, cheer }) {
+  const mode = useMode();
+  if (mode !== "genz" || !note) return null;
+  return (
+    <div className="sahaj-says" aria-live="polite">
+      <Mascot mood={cheer ? "celebrating" : "happy"} size={56} label={cheer ? "Sahaj cheering" : "Sahaj smiling"} />
+      <p><strong>{tx(mode, "sahajSays")}</strong> {pick(note, mode)}</p>
+    </div>
+  );
+}
+
 function FinishGuide({ guideId, isLast }) {
   const [finished, setFinished] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -53,18 +68,19 @@ function FinishGuide({ guideId, isLast }) {
     <div className="celebrate">
       {showConfetti && <Confetti />}
       <Mascot mood="celebrating" size={110} />
-      <h2>You did it!</h2>
-      <p className="stamp">★ {mode === "genz" && reward ? withSlang(COPY.finished.genz) : COPY.finished.normal}</p>
-      {reward && <p className="stamp">🎁 Sticker earned: {mode === "genz" ? withSlang(reward) : reward}</p>}
+      <h2>{tx(mode, "youDidIt")}</h2>
+      <p className="stamp">★ {say(mode, "finished")}</p>
+      {reward && <p className="stamp">🎁 {pick(reward, mode)}</p>}
       <div className="step-nav">
-        <Link className="big-btn" to="/">Back to Home</Link>
-        {nextGuide && <Link className="big-btn" to={`/learn?guide=${nextGuide.id}`}>Next Guide: {nextGuide.title} →</Link>}
+        <Link className="big-btn" to="/">{tx(mode, "backButton")}</Link>
+        {nextGuide && <Link className="big-btn" to={`/learn?guide=${nextGuide.id}`}>{tx(mode, "nextGuidePrefix")} {nextGuide.title} →</Link>}
       </div>
     </div>
   );
 
   function finish() {
     saveCompleted(guideId);
+    markPayPass("guide"); // Sahaj Pay Pass stop
     window.dispatchEvent(new Event("sahaj-progress"));
     // Auto-complete the mission linked to this guide (m1-m5).
     fetch(`${API}/api/missions`)
@@ -82,7 +98,7 @@ function FinishGuide({ guideId, isLast }) {
   return (
     <div className="learn-row">
       {showConfetti && <Confetti />}
-      <button className="big-btn" onClick={finish}>🎉 {COPY.finishButton[mode]}</button>
+      <button className="big-btn" onClick={finish}>🎉 {say(mode, "finishButton")}</button>
     </div>
   );
 }
@@ -98,6 +114,7 @@ function pickVoice(voices) {
 }
 
 function ReadAloud({ text }) {
+  const mode = useMode();
   const supported =
     typeof window !== "undefined" && "speechSynthesis" in window;
   const [speaking, setSpeaking] = useState(false);
@@ -133,11 +150,11 @@ function ReadAloud({ text }) {
     <div className="learn-row">
       {!speaking ? (
         <button className="big-btn btn-ghost" onClick={speak}>
-          🔊 Read this to me
+          {tx(mode, "readAloud")}
         </button>
       ) : (
         <button className="big-btn btn-ghost" onClick={stop} aria-live="polite">
-          ⏹ Stop
+          {tx(mode, "stopReading")}
         </button>
       )}
     </div>
@@ -155,6 +172,7 @@ export default function Learn() {
   const [error, setError] = useState("");
   const [explanation, setExplanation] = useState("");
   const [explaining, setExplaining] = useState(false);
+  const [cheer, setCheer] = useState(false);
   const mode = useMode();
   const [searchParams] = useSearchParams();
   const lastAppliedGuide = useRef(null);
@@ -218,6 +236,15 @@ export default function Learn() {
     setExplanation("");
   }
 
+  // Mascot reaction on Next: brief celebrate in Gen-Z mode.
+  function goNext() {
+    if (mode === "genz") {
+      setCheer(true);
+      setTimeout(() => setCheer(false), 1200);
+    }
+    setStepNum((n) => n + 1);
+  }
+
   async function explainStep() {
     setExplaining(true);
     setExplanation("");
@@ -231,7 +258,7 @@ export default function Learn() {
       if (!r.ok) throw new Error(data.detail || "Could not explain.");
       setExplanation(data.explanation);
     } catch (e) {
-      setExplanation("Sorry, I couldn't explain this right now. Please follow the instructions shown on screen.");
+      setExplanation(tx(mode, "explainError"));
     }
     setExplaining(false);
   }
@@ -255,29 +282,29 @@ export default function Learn() {
 
   return (
     <div className="learn">
-      <p><Link className="link-more" to="/">← Home</Link></p>
-      <h1>Learn</h1>
-      <p className="learn-sub">Pick your device, then pick what to learn.</p>
+      <p><Link className="link-more" to="/">{tx(mode, "backLink")}</Link></p>
+      <h1>{tx(mode, "learnTitle")}</h1>
+      <p className="learn-sub">{say(mode, "learnSub")}</p>
 
       {/* Step 1: device type */}
-      <h2>1. Phone or laptop?</h2>
+      <h2>{say(mode, "deviceQ")}</h2>
       <div className="learn-row">
         <button
           className={deviceType === "phone" ? "big-btn active" : "big-btn"}
           onClick={() => chooseDevice("phone")}
         >
-          Phone
+          {tx(mode, "phone")}
         </button>
         <button
           className={deviceType === "laptop" ? "big-btn active" : "big-btn"}
           onClick={() => chooseDevice("laptop")}
         >
-          Laptop
+          {tx(mode, "laptop")}
         </button>
       </div>
 
       {/* Step 2: brand */}
-      <h2>2. Which one is yours?</h2>
+      <h2>{say(mode, "brandQ")}</h2>
       <div className="learn-row">
         {visibleBrands.map((b) => (
           <button
@@ -293,7 +320,7 @@ export default function Learn() {
       {/* Step 3: guide */}
       {brandId && (
         <>
-          <h2>3. What do you want to do?</h2>
+          <h2>{say(mode, "guideQ")}</h2>
           <div className="learn-row">
             {visibleGuides.map((g) => (
               <button
@@ -313,12 +340,12 @@ export default function Learn() {
       {/* Step viewer */}
       {step && (
         <div className="step-card" key={`${guideId}-${brandId}-${step.step_number}`}>
-          <p className="welcome-label">GUIDE · {step.brand}</p>
+          <p className="welcome-label">{tx(mode, "guideLabel")} · {step.brand}</p>
           <h2>{step.title}</h2>
           <p className="step-count" aria-live="polite">
-            Step {step.step_number} of {step.total_steps}
+            {tx(mode, "stepWord")} {step.step_number} {tx(mode, "ofWord")} {step.total_steps}
           </p>
-          <div className="progress" role="progressbar" aria-valuenow={step.step_number} aria-valuemin={1} aria-valuemax={step.total_steps} aria-label={`Step ${step.step_number} of ${step.total_steps}`}>
+          <div className="progress" role="progressbar" aria-valuenow={step.step_number} aria-valuemin={1} aria-valuemax={step.total_steps} aria-label={`${tx(mode, "stepWord")} ${step.step_number} ${tx(mode, "ofWord")} ${step.total_steps}`}>
             <div className="progress-fill" style={{ width: `${(step.step_number / step.total_steps) * 100}%` }} />
           </div>
           {step.image && (
@@ -329,13 +356,14 @@ export default function Learn() {
           )}
           <FinishGuide guideId={guideId} isLast={step.step_number >= step.total_steps} />
           <p className="step-text">{step.text}</p>
-          <ReadAloud text={step.tips?.length > 0 ? `${step.text}. Tip: ${step.tips[0]}` : step.text} />
+          <SahajSays note={step.genz_note} cheer={cheer} />
+          <ReadAloud text={step.tips?.length > 0 ? `${step.text}. ${tx(mode, "tipLabel")} ${step.tips[0]}` : step.text} />
           {step.tips?.length > 0 && (
-            <p className="step-tip">Tip: {step.tips[0]}</p>
+            <p className="step-tip">{tx(mode, "tipLabel")} {step.tips[0]}</p>
           )}
           <div className="learn-row">
             <button className="big-btn" onClick={explainStep} disabled={explaining}>
-              {explaining ? "Thinking…" : "Explain this step simply"}
+              {explaining ? say(mode, "thinking") : say(mode, "explainSimply")}
             </button>
           </div>
           {explanation && <p className="step-tip">{explanation}</p>}
@@ -346,14 +374,14 @@ export default function Learn() {
               disabled={step.step_number <= 1}
               onClick={() => setStepNum((n) => n - 1)}
             >
-              ← Back
+              {tx(mode, "backBtn")}
             </button>
             <button
               className="big-btn"
               disabled={step.step_number >= step.total_steps}
-              onClick={() => setStepNum((n) => n + 1)}
+              onClick={goNext}
             >
-              Next →
+              {say(mode, "nextBtn")}
             </button>
           </div>
         </div>

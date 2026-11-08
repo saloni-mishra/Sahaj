@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMode } from "./copy.jsx";
+import { useMode, say, tx } from "./copy.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
@@ -26,10 +26,10 @@ export default function AskSahaj() {
         body: JSON.stringify({ question: q, mode }),
       });
       const data = await r.json();
-      if (!r.ok) throw new Error(data.detail || "Could not answer.");
+      if (!r.ok) throw new Error(data.detail || tx(mode, "answerError"));
       setResult(data);
     } catch (e) {
-      setResult({ answer: "Sorry, I couldn't answer just now. Please try again.", guide_id: null, guide_title: null, safety_warning: null });
+      setResult({ answer: tx(mode, "answerError"), guide_id: null, guide_title: null, safety_warning: null });
     }
     setLoading(false);
   }
@@ -48,28 +48,28 @@ export default function AskSahaj() {
   }
 
   return (
-    <section className="ask-box" aria-label="Ask Sahaj">
+    <section className="ask-box" aria-label={tx(mode, "askTitle")}>
       <span className="card-num" aria-hidden="true">?</span>
-      <h2>Ask Sahaj</h2>
-      <p className="activities-sub">Ask me anything about your phone. I answer in small, simple steps.</p>
+      <h2>{tx(mode, "askTitle")}</h2>
+      <p className="activities-sub">{say(mode, "askHint")}</p>
       <div className="ask-row">
-        <label className="ask-label" htmlFor="ask-input">Your question</label>
+        <label className="ask-label" htmlFor="ask-input">{tx(mode, "askLabel")}</label>
         <input
           id="ask-input"
           className="ask-input"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && ask()}
-          placeholder="e.g. How do I make text bigger?"
+          placeholder={tx(mode, "askPlaceholder")}
         />
         <div className="ask-buttons">
           {micSupported && (
-            <button className="big-btn btn-ghost" onClick={listen} disabled={listening} aria-label="Ask by voice">
-              {listening ? "🎙 Listening…" : "🎙 Speak"}
+            <button className="big-btn btn-ghost" onClick={listen} disabled={listening} aria-label={tx(mode, "voiceAsk")}>
+              {listening ? tx(mode, "listeningLabel") : tx(mode, "voiceAsk")}
             </button>
           )}
           <button className="big-btn" onClick={ask} disabled={loading || !q.trim()}>
-            {loading ? "Thinking…" : "Ask"}
+            {loading ? say(mode, "thinking") : say(mode, "askButton")}
           </button>
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function AskSahaj() {
         <div className="ask-answer">
           <p style={{ whiteSpace: "pre-line" }}>{result.answer}</p>
           {result.guide_id && (
-            <Link className="link-more" to="/learn">Open guide: {result.guide_title} →</Link>
+            <Link className="link-more" to="/learn">{tx(mode, "openGuidePrefix")} {result.guide_title} →</Link>
           )}
         </div>
       )}

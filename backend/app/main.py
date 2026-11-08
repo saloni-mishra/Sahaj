@@ -1,8 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz, get_missions, get_genz_words
 from pydantic import BaseModel
 from app.safety import check_message
-from app.llm import explain_guide, ask_question
+from app.llm import explain_guide, ask_question, explain_receipt, show_sahaj, decode_chat, MAX_PHOTO_BYTES, ALLOWED_PHOTO_TYPES, sniff_image
 from fastapi.middleware.cors import CORSMiddleware
 from app.paypal import (
     get_access_token,
@@ -11,6 +11,7 @@ from app.paypal import (
     PayPalError,
     UnknownItemError,
     DEFAULT_ITEM,
+    PRACTICE_ITEMS,
     FRONTEND_URL,
 )
 
@@ -38,6 +39,19 @@ class ExplainRequest(BaseModel):
 
 class AskRequest(BaseModel):
     question: str
+    mode: str = "normal"
+
+
+class ExplainReceiptRequest(BaseModel):
+    order_id: str = ""
+    status: str = ""
+    amount: str = ""
+    item: str = ""
+    mode: str = "normal"
+
+
+class DecodeRequest(BaseModel):
+    message: str = ""
     mode: str = "normal"
 
 
@@ -164,6 +178,96 @@ def ask(request: AskRequest):
         "guide_title": guide["title"] if guide else None,
         "safety_warning": safety_warning,
     }
+
+
+@app.get("/api/paypal/items")
+def paypal_items():
+    # Labels + display amounts come from the server. The browser only
+    # sends back an item id; it can never set a price.
+    return [
+        {"id": item_id, "label": item["label"], "amount": item["amount"]}
+        for item_id, item in PRACTICE_ITEMS.items()
+    ]
+
+
+@app.post("/api/explain-receipt")
+def explain_receipt_route(request: ExplainReceiptRequest):
+    # Only order facts arrive here — never secrets or credentials.
+    mode = "genz" if request.mode == "genz" else "normal"
+    order_id = (request.order_id or "")[:64]
+    status = (request.status or "")[:32]
+    amount = (request.amount or "")[:32]
+    item = (request.item or "")[:120]
+    try:
+        explanation = explain_receipt(order_id, status, amount, item, mode)
+    except Exception:
+        explanation = None
+    if not explanation:
+        # Static fallback: Gemini off or failed. Always plain and true.
+        amount_line = f"${amount}" if amount else "the test amount"
+        if mode == "genz":
+            explanation = (
+                f"Your {amount_line} went from you, through PayPal, to the seller. "
+                f"Payment is complete — you ate that! "
+                "This was test money. No real money moved."
+            )
+        else:
+            explanation = (
+                f"Your {amount_line} went from you, through PayPal, to the seller. "
+                "The payment is complete. "
+                "This was test money. No real money moved."
+            )
+    return {"explanation": explanation}
+
+
+@app.post("/api/show-sahaj")
+async def show_sahaj_route(image: UploadFile = File(...), mode: str = Form("normal")):
+    # Photo help: the image is read, forwarded to Gemini, and forgotten.
+    # Never stored, never logged.
+    use_mode = "genz" if mode == "genz" else "normal"
+    try:
+        data = await image.read()
+    except Exception:
+        raise HTTPException(status_code=400, detail="Could not read that photo.")
+    if not data or len(data) > MAX_PHOTO_BYTES:
+        raise HTTPException(status_code=413, detail="Photo is too big. Please send one under 2 MB.")
+    content_type = (image.content_type or "").lower()
+    if content_type not in ALLOWED_PHOTO_TYPES or not sniff_image(data):
+        raise HTTPException(status_code=415, detail="Please send a JPEG, PNG, or WEBP photo.")
+    try:
+        answer = show_sahaj(data, content_type, use_mode)
+    except Exception:
+        answer = None
+    if not answer:
+        if use_mode == "genz":
+            answer = "Hmm, let me cook — I could not read that photo. Try a clearer picture with the full screen in it."
+        else:
+            answer = "Sorry, I could not read that photo. Please try a clearer picture with the full screen in it."
+    return {"answer": answer}
+
+
+@app.post("/api/decode")
+def decode_chat_route(request: DecodeRequest):
+    text = (request.message or "").strip()[:500]
+    if not text:
+        raise HTTPException(status_code=400, detail="Please paste a message first.")
+    mode = "genz" if request.mode == "genz" else "normal"
+    try:
+        answer = decode_chat(text, mode)
+    except Exception:
+        answer = None
+    if not answer:
+        if mode == "genz":
+            answer = "Hmm, let me cook — I could not decode that. Try a shorter message."
+        else:
+            answer = "Sorry, I could not decode that right now. Please try a shorter message."
+    explanation, reply = answer, ""
+    for line in answer.splitlines():
+        if line.strip().lower().startswith("reply:"):
+            reply = line.split(":", 1)[1].strip()[:120]
+            explanation = answer.replace(line, "").strip()
+            break
+    return {"explanation": explanation, "reply": reply}
 
 
 @app.get("/api/paypal/check")

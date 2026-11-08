@@ -3,7 +3,11 @@
     "id": "emoji-pray",
     "emoji": "🙏",
     "question": "Your grandchild sends 🙏. What does it mean?",
-    "options": ["Thank you / Namaste", "I am angry", "I am hungry"],
+    "options": [
+      "Thank you / Namaste",
+      "I am angry",
+      "I am hungry"
+    ],
     "answer": 0,
     "why": "🙏 means thank you, please, or Namaste. It is a polite, warm sign."
   },
@@ -11,7 +15,11 @@
     "id": "emoji-laugh",
     "emoji": "😂",
     "question": "Your friend sends a joke and this: 😂. What does it mean?",
-    "options": ["Crying sadly", "Laughing a lot", "Feeling sleepy"],
+    "options": [
+      "Crying sadly",
+      "Laughing a lot",
+      "Feeling sleepy"
+    ],
     "answer": 1,
     "why": "😂 means laughing very hard — tears of joy, not sadness."
   },
@@ -19,7 +27,11 @@
     "id": "emoji-heart",
     "emoji": "❤️",
     "question": "Your daughter sends ❤️. What does it mean?",
-    "options": ["Love and care", "Warning danger", "Time for food"],
+    "options": [
+      "Love and care",
+      "Warning danger",
+      "Time for food"
+    ],
     "answer": 0,
     "why": "❤️ means love and care. Family sends it to say they love you."
   },
@@ -27,7 +39,11 @@
     "id": "emoji-party",
     "emoji": "🎉",
     "question": "You see 🎉 in a message. What is happening?",
-    "options": ["Someone is sick", "A celebration", "Bad news"],
+    "options": [
+      "Someone is sick",
+      "A celebration",
+      "Bad news"
+    ],
     "answer": 1,
     "why": "🎉 means celebration — a birthday, festival, or good news."
   },
@@ -35,7 +51,11 @@
     "id": "emoji-thumbs",
     "emoji": "👍",
     "question": "Someone replies with just 👍. What does it mean?",
-    "options": ["No, never", "OK / Yes, good", "Come here fast"],
+    "options": [
+      "No, never",
+      "OK / Yes, good",
+      "Come here fast"
+    ],
     "answer": 1,
     "why": "👍 means OK, yes, or well done. It is a quick happy yes."
   },
@@ -43,8 +63,60 @@
     "id": "emoji-cry",
     "emoji": "😢",
     "question": "Your friend sends 😢. How do they feel?",
-    "options": ["Sad, may need comfort", "Very happy", "Joking around"],
+    "options": [
+      "Sad, may need comfort",
+      "Very happy",
+      "Joking around"
+    ],
     "answer": 0,
     "why": "😢 means feeling sad. A kind reply or a call will help."
+  },
+  {
+    "id": "emoji-skull",
+    "emoji": "💀",
+    "question": "Your grandchild sends a funny video with 💀. Are they in danger?",
+    "options": [
+      "Yes, call them now",
+      "No — laughing very hard",
+      "They are angry"
+    ],
+    "answer": 1,
+    "why": "💀 means 'I died laughing'. Young people send it when something is VERY funny."
+  },
+  {
+    "id": "emoji-sparkles",
+    "emoji": "✨",
+    "question": "A message says 'New phone ✨'. What does ✨ add?",
+    "options": [
+      "Something new and special",
+      "Something broken",
+      "Something expensive to fix"
+    ],
+    "answer": 0,
+    "why": "✨ means new, clean, or special — like something shining."
+  },
+  {
+    "id": "emoji-eyes",
+    "emoji": "👀",
+    "question": "Someone replies with just 👀. What are they saying?",
+    "options": [
+      "I am watching / I noticed",
+      "Good night",
+      "I agree fully"
+    ],
+    "answer": 0,
+    "why": "👀 means 'I am watching' or 'I noticed that'. It can be curious or suspicious."
+  },
+  {
+    "id": "emoji-hands",
+    "emoji": "🙌",
+    "question": "Your family sends 🙌 after your first video call. What does it mean?",
+    "options": [
+      "Stop calling us",
+      "Celebration — well done!",
+      "We are busy now"
+    ],
+    "answer": 1,
+    "why": "🙌 means celebration and praise — hands up, you did great!"
   }
 ]

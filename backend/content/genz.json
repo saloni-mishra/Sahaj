@@ -40,5 +40,40 @@
     "meaning": "The mood or feeling of a place or person.",
     "desi": "Like the happy feeling inside a wedding hall with music.",
     "example": "Learning together has such a nice vibe."
+  },
+  {
+    "id": "genz-sus",
+    "word": "sus",
+    "meaning": "Short for suspicious. Something feels wrong or fake.",
+    "desi": "Like when a stranger at the door says he is from the bank — sus!",
+    "example": "That message asking for my OTP looks sus."
+  },
+  {
+    "id": "genz-clockit",
+    "word": "clock it",
+    "meaning": "To notice something quickly. To catch what is really going on.",
+    "desi": "Like spotting that the sabziwala's weighing scale is tilted — clock it!",
+    "example": "I clocked it — that link was fake."
+  },
+  {
+    "id": "genz-aura",
+    "word": "aura loss",
+    "meaning": "Losing respect or cool points because of something embarrassing.",
+    "desi": "Like tripping on stage at a family function — full aura loss.",
+    "example": "He fell for a fake recharge offer. Major aura loss."
+  },
+  {
+    "id": "genz-hits",
+    "word": "hits different",
+    "meaning": "Feels extra special, better than usual.",
+    "desi": "Like hot chai on a rainy day — it hits different.",
+    "example": "Video-calling family on Diwali hits different."
+  },
+  {
+    "id": "genz-ghost",
+    "word": "ghost",
+    "meaning": "To suddenly stop replying to someone, and disappear like a ghost.",
+    "desi": "Like a shopkeeper who takes advance money and never returns — he ghosted you.",
+    "example": "That seller ghosted me after I paid. It was a scam!"
   }
 ]

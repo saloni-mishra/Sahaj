@@ -25,11 +25,18 @@ TIMEOUT = 15
 PRACTICE_ITEMS = {
     "practice-5": {
         "amount": "5.00",
+        "label": "Practice payment",
         "description": "Sahaj Digital Payment Practice"
     },
     "chai-tip": {
         "amount": "1.00",
+        "label": "Chai tip",
         "description": "Sahaj Practice: a small thank-you tip"
+    },
+    "samosa-2": {
+        "amount": "2.00",
+        "label": "Samosa money",
+        "description": "Sahaj Practice: samosa money"
     },
 }
 DEFAULT_ITEM = "practice-5"
@@ -99,18 +106,19 @@ def _send(request, what):
 
 def _summarise(result):
     """Turn PayPal's order JSON into the small dictionary the frontend needs."""
-    captures = (
-        result.get("purchase_units", [{}])[0]
-        .get("payments", {})
-        .get("captures", [])
-    )
+    unit = result.get("purchase_units", [{}])[0]
+    captures = unit.get("payments", {}).get("captures", [])
     capture = captures[0] if captures else {}
+    amount = capture.get("amount") or {}
 
     return {
         "order_id": result["id"],
         "status": result["status"],
         "capture_id": capture.get("id"),
-        "capture_status": capture.get("status")
+        "capture_status": capture.get("status"),
+        "amount": amount.get("value"),
+        "currency": amount.get("currency_code", "USD"),
+        "description": unit.get("description"),
     }
 
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useMode, say, tx } from "./copy.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 const KEY = "sahaj-completed-guides";
@@ -27,6 +28,31 @@ export function saveCompleted(guideId) {
 
 const MISSION_KEY = "sahaj-missions";
 const STREAK_KEY = "sahaj-streak";
+const PAYPASS_KEY = "sahaj-pay-pass";
+
+// Sahaj Pay Pass progress (Task 6 builds the certificate on this).
+// Tracks loop stops: guide, pause-check, practice-pay, scam-round.
+export function loadPayPass() {
+  try {
+    const raw = localStorage.getItem(PAYPASS_KEY);
+    const data = raw ? JSON.parse(raw) : null;
+    return data && typeof data === "object" ? data : {};
+  } catch {
+    return {};
+  }
+}
+
+export function markPayPass(stop) {
+  try {
+    const data = loadPayPass();
+    data[stop] = true;
+    localStorage.setItem(PAYPASS_KEY, JSON.stringify(data));
+    window.dispatchEvent(new Event("sahaj-paypass"));
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 export function loadMissions() {
   try {
@@ -44,7 +70,9 @@ export function completeMission(missionId) {
     if (!list.includes(missionId)) {
       localStorage.setItem(MISSION_KEY, JSON.stringify([...list, missionId]));
       touchStreak();
-      window.dispatchEvent(new Event("sahaj-missions"));
+      window.dispatchEvent(
+        new CustomEvent("sahaj-missions", { detail: { missionId } })
+      );
     }
     return true;
   } catch {
@@ -105,6 +133,7 @@ export function Confetti() {
 export function ProgressStrip() {
   const [guides, setGuides] = useState([]);
   const [done, setDone] = useState(loadCompleted());
+  const mode = useMode();
 
   useEffect(() => {
     fetch(`${API}/api/guides`).then((r) => r.json()).then(setGuides).catch(() => {});
@@ -122,8 +151,8 @@ export function ProgressStrip() {
   if (guides.length === 0) return null;
   return (
     <div className="progress-strip" aria-label="My progress">
-      <h2>⭐ My progress</h2>
-      <p className="activities-sub">{done.length} of {guides.length} guides finished. Collect them all!</p>
+      <h2>{say(mode, "myProgress")}</h2>
+      <p className="activities-sub">{done.length} {tx(mode, "ofWord")} {guides.length} {tx(mode, "guidesWord")} {tx(mode, "finishedWord")}. {say(mode, "collectAll")}</p>
       <ul className="stamp-row">
         {guides.map((g) => {
           const has = done.includes(g.id);
@@ -140,6 +169,7 @@ export function ProgressStrip() {
 
 export function TipOfDay() {
   const [tips, setTips] = useState([]);
+  const mode = useMode();
   useEffect(() => {
     fetch(`${API}/api/tips`).then((r) => r.json()).then(setTips).catch(() => {});
   }, []);
@@ -149,7 +179,7 @@ export function TipOfDay() {
   return (
     <aside className="tip-card" aria-label="Tip of the day">
       <span className="card-num" aria-hidden="true">💡</span>
-      <h2>Tip of the day</h2>
+      <h2>{say(mode, "tipOfDay")}</h2>
       <p>{tip.text}</p>
     </aside>
   );

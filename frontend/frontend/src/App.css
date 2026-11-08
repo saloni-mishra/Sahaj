@@ -133,6 +133,21 @@
   margin-bottom: var(--space-3);
 }
 
+/* Loop passport stop badge: light marigold so it stays readable on any card. */
+.loop-stop {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: var(--marigold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: var(--space-3);
+  box-shadow: var(--shadow-small);
+}
+
 .welcome-text h1 {
   font-size: var(--text-h1);
   margin: 0 0 var(--space-3);
@@ -462,6 +477,23 @@
   margin: 12px 0;
 }
 
+/* Gen-Z only: per-step "Sahaj says" reaction bubble with mascot. */
+.sahaj-says {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: var(--warn-bg);
+  border: 2px dashed var(--ink);
+  border-radius: var(--radius-small);
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-size: var(--text-body);
+}
+
+.sahaj-says svg {
+  flex-shrink: 0;
+}
+
 .step-nav {
   display: flex;
   gap: 12px;
@@ -505,6 +537,185 @@
 .scam-safe { background: var(--safe-bg); }
 .scam-warn { background: var(--warn-bg); }
 .scam-danger { background: var(--danger-bg); }
+
+/* ---------- Scam Lab: fake phone screens ---------- */
+.wa-screen {
+  background: #e7dfd3;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  margin: 12px 0 4px;
+  overflow: hidden;
+}
+
+.sms-screen {
+  background: #f4f1ea;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  margin: 12px 0 4px;
+  overflow: hidden;
+}
+
+.upi-screen {
+  background: var(--paper-deep);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  margin: 12px 0 4px;
+  overflow: hidden;
+}
+
+.screen-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.screen-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--marigold);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1875rem;
+  flex-shrink: 0;
+}
+
+.screen-name {
+  font-weight: 700;
+  font-size: 1.125rem;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.screen-tag {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.bubble-in {
+  background: #fff;
+  border-radius: 0 12px 12px 12px;
+  margin: 12px;
+  padding: 12px 14px;
+  font-size: var(--text-body);
+  box-shadow: var(--shadow-small);
+  border: 1px solid #d8d0bf;
+}
+
+.bubble-sms {
+  background: #fff;
+  border: 1px solid #d8d0bf;
+  border-radius: 12px;
+  margin: 12px;
+  padding: 12px 14px;
+  font-size: var(--text-body);
+}
+
+.bubble-time {
+  display: block;
+  text-align: right;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.upi-card {
+  margin: 12px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.upi-note {
+  font-size: var(--text-body);
+}
+
+.upi-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.upi-decline, .upi-pay {
+  flex: 1;
+  text-align: center;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.upi-decline {
+  background: var(--paper);
+}
+
+.upi-pay {
+  background: var(--green);
+  color: #fff;
+}
+
+.pretend-note {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 2px 0 8px;
+}
+
+.flag-red {
+  background: #f6c9c4;
+  border-bottom: 3px solid #b3261e;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.flag-green {
+  background: #c9e6cf;
+  border-bottom: 3px solid var(--green-dark);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+
+.legend-red {
+  color: #8f1d12;
+}
+
+.legend-green {
+  color: var(--green-dark);
+}
+
+.help-card {
+  background: var(--danger-bg);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  padding: 12px 14px;
+  margin-top: 12px;
+}
+
+.help-card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
 
 /* ---------- Spot the Scam game ---------- */
 .quiz-box {
@@ -598,7 +809,70 @@
   animation: confetti-fall 1.6s ease-in forwards;
 }
 
-/* ---------- Fun page ---------- */
+/* ---------- Fun page: four distinct tasks, not one long list ---------- */
+.fun-pick {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.fun-pick-label {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.fun-pick a {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow-small);
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.125rem;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.task-card {
+  scroll-margin-top: 16px;
+  border-left-width: 8px;
+}
+
+.task-a {
+  border-left-color: var(--marigold);
+  transform: rotate(-0.4deg);
+}
+
+.task-b {
+  border-left-color: var(--terra);
+  background: var(--paper-deep);
+  transform: rotate(0.4deg);
+}
+
+.task-c {
+  border-left-color: var(--green);
+  transform: rotate(-0.3deg);
+}
+
+.task-d {
+  border-left-color: var(--ink);
+  transform: rotate(0.3deg);
+}
+
+.task-e {
+  border-left-color: var(--marigold-deep);
+  background: var(--warn-bg);
+  transform: rotate(-0.3deg);
+}
+
+.task-card h2 {
+  margin: 8px 0 4px;
+}
 .fun-block {
   margin-top: var(--space-4);
   background: var(--card);
@@ -670,6 +944,24 @@
   z-index: 60;
   padding: 6px;
   animation: fab-bob 3s ease-in-out infinite;
+}
+
+/* Pulsing ring so the mascot button is easy to spot */
+.fab::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 3px solid var(--terra);
+  opacity: 0.7;
+  animation: fab-ring 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes fab-ring {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  70% { transform: scale(1.12); opacity: 0; }
+  100% { transform: scale(1.12); opacity: 0; }
 }
 
 .fab img {
@@ -801,10 +1093,34 @@
 
 .chat-row {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   padding: 12px;
   border-top: 2px solid var(--ink);
-  align-items: center;
+}
+
+.chat-row textarea {
+  width: 100%;
+  font-size: var(--text-body);
+  font-family: inherit;
+  padding: 12px;
+  min-height: 64px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  background: #fff;
+  resize: vertical;
+}
+
+/* Action row below the typing box: photo, mic, ask get equal space. */
+.chat-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.chat-actions .chat-send {
+  width: 100%;
+  text-align: center;
 }
 
 .chat-label {
@@ -838,6 +1154,15 @@
   box-shadow: none;
 }
 
+/* Voice + photo buttons: icon + text label so purpose is obvious. */
+.chat-mic,
+.chat-tool {
+  font-size: 1.0625rem !important;
+  font-weight: 700 !important;
+  padding: 12px 14px !important;
+  white-space: nowrap;
+}
+
 .chat-send {
   padding: 12px 16px;
   min-height: 52px;
@@ -846,6 +1171,61 @@
 @media (prefers-reduced-motion: reduce) {
   .fab {
     animation: none;
+  }
+  .fab::after {
+    animation: none;
+    opacity: 0;
+  }
+  .mission-toast {
+    animation: none;
+  }
+}
+
+/* ---------- Mission celebration toast ---------- */
+.mission-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  z-index: 70;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: 12px 14px;
+  max-width: min(480px, calc(100vw - 40px));
+  animation: toast-in 0.25s ease;
+}
+
+.mission-toast .emoji-big {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.mission-toast button {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  font-size: 1.125rem;
+  cursor: pointer;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 700px) {
+  .mission-toast {
+    bottom: 104px;
   }
 }
 
@@ -914,9 +1294,110 @@
   display: none;
 }
 
+/* ---------- Sahaj Pay Pass: 4-stop passport + certificate ---------- */
+.paypass {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: var(--space-4);
+  margin: 0 0 var(--space-4);
+  transform: rotate(-0.3deg);
+}
+
+.paypass > h2 {
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-1);
+}
+
+.passport {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: var(--space-3) 0;
+  padding: 0;
+}
+
+.passport li {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  padding: 10px 8px;
+  text-align: center;
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  background: var(--paper);
+}
+
+.passport .pass-done {
+  background: var(--marigold);
+}
+
+.pass-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  background: var(--card);
+}
+
+.pass-link {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.cert-wrap {
+  margin: var(--space-3) 0;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.cert-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 560px) {
+  .passport {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* ---------- Missions ---------- */
 .mission-today {
   border-style: dashed;
+  /* Sit in normal flow with clear space so it never overlaps the card row below */
+  margin: 0 0 var(--space-4);
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.mission-today-text {
+  min-width: 0;
+}
+
+.mission-sticker {
+  flex-shrink: 0;
+  filter: drop-shadow(2px 2px 0 var(--ink));
+}
+
+@media (max-width: 520px) {
+  .mission-today {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
 }
 
 .mission-locked {
@@ -934,6 +1415,42 @@ img {
 
 .app {
   overflow-x: clip;
+}
+
+/* ---------- Small screens: 360px first ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+@media (max-width: 560px) {
+  .flow-line {
+    width: 26px;
+  }
+  .flow-node {
+    font-size: 0.9375rem;
+    padding: 6px 10px;
+  }
+  .chat-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+  .chat-actions .chat-send {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
 }
 
 /* ---------- Personality: mode toggle + slang decoder ---------- */
@@ -1051,6 +1568,152 @@ img {
   border-radius: var(--radius-small);
   padding: var(--space-3);
   font-size: var(--text-body);
+}
+
+/* ---------- Pause & Check: Hold up screen (Stop 2 of 4) ---------- */
+.holdup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(38, 33, 26, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+}
+
+.holdup-card {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: var(--space-4);
+  width: min(640px, 100%);
+  margin: auto 0;
+}
+
+.holdup-card h2 {
+  font-size: var(--text-h2);
+  margin: var(--space-2) 0;
+}
+
+.holdup-card h3 {
+  font-size: var(--text-h3);
+  margin: var(--space-3) 0 var(--space-1);
+}
+
+.request-card {
+  background: var(--paper-deep);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
+  display: grid;
+  gap: 6px;
+}
+
+.check-list {
+  display: grid;
+  gap: 10px;
+  margin: var(--space-3) 0;
+}
+
+.check {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 14px 16px;
+  min-height: 60px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-small);
+  cursor: pointer;
+  width: 100%;
+}
+
+.check-box {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.check-on {
+  background: var(--safe-bg);
+}
+
+.check-on .check-box {
+  background: var(--green);
+  color: #fff;
+}
+
+/* ---------- Receipt: animated you -> PayPal -> seller ---------- */
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: var(--space-4) 0;
+  flex-wrap: nowrap;
+}
+
+.flow-node {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--marigold);
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  white-space: nowrap;
+  box-shadow: var(--shadow-small);
+}
+
+.flow-line {
+  position: relative;
+  width: 56px;
+  height: 4px;
+  background: var(--ink);
+  border-radius: 2px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.flow-coin {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--ink);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: flow-move 1.8s ease-in-out infinite;
+}
+
+@keyframes flow-move {
+  0% { left: -4px; }
+  100% { left: calc(100% - 22px); }
 }
 
 /* ---------- Pay pages ---------- */

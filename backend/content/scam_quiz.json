@@ -4,69 +4,230 @@
     "message": "Hi! I sent you Rs 4,999 by mistake on UPI. Please send it back to my number 98XXX XXXXX urgently.",
     "is_scam": true,
     "why": "This is the classic UPI mix-up trick. The money never came to you — if you send, your own money goes.",
-    "tip": "Check your own bank balance first. Never return money to a stranger's number."
+    "tip": "Check your own bank balance first. Never return money to a stranger's number.",
+    "channel": "upi",
+    "sender": "Unknown UPI ID",
+    "red_flags": [
+      "send it back",
+      "urgently",
+      "98XXX XXXXX",
+      "Rs 4,999"
+    ],
+    "safe_signs": []
   },
   {
     "id": "fake_kyc",
     "message": "Dear customer, your bank KYC has expired. Your account will be BLOCKED in 24 hours. Update now at http://bit.ly/kyc-fix.",
     "is_scam": true,
     "why": "Banks never warn you with a short link and a 24-hour threat. The link steals your details.",
-    "tip": "Do not click. Visit your bank branch or call the number on your passbook."
+    "tip": "Do not click. Visit your bank branch or call the number on your passbook.",
+    "channel": "sms",
+    "sender": "VM-BANK",
+    "red_flags": [
+      "BLOCKED in 24 hours",
+      "http://bit.ly/kyc-fix"
+    ],
+    "safe_signs": []
   },
   {
     "id": "grandchild_trouble",
     "message": "Grandma, it's me! I lost my phone and I am at the police station. Please send Rs 10,000 now, and don't tell mummy and papa.",
     "is_scam": true,
     "why": "Scammers pretend to be a grandchild in trouble and beg you to keep it secret so you don't check.",
-    "tip": "Hang up and call your grandchild on their real number before doing anything."
+    "tip": "Hang up and call your grandchild on their real number before doing anything.",
+    "channel": "whatsapp",
+    "sender": "Unknown number",
+    "red_flags": [
+      "don't tell mummy and papa",
+      "Rs 10,000",
+      "police station"
+    ],
+    "safe_signs": []
   },
   {
     "id": "courier_fee",
     "message": "Your parcel is stuck at customs. Pay Rs 49 delivery fee here: http://tinyurl.com/deliver-now to release it.",
     "is_scam": true,
     "why": "Real courier companies don't ask for small fees through short links in SMS.",
-    "tip": "If you did not order anything, ignore it. If you did, track it on the company's own app."
+    "tip": "If you did not order anything, ignore it. If you did, track it on the company's own app.",
+    "channel": "sms",
+    "sender": "DM-DELIVERY",
+    "red_flags": [
+      "http://tinyurl.com/deliver-now",
+      "stuck at customs",
+      "Rs 49"
+    ],
+    "safe_signs": []
   },
   {
     "id": "lottery_win",
     "message": "Congratulations! You won Rs 25,00,000 in the KBC lottery. Pay Rs 5,000 registration fee to claim your prize.",
     "is_scam": true,
     "why": "You cannot win a lottery you never entered. Real prizes never ask you to pay first.",
-    "tip": "Delete it. Never pay any fee to receive a prize."
+    "tip": "Delete it. Never pay any fee to receive a prize.",
+    "channel": "whatsapp",
+    "sender": "KBC Prize Dept",
+    "red_flags": [
+      "Rs 25,00,000",
+      "Rs 5,000 registration fee"
+    ],
+    "safe_signs": []
   },
   {
     "id": "genuine_bank_alert",
     "message": "Your SBI account ending 4821 is credited with Rs 2,000 pension for November. HDFC Bank will never call to ask for OTP.",
     "is_scam": false,
     "why": "This only informs you about money received. It asks for nothing and even reminds you to protect your OTP.",
-    "tip": "Safe to keep. Still, open your bank app yourself to confirm the balance."
+    "tip": "Safe to keep. Still, open your bank app yourself to confirm the balance.",
+    "channel": "sms",
+    "sender": "SBI Alert",
+    "red_flags": [],
+    "safe_signs": [
+      "credited with Rs 2,000",
+      "never call to ask for OTP"
+    ]
   },
   {
     "id": "electricity_threat",
     "message": "Electricity will be CUT tonight due to unpaid bill. Pay immediately at http://t.co/power-bill to avoid disconnection.",
     "is_scam": true,
     "why": "Electricity boards send proper bills with your consumer number, not panic links the same night.",
-    "tip": "Check your bill on the official electricity app or pay at the counter."
+    "tip": "Check your bill on the official electricity app or pay at the counter.",
+    "channel": "sms",
+    "sender": "XE-BILL",
+    "red_flags": [
+      "CUT tonight",
+      "http://t.co/power-bill",
+      "Pay immediately"
+    ],
+    "safe_signs": []
   },
   {
     "id": "job_offer",
     "message": "Work from home! Earn Rs 5,000 per day liking videos. Just pay Rs 999 training fee first to join.",
     "is_scam": true,
     "why": "Real jobs pay you — they never ask you to pay a joining or training fee.",
-    "tip": "Never pay for a job offer that arrived by SMS or WhatsApp."
+    "tip": "Never pay for a job offer that arrived by SMS or WhatsApp.",
+    "channel": "whatsapp",
+    "sender": "HR Recruiter",
+    "red_flags": [
+      "Rs 999 training fee",
+      "Rs 5,000 per day"
+    ],
+    "safe_signs": []
   },
   {
     "id": "otp_reminder",
     "message": "Never share your OTP with anyone. Bank staff will never call and ask for your OTP or PIN. Stay safe.",
     "is_scam": false,
     "why": "This message protects you. It asks for nothing and warns you to keep secrets secret.",
-    "tip": "Safe to keep. Remember it whenever anyone calls asking for codes."
+    "tip": "Safe to keep. Remember it whenever anyone calls asking for codes.",
+    "channel": "sms",
+    "sender": "Bank Alert",
+    "red_flags": [],
+    "safe_signs": [
+      "Never share your OTP",
+      "never call and ask"
+    ]
   },
   {
     "id": "screen_share",
     "message": "This is bank customer care. To process your refund, please install AnyDesk and share your screen so we can help.",
     "is_scam": true,
     "why": "No real bank asks to see your phone screen. Screen sharing lets them steal OTPs and empty your account.",
-    "tip": "Never install apps or share your screen because a caller told you to."
+    "tip": "Never install apps or share your screen because a caller told you to.",
+    "channel": "whatsapp",
+    "sender": "Bank Customer Care",
+    "red_flags": [
+      "install AnyDesk",
+      "share your screen"
+    ],
+    "safe_signs": []
+  },
+  {
+    "id": "upi_collect",
+    "channel": "upi",
+    "sender": "UPI App",
+    "message": "UPI collect request: R*s*h*n* wants Rs 999 from you. Reason: cashback release fee. Tap PAY to receive Rs 9,999 cashback.",
+    "is_scam": true,
+    "red_flags": [
+      "Tap PAY to receive",
+      "cashback release fee",
+      "Rs 9,999 cashback"
+    ],
+    "safe_signs": [],
+    "why": "A collect request takes money from YOU. To receive money you never press pay or enter a PIN.",
+    "tip": "Always Decline collect requests from strangers. Receiving money never needs your PIN."
+  },
+  {
+    "id": "qr_receive",
+    "channel": "whatsapp",
+    "sender": "Refund Desk",
+    "message": "Scan this QR to RECEIVE your refund of Rs 2,499. Offer ends today! Send a screenshot after scanning.",
+    "is_scam": true,
+    "red_flags": [
+      "Scan this QR to RECEIVE",
+      "ends today",
+      "screenshot after scanning"
+    ],
+    "safe_signs": [],
+    "why": "Scanning a QR with your UPI app and entering your PIN sends money out. Receiving money never needs a QR scan.",
+    "tip": "Never scan a QR to receive money. Ask the sender to check with their own bank."
+  },
+  {
+    "id": "refund_fee",
+    "channel": "sms",
+    "sender": "SHOP-REFUND",
+    "message": "Your order refund of Rs 1,299 is ready. Pay Rs 49 processing fee at http://bit.ly/refund-fast to get it today.",
+    "is_scam": true,
+    "red_flags": [
+      "Pay Rs 49 processing fee",
+      "http://bit.ly/refund-fast"
+    ],
+    "safe_signs": [],
+    "why": "Real refunds come back to your account on their own. Any fee to unlock a refund is a trick.",
+    "tip": "Track refunds only inside the shopping app where you ordered."
+  },
+  {
+    "id": "upi_received_ok",
+    "channel": "upi",
+    "sender": "UPI App",
+    "message": "UPI: Rs 500 received from Ramesh K. at 10:02 AM. Check your bank app balance to confirm.",
+    "is_scam": false,
+    "red_flags": [],
+    "safe_signs": [
+      "received from Ramesh K.",
+      "Check your bank app balance"
+    ],
+    "why": "This only tells you money arrived. It asks for nothing — no link, no PIN, no reply.",
+    "tip": "Safe to keep. Open your bank app yourself to confirm the balance."
+  },
+  {
+    "id": "bill_paid_ok",
+    "channel": "sms",
+    "sender": "MSEB BILL",
+    "message": "Electricity bill Rs 640 paid. Receipt no 88213. Thank you for paying on time!",
+    "is_scam": false,
+    "red_flags": [],
+    "safe_signs": [
+      "Receipt no 88213",
+      "bill Rs 640 paid"
+    ],
+    "why": "This is a receipt for a payment you made. It asks for nothing and has no link.",
+    "tip": "Safe to keep as your record."
+  },
+  {
+    "id": "fd_mature_ok",
+    "channel": "sms",
+    "sender": "HDFC Bank",
+    "message": "Your fixed deposit of Rs 50,000 matures on 12 Dec. Please visit your branch for renewal. We never ask for OTP on call.",
+    "is_scam": false,
+    "red_flags": [],
+    "safe_signs": [
+      "visit your branch",
+      "never ask for OTP"
+    ],
+    "why": "This only gives information and asks you to visit the branch. It warns you about OTP safety.",
+    "tip": "Safe to keep. For renewals, always go to the branch or the official app yourself."
   }
 ]

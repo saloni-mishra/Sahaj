@@ -3,26 +3,29 @@ import './App.css'
 import { useEffect, useRef, useState } from "react";
 import { Routes, Route, useSearchParams, Link } from "react-router-dom";
 import Learn from "./Learn.jsx";
-import AskSahaj from "./AskSahaj.jsx";
 import { ProgressStrip, TipOfDay } from "./Progress.jsx";
 import Fun from "./Fun.jsx";
-import Missions, { TodaysMission } from "./Missions.jsx";
+import Missions, { TodaysMission, MissionToast } from "./Missions.jsx";
 import SafeOrScam from "./SafeOrScam.jsx";
 import FloatingAsk from "./FloatingAsk.jsx";
+import PauseCheck from "./PauseCheck.jsx";
+import { PayPass } from "./PayPass.jsx";
 import Mascot from "./Mascot.jsx";
 
 function BottomNav() {
+  const mode = useMode();
   return (
     <nav className="bottom-nav" aria-label="Quick">
-      <Link to="/">🏠<span>Home</span></Link>
-      <Link to="/learn">📖<span>Learn</span></Link>
-      <Link to="/missions">⭐<span>Stars</span></Link>
-      <Link to="/safe-or-scam">🛡<span>Safe?</span></Link>
-      <Link to="/fun">🎮<span>Fun</span></Link>
+      <Link to="/">🏠<span>{tx(mode, "navHome")}</span></Link>
+      <Link to="/learn">📖<span>{tx(mode, "navLearn")}</span></Link>
+      <Link to="/missions">⭐<span>{tx(mode, "navStars")}</span></Link>
+      <Link to="/safe-or-scam">🛡<span>{tx(mode, "navSafe")}</span></Link>
+      <Link to="/fun">🎮<span>{tx(mode, "navFun")}</span></Link>
     </nav>
   );
 }
-import { useMode, setMode, COPY, withSlang } from "./copy.jsx";
+import { useMode, setMode, say, tx } from "./copy.jsx";
+import { markPayPass } from "./Progress.jsx";
 
 function ModeToggle() {
   const mode = useMode();
@@ -33,48 +36,26 @@ function ModeToggle() {
         aria-pressed={mode === "normal"}
         onClick={() => setMode("normal")}
       >
-        Normal
+        {tx(mode, "modeNormal")}
       </button>
       <button
         className={mode === "genz" ? "mode-on" : ""}
         aria-pressed={mode === "genz"}
         onClick={() => setMode("genz")}
       >
-        Gen-Z
+        {tx(mode, "modeGenz")}
       </button>
     </div>
   );
 }
 
 function Home() {
- const [paying, setPaying] = useState(false);
- const [payError, setPayError] = useState("");
+ const [holdUp, setHoldUp] = useState(false);
  const mode = useMode();
 
-async function startPracticePayment() {
-  setPaying(true);
-  setPayError("");
-
-  try {
-    const response = await fetch(`${API}/api/paypal/create-order`, {
-      method: "POST",
-    });
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.detail || "Could not start the practice.");
-    }
-
-    // Send the browser to PayPal's approval page.
-    window.location.href = data.approval_url;
-  } catch (error) {
-    setPayError(error.message);
-    setPaying(false);
-  }
-}
   return (
     <div className="app">
-      
+      <a className="skip-link" href="#home">Skip to content</a>
 <header className="navbar">
   <Link to="/" className="brand">
     <img
@@ -86,12 +67,12 @@ async function startPracticePayment() {
   </Link>
 
   <nav aria-label="Main">
-    <Link to="/">Home</Link>
-    <Link to="/learn">Learn</Link>
-    <Link to="/missions">Missions</Link>
-    <Link to="/safe-or-scam">Safe or Scam?</Link>
-    <a href="/#practice">Practice</a>
-    <a href="/#fun">Fun</a>
+    <Link to="/">{tx(mode, "navHome")}</Link>
+    <Link to="/learn">{tx(mode, "navLearn")}</Link>
+    <Link to="/missions">{tx(mode, "navMissions")}</Link>
+    <Link to="/safe-or-scam">{tx(mode, "navSafeLong")}</Link>
+    <a href="/#practice">{tx(mode, "navPractice")}</a>
+    <a href="#fun">{tx(mode, "navFun")}</a>
   </nav>
   <ModeToggle />
 </header>
@@ -100,20 +81,20 @@ async function startPracticePayment() {
       <main id="home">
         <section className="welcome">
           <div className="welcome-text">
-            <p className="welcome-label">THE GRANDKID YOU CAN ALWAYS ASK</p>
+            <p className="welcome-label">{say(mode, "brandTagline")}</p>
 
-            <h1>Technology, made simple.</h1>
+            <h1>{say(mode, "heroTitle")}</h1>
             <svg className="squiggle" viewBox="0 0 220 14" aria-hidden="true">
               <path d="M3 10 C 40 3, 80 3, 110 8 S 180 12, 217 5" fill="none" stroke="#B94E24" strokeWidth="5" strokeLinecap="round" />
             </svg>
 
             <p>
-              {mode === "genz" ? withSlang(COPY.heroSub.genz) : COPY.heroSub.normal}
+              {say(mode, "heroSub")}
             </p>
 
             <div className="hero-actions">
-              <Link to="/learn" className="big-btn">Start learning</Link>
-              <a href="#practice" className="big-btn btn-ghost">Try practice</a>
+              <Link to="/learn" className="big-btn">{say(mode, "startLearning")}</Link>
+              <a href="#practice" className="big-btn btn-ghost">{say(mode, "tryPractice")}</a>
             </div>
           </div>
 
@@ -123,63 +104,62 @@ async function startPracticePayment() {
               alt="Sahaj friendly technology companion"
               className="welcome-image"
             />
-            <h2>A patient helper</h2>
+            <h2>{say(mode, "helperTitle")}</h2>
             <ul>
-              <li>Big letters, big buttons</li>
-              <li>One step at a time, with pictures</li>
-              <li>Practice with test money first</li>
+              <li>{say(mode, "helper1")}</li>
+              <li>{say(mode, "helper2")}</li>
+              <li>{say(mode, "helper3")}</li>
             </ul>
-            <span className="stamp">PayPal hackathon · Sandbox only</span>
+            <span className="stamp">{say(mode, "sandboxStamp")}</span>
           </aside>
         </section>
 
         <section className="activities">
-          <h2>What would you like to do today?</h2>
-          <p className="activities-sub">Four doors, pick one. No rush — Sahaj waits for you.</p>
+          <h2>{say(mode, "activitiesTitle")}</h2>
+          <p className="activities-sub">{say(mode, "activitiesSub")}</p>
           <ProgressStrip />
+          <PayPass />
           <TodaysMission />
 
           <div className="activity-list">
             <article className="activity-card card-learn" id="learn">
               <span className="card-num" aria-hidden="true">1</span>
-              <h3>Learn</h3>
-              <p>Get simple, step-by-step help with your phone.</p>
-              <Link className="link-more" to="/learn">Start learning →</Link>
+              <h3>{say(mode, "learnCardTitle")}</h3>
+              <p>{say(mode, "learnCardDesc")}</p>
+              <Link className="link-more" to="/learn">{say(mode, "learnCardLink")}</Link>
             </article>
 
             <article className="activity-card card-practice" id="practice">
   <span className="card-num" aria-hidden="true">2</span>
-  <h3>Practice</h3>
-  <p>Try a pretend payment with test money.</p>
-  <p className="sandbox-note">Practice Mode: uses PayPal Sandbox test money — no real money is used.</p>
+  <h3>{say(mode, "practiceCardTitle")}</h3>
+  <p>{say(mode, "practiceCardDesc")}</p>
+  <p className="sandbox-note">{say(mode, "sandboxNote")}</p>
 
-  <button onClick={startPracticePayment} disabled={paying}>
-    {paying ? "Opening PayPal…" : "Try a practice payment"}
+  <button onClick={() => setHoldUp(true)}>
+    {say(mode, "practiceButton")}
   </button>
-
-  {payError && <p role="alert">{payError}</p>}
 </article>
 
             <article className="activity-card card-safe" id="safe-or-scam">
               <span className="card-num" aria-hidden="true">3</span>
-              <h3>Safe or Scam?</h3>
-              <p>Play detective. Spot scam messages before they spot you.</p>
-              <Link className="link-more" to="/safe-or-scam">Play detective →</Link>
+              <h3>{say(mode, "safeCardTitle")}</h3>
+              <p>{say(mode, "safeCardDesc")}</p>
+              <Link className="link-more" to="/safe-or-scam">{say(mode, "safeCardLink")}</Link>
             </article>
 
             <article className="activity-card card-fun" id="fun">
               <span className="card-num" aria-hidden="true">4</span>
-              <h3>Fun</h3>
-              <p>Explore words, emojis, and little activities.</p>
-              <Link className="link-more" to="/fun">Play and learn →</Link>
+              <h3>{say(mode, "funCardTitle")}</h3>
+              <p>{say(mode, "funCardDesc")}</p>
+              <Link className="link-more" to="/fun">{say(mode, "funCardLink")}</Link>
             </article>
           </div>
         </section>
 
-        <AskSahaj />
         <TipOfDay />
       </main>
-      <footer className="footer-note">Sahaj speaks plainly. Big text, no rush, no real money in Practice.</footer>
+      <footer className="footer-note">{say(mode, "footerNote")}</footer>
+      {holdUp && <PauseCheck onClose={() => setHoldUp(false)} />}
     </div>
   )
 }
@@ -188,15 +168,19 @@ const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 function PaymentSuccess() {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
+  const payMode = useMode();
 
   const [state, setState] = useState("loading"); // loading | success | error
   const [message, setMessage] = useState("");
+  const [capture, setCapture] = useState(null);
+  const [explanation, setExplanation] = useState("");
+  const [reading, setReading] = useState(false);
   const started = useRef(false);
 
   useEffect(() => {
     if (!token) {
       setState("error");
-      setMessage("No payment was found in this link.");
+      setMessage(tx(payMode, "noPaymentFound"));
       return;
     }
 
@@ -209,9 +193,37 @@ function PaymentSuccess() {
       .then(async (response) => {
         const data = await response.json();
         if (!response.ok) {
-          throw new Error(data.detail || "Something went wrong.");
+          throw new Error(data.detail || tx(payMode, "startError"));
         }
+        setCapture(data);
         setState("success");
+        markPayPass("practice-pay");
+        // Plain-words receipt from Gemini (fallback is static text).
+        setReading(true);
+        let itemLabel = "";
+        try {
+          itemLabel = sessionStorage.getItem("sahaj-last-item") || "";
+        } catch {
+          itemLabel = "";
+        }
+        try {
+          const r = await fetch(`${API}/api/explain-receipt`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              order_id: data.order_id || token,
+              status: data.status || "",
+              amount: data.amount ? `${data.amount} ${data.currency || "USD"}` : "",
+              item: itemLabel || data.description || "",
+              mode: payMode,
+            }),
+          });
+          const edata = await r.json();
+          setExplanation(edata.explanation || "");
+        } catch {
+          setExplanation("");
+        }
+        setReading(false);
       })
       .catch((error) => {
         setState("error");
@@ -219,35 +231,55 @@ function PaymentSuccess() {
       });
   }, [token]);
 
-  if (state === "loading") return <div className="pay-page"><div className="pay-card"><h1>Checking your practice payment…</h1><p>Please wait a moment.</p></div></div>;
+  if (state === "loading") return <div className="pay-page"><div className="pay-card"><h1>{say(payMode, "checkingPaymentTitle")}</h1><p>{say(payMode, "checkingPaymentSub")}</p></div></div>;
 
   if (state === "error") {
     return (
       <div className="pay-page"><div className="pay-card">
-        <h1>That did not work</h1>
+        <h1>{say(payMode, "practiceErrorTitle")}</h1>
         <p>{message}</p>
-        <p>No real money was used. This was practice mode.</p>
-        <Link className="big-btn" to="/">Back to Sahaj</Link>
+        <p>{say(payMode, "practiceErrorSub")}</p>
+        <Link className="big-btn" to="/">{tx(payMode, "backButton")}</Link>
       </div></div>
     );
   }
 
   return (
     <div className="pay-page"><div className="pay-card">
+      <p className="loop-stop">{say(payMode, "loopStop4")}</p>
       <span className="stamp">Practice · Sandbox test money</span>
-      <h1>Well done!</h1>
-      <p>You finished a practice payment. No real money was used.</p>
-      <Link className="big-btn" to="/">Back to Sahaj</Link>
+      <h1>{say(payMode, "practiceDoneTitle")}</h1>
+      <p>{say(payMode, "practiceDoneSub")}</p>
+      <div className="flow-diagram" aria-label="Money path: you, through PayPal, to the seller">
+        <span className="flow-node">🧑 {tx(payMode, "flowYou")}</span>
+        <span className="flow-line" aria-hidden="true"><span className="flow-coin">$</span></span>
+        <span className="flow-node">🅿 {tx(payMode, "flowPayPal")}</span>
+        <span className="flow-line" aria-hidden="true"><span className="flow-coin">$</span></span>
+        <span className="flow-node">🏪 {tx(payMode, "flowSeller")}</span>
+      </div>
+      <div className="request-card">
+        <h2>{say(payMode, "receiptTitle")}</h2>
+        {capture?.amount && <p><strong>{tx(payMode, "receiptAmount")}</strong> ${capture.amount} {capture.currency || "USD"}</p>}
+        {capture?.order_id && <p><strong>{tx(payMode, "receiptOrder")}</strong> {capture.order_id}</p>}
+        {capture?.status && <p><strong>{tx(payMode, "receiptStatus")}</strong> {capture.status}</p>}
+        <p className="stamp">{say(payMode, "receiptTestMoney")}</p>
+      </div>
+      {reading && <p className="chat-hint">{say(payMode, "readingReceipt")}</p>}
+      {explanation && <p className="step-tip">{explanation}</p>}
+      <div className="step-nav">
+        <Link className="big-btn" to="/">{tx(payMode, "backButton")}</Link>
+      </div>
     </div></div>
   );
 }
 
 function PaymentCancel() {
+  const cancelMode = useMode();
   return (
     <div className="pay-page"><div className="pay-card">
-      <h1>No problem, you stopped the payment.</h1>
-      <p>Nothing was charged. This was practice mode, so you can try again any time.</p>
-      <Link className="big-btn" to="/">Back to Sahaj</Link>
+      <h1>{say(cancelMode, "cancelTitle")}</h1>
+      <p>{say(cancelMode, "cancelSub")}</p>
+      <Link className="big-btn" to="/">{tx(cancelMode, "backButton")}</Link>
     </div></div>
   );
 }
@@ -265,6 +297,7 @@ function App() {
       <Route path="/practice/payment/cancel" element={<PaymentCancel />} />
       </Routes>
       <FloatingAsk />
+      <MissionToast />
       <BottomNav />
     </>
   );

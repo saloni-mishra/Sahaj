@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMode, say, tx } from "./copy.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
@@ -6,6 +7,7 @@ export default function ScamChecker() {
   const [text, setText] = useState("");
   const [result, setResult] = useState(null);
   const [checking, setChecking] = useState(false);
+  const mode = useMode();
 
   async function check() {
     if (!text.trim()) return;
@@ -27,16 +29,16 @@ export default function ScamChecker() {
 
   return (
     <div className="scam-box">
-      <label htmlFor="scam-input"><strong>Scam checker:</strong> paste a message you received.</label>
+      <label htmlFor="scam-input"><strong>{tx(mode, "scamCheckerLabel")}</strong></label>
       <textarea
         id="scam-input"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Paste the message here…"
+        placeholder={tx(mode, "pastePlaceholder")}
         rows={3}
       />
       <button className="big-btn" onClick={check} disabled={checking || !text.trim()}>
-        {checking ? "Checking…" : "Check this message"}
+        {checking ? say(mode, "checking") : say(mode, "checkMessage")}
       </button>
       {result?.risk === "LOW" && (
         <p role="status" className="scam-safe">✅ Looks safe. No scam signs found. Still, never share OTP or passwords.</p>
@@ -48,7 +50,7 @@ export default function ScamChecker() {
         <p role="status" className="scam-danger">🛑 Danger — very likely a scam! {result.reasons?.[0] || ""} {result.actions?.[0] || "Do not reply or send money."}</p>
       )}
       {result?.risk === "ERROR" && (
-        <p role="alert">Sorry, the checker is not working right now.</p>
+        <p role="alert">{say(mode, "checkerError")}</p>
       )}
     </div>
   );

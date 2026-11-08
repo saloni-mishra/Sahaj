@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useMode } from "./copy.jsx";
+import { useMode, say, tx } from "./copy.jsx";
+import { sendPhoto } from "./ShowSahaj.jsx";
 import Mascot from "./Mascot.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
@@ -27,7 +28,9 @@ export default function FloatingAsk() {
   const [msgs, setMsgs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [listening, setListening] = useState(false);
+  const [photoReading, setPhotoReading] = useState(false);
   const inputRef = useRef(null);
+  const photoRef = useRef(null);
   const mode = useMode();
 
   const micOK =
@@ -80,12 +83,12 @@ export default function FloatingAsk() {
         body: JSON.stringify({ question, mode }),
       });
       const data = await r.json();
-      if (!r.ok) throw new Error(data.detail || "Could not answer.");
+      if (!r.ok) throw new Error(data.detail || tx(mode, "answerError"));
       setMsgs((m) => [...m, { from: "sahaj", ...data, text: data.answer }]);
     } catch {
       setMsgs((m) => [
         ...m,
-        { from: "sahaj", text: "Sorry, I couldn't answer just now. Please try again." },
+        { from: "sahaj", text: tx(mode, "answerError") },
       ]);
     }
     setLoading(false);
@@ -104,30 +107,42 @@ export default function FloatingAsk() {
     rec.start();
   }
 
+  async function onPhoto(file) {
+    if (!file || photoReading) return;
+    setPhotoReading(true);
+    setMsgs((m) => [...m, { from: "you", text: `📷 ${tx(mode, "photoSent")}` }]);
+    const result = await sendPhoto(file, mode);
+    setMsgs((m) => [
+      ...m,
+      { from: "sahaj", text: result.ok ? result.text : tx(mode, result.key) },
+    ]);
+    setPhotoReading(false);
+    if (photoRef.current) photoRef.current.value = "";
+  }
+
   return (
     <>
       {bubble && !open && (
         <div className="fab-bubble">
-          <p>Stuck? Ask me!</p>
-          <button onClick={dismissBubble} aria-label="Dismiss">✕</button>
+          <p>{say(mode, "askBubble")}</p>
+          <button onClick={dismissBubble} aria-label={tx(mode, "dismiss")}>✕</button>
         </div>
       )}
       <button
         className="fab"
         onClick={() => setOpen((o) => !o)}
-        aria-label={open ? "Close Ask Sahaj chat" : "Open Ask Sahaj chat"}
+        aria-label={open ? tx(mode, "closeAskChat") : tx(mode, "openChat")}
         aria-expanded={open}
       >
         <Mascot mood={open ? "thinking" : "happy"} size={60} />
       </button>
       {open && (
-        <section className="chat-sheet" role="dialog" aria-label="Ask Sahaj chat">
+        <section className="chat-sheet" role="dialog" aria-label={tx(mode, "askTitle")}>
           <div className="chat-head">
-            <h2>Ask Sahaj</h2>
-            <button className="chat-x" onClick={() => setOpen(false)} aria-label="Close chat">✕</button>
+            <h2>{tx(mode, "askTitle")}</h2>
+            <button className="chat-x" onClick={() => setOpen(false)} aria-label={tx(mode, "closeChat")}>✕</button>
           </div>
           <div className="chat-msgs" role="log" aria-live="polite">
-            {msgs.length === 0 && <p className="chat-hint">Ask me anything about your phone. I answer in small steps.</p>}
             {msgs.map((m, i) => (
               <div key={i} className={m.from === "you" ? "chat-you" : "chat-sahaj"}>
                 {m.warning || m.safety_warning ? (
@@ -136,34 +151,50 @@ export default function FloatingAsk() {
                 <p style={{ whiteSpace: "pre-line" }}>{m.text}</p>
                 {m.guide_id && (
                   <Link className="link-more" to="/learn" onClick={() => setOpen(false)}>
-                    Open guide: {m.guide_title} →
+                    {tx(mode, "openGuidePrefix")} {m.guide_title} →
                   </Link>
                 )}
                 {m.from === "sahaj" && "speechSynthesis" in window && (
-                  <button className="chat-speak" onClick={() => speak(m.text)} aria-label="Read this answer aloud">🔊</button>
+                  <button className="chat-speak" onClick={() => speak(m.text)} aria-label={tx(mode, "readAloud")}>🔊</button>
                 )}
               </div>
             ))}
-            {loading && <p className="chat-hint">Thinking…</p>}
+            {loading && <p className="chat-hint">{say(mode, "thinking")}</p>}
+            {photoReading && <p className="chat-hint">{say(mode, "photoReading")}</p>}
           </div>
           <div className="chat-row">
-            <label htmlFor="fab-ask-input" className="chat-label">Your question</label>
-            <input
+            <label htmlFor="fab-ask-input" className="chat-label">{tx(mode, "askLabel")}</label>
+            <textarea
               id="fab-ask-input"
               ref={inputRef}
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && send()}
-              placeholder="e.g. How do I make text bigger?"
+              onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && (e.preventDefault(), send())}
+              placeholder={tx(mode, "askHint")}
+              rows={2}
             />
-            {micOK && (
-              <button onClick={listen} disabled={listening} aria-label="Ask by voice">
-                {listening ? "🎙…" : "🎙"}
+            <div className="chat-actions">
+              <button className="chat-tool" onClick={() => photoRef.current && photoRef.current.click()} disabled={photoReading} aria-label={tx(mode, "showSahaj")} title={tx(mode, "showSahaj")}>
+                {tx(mode, "photoLabel")}
               </button>
-            )}
-            <button className="big-btn chat-send" onClick={() => send()} disabled={loading || !q.trim()}>
-              Ask
-            </button>
+              {micOK && (
+                <button className="chat-mic" onClick={listen} disabled={listening} aria-label={listening ? tx(mode, "listeningLabel") : tx(mode, "voiceAsk")} title={listening ? tx(mode, "listeningLabel") : tx(mode, "voiceAsk")}>
+                  {listening ? "🎙…" : "🎙 Speak"}
+                </button>
+              )}
+              <button className="big-btn chat-send" onClick={() => send()} disabled={loading || !q.trim()}>
+                {say(mode, "askButton")}
+              </button>
+            </div>
+            <input
+              ref={photoRef}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              aria-label={tx(mode, "showSahaj")}
+              style={{ display: "none" }}
+              onChange={(e) => onPhoto(e.target.files && e.target.files[0])}
+            />
           </div>
         </section>
       )}
