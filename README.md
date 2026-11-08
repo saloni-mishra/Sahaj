@@ -9,12 +9,28 @@ Built for PayPal's **"Build What's Next with PayPal and AI"** hackathon.
 
 > **Practice Mode uses PayPal Sandbox test money.** No real money is charged or moved. Buyers sign in with a Sandbox test account, never a real PayPal account.
 
-<!-- Add screenshots here, e.g.
-![Home](docs/home.png)
-![Learn step](docs/learn.png)
-![Safe or Scam?](docs/scam-lab.png)
-![Pay Pass certificate](docs/pay-pass.png)
--->
+## Live demo
+
+- **App:** https://sahaj-iota.vercel.app
+- **API:** https://sahaj-b0ck.onrender.com 
+
+> The backend runs on Render's free plan and sleeps when idle. The first request can take up to a minute, so give the first page load a moment.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/home.png" alt="Home: hero, today's mission and the four doors" width="100%"><br><sub><b>Home</b>: Today's mission and the Pay Pass</sub></td>
+    <td align="center"><img src="docs/learn.png" alt="Learn: a step-by-step guide with a screenshot" width="100%"><br><sub><b>Learn</b>: one step at a time, with pictures</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/pay.png" alt="Practice Pay: PayPal Sandbox checkout and receipt explainer" width="100%"><br><sub><b>Practice Pay</b>: PayPal Sandbox, test money</sub></td>
+    <td align="center"><img src="docs/scam.png" alt="Safe or Scam? detective game on a fake phone screen" width="100%"><br><sub><b>Safe or Scam?</b>: spot the red flags</sub></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><img src="docs/fun.png" alt="Fun: words, emoji quiz and group-chat decoder" width="60%"><br><sub><b>Fun</b>: Gen Z words, emoji quiz, chat decoder</sub></td>
+  </tr>
+</table>
 
 ---
 
@@ -206,5 +222,19 @@ frontend/frontend/
 - **Frontend (Vercel):** `vercel.json` rewrites all routes to `index.html` so refreshing `/learn` or `/practice/payment/success` works. Set `VITE_API_URL` to the backend URL.
 - **Backend:** set the same variables from `backend/.env` on your host, with `FRONTEND_URL` set to the deployed frontend URL.
 
+This project runs as two services:
+
+- **Backend on Render** (Python 3, root directory `backend`)
+  - Build: `pip install -r requirements.txt`
+  - Start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+  - Environment: `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `GEMINI_API_KEY`, and `FRONTEND_URL` set to the Vercel URL (no trailing slash).
+- **Frontend on Vercel** (root directory `frontend/frontend`, Vite preset)
+  - Environment: `VITE_API_URL` set to the Render URL (no trailing slash). It is read at build time, so redeploy the frontend after changing it.
+
+`FRONTEND_URL` controls both CORS and PayPal's return and cancel URLs, so it must match the deployed frontend exactly. Vercel preview URLs are not allowed by CORS; use the production URL.
+
+## Credits
+Built with FastAPI, React, PayPal Sandbox and Google Gemini.
+
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
