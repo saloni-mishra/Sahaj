@@ -202,6 +202,38 @@ def decode_chat(message, mode="normal"):
         return None
 
 
+def ask_general(question, mode="normal"):
+    """General phone help when no official guide matches. Short, safe, honest."""
+    if client is None:
+        return None
+    system = SYSTEM_GENZ if mode == "genz" else SYSTEM_NORMAL
+    reaction_rule = (
+        "You may add at most ONE short playful cheer at the very end."
+        if mode == "genz" else
+        "Use a warm tone, like a kind grandchild. Use plain words only."
+    )
+    prompt = (
+        system + "\n\nThe user asked:\n" + question + "\n\nYour task:\n"
+        "1. Answer in very simple English, like explaining to a grandparent.\n"
+        "2. Give short numbered steps (at most 5) that work on most phones.\n"
+        "3. Start with the line: General steps - your phone may look a little different.\n"
+        "4. HARD RULE: if the question involves money, payments, OTPs, PINs, passwords, "
+        "bank or UPI apps, or account recovery, do NOT give steps. Instead say: "
+        "please ask a trusted family member or the official support for help with this.\n"
+        "5. Never ask for or repeat OTPs, PINs, passwords, or bank details.\n"
+        "6. End by asking which phone brand and model they have, so you can be more specific next time.\n"
+        "7. " + reaction_rule + "\n\nReturn only the answer."
+    )
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+        return response.text
+    except Exception:
+        return None
+
+
 def show_sahaj(image_bytes, mime_type, mode="normal"):
     """Look at a screen photo: what is it, anything risky, next safe taps."""
     if client is None:

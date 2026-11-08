@@ -78,7 +78,7 @@ export default function AskSahaj() {
         <div className="ask-answer">
           <p style={{ whiteSpace: "pre-line" }}>{result.answer}</p>
           {result.guide_id && (
-            <Link className="link-more" to="/learn">{tx(mode, "openGuidePrefix")} {result.guide_title} →</Link>
+            <Link className="link-more" to={`/learn?guide=${result.guide_id}`}>{tx(mode, "openGuidePrefix")} {result.guide_title} →</Link>
           )}
         </div>
       )}

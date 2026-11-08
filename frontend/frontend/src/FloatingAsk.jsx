@@ -150,7 +150,7 @@ export default function FloatingAsk() {
                 ) : null}
                 <p style={{ whiteSpace: "pre-line" }}>{m.text}</p>
                 {m.guide_id && (
-                  <Link className="link-more" to="/learn" onClick={() => setOpen(false)}>
+                  <Link className="link-more" to={`/learn?guide=${m.guide_id}`} onClick={() => setOpen(false)}>
                     {tx(mode, "openGuidePrefix")} {m.guide_title} →
                   </Link>
                 )}

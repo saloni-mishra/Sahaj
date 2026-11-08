@@ -2210,6 +2210,420 @@
         }
       },
       "brand_guides": {}
+    },
+    {
+      "id": "delete-a-photo",
+      "title": "Delete a Photo",
+      "description": "Remove a photo you do not want, and find it again in Recently Deleted.",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "delete picture",
+        "delete photo",
+        "remove photo",
+        "remove picture",
+        "gallery",
+        "photos",
+        "recently deleted",
+        "trash",
+        "dustbin"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Photos app and open the photo.",
+              "image": null,
+              "image_alt": "Photo open in Photos",
+              "genz_note": "Tidying up — no cap."
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the dustbin button, then tap Delete.",
+              "image": null,
+              "image_alt": "Dustbin button"
+            },
+            {
+              "step_number": 3,
+              "text": "Changed your mind? Open Albums, then Recently Deleted.",
+              "image": null,
+              "image_alt": "Recently Deleted album",
+              "genz_note": "You ate that — photos can come back."
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the photo, then tap Recover.",
+              "image": null,
+              "image_alt": "Recover button"
+            }
+          ],
+          "tips": [
+            "Deleted photos stay in Recently Deleted for 30 days, then go away forever."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open Gallery or Google Photos and open the photo.",
+              "image": null,
+              "image_alt": "Photo open in gallery",
+              "genz_note": "Tidying up — no cap."
+            },
+            {
+              "step_number": 2,
+              "text": "Tap the dustbin button, then tap Delete.",
+              "image": null,
+              "image_alt": "Dustbin button"
+            },
+            {
+              "step_number": 3,
+              "text": "Changed your mind? Open Trash or Bin.",
+              "image": null,
+              "image_alt": "Trash folder",
+              "genz_note": "You ate that — photos can come back."
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the photo, then tap Restore.",
+              "image": null,
+              "image_alt": "Restore button"
+            }
+          ],
+          "tips": [
+            "Deleted photos stay in Trash for 30 to 60 days, then go away forever."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "take-a-photo",
+      "title": "Take a Photo",
+      "description": "Open the camera and take a clear photo.",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "take photo",
+        "take picture",
+        "camera",
+        "click photo",
+        "capture",
+        "photos"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Camera app.",
+              "image": null,
+              "image_alt": "Camera app icon",
+              "genz_note": "Say cheese — let me cook."
+            },
+            {
+              "step_number": 2,
+              "text": "Point the phone at what you want to capture.",
+              "image": null,
+              "image_alt": "Pointing the camera"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the big round button to take the photo.",
+              "image": null,
+              "image_alt": "Camera shutter button"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the small picture at the corner to see your photo.",
+              "image": null,
+              "image_alt": "Photo preview"
+            }
+          ],
+          "tips": [
+            "Wipe the lens with a soft cloth for clearer photos."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Camera app.",
+              "image": null,
+              "image_alt": "Camera app icon",
+              "genz_note": "Say cheese — let me cook."
+            },
+            {
+              "step_number": 2,
+              "text": "Point the phone at what you want to capture.",
+              "image": null,
+              "image_alt": "Pointing the camera"
+            },
+            {
+              "step_number": 3,
+              "text": "Tap the big round button to take the photo.",
+              "image": null,
+              "image_alt": "Camera shutter button"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap the small picture at the corner to see your photo.",
+              "image": null,
+              "image_alt": "Photo preview"
+            }
+          ],
+          "tips": [
+            "Wipe the lens with a soft cloth for clearer photos."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "find-saved-photo",
+      "title": "Find a Saved Photo or Screenshot",
+      "description": "Find photos and screenshots you saved earlier.",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "find photo",
+        "find picture",
+        "saved photo",
+        "screenshot",
+        "gallery",
+        "photos",
+        "where is my photo",
+        "download"
+      ],
+      "settings_search_term": "",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open the Photos app.",
+              "image": null,
+              "image_alt": "Photos app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Albums at the bottom.",
+              "image": null,
+              "image_alt": "Albums tab",
+              "genz_note": "Your memories are here — no cap."
+            },
+            {
+              "step_number": 3,
+              "text": "Open Screenshots or Downloads to find saved pictures.",
+              "image": null,
+              "image_alt": "Screenshots album"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap any photo to see it big.",
+              "image": null,
+              "image_alt": "Photo opened"
+            }
+          ],
+          "tips": [
+            "Use the Search tab and type a word like dog to find old photos."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open Gallery or Google Photos.",
+              "image": null,
+              "image_alt": "Gallery app icon"
+            },
+            {
+              "step_number": 2,
+              "text": "Tap Albums or Library.",
+              "image": null,
+              "image_alt": "Albums view",
+              "genz_note": "Your memories are here — no cap."
+            },
+            {
+              "step_number": 3,
+              "text": "Open Screenshots or Downloads to find saved pictures.",
+              "image": null,
+              "image_alt": "Screenshots folder"
+            },
+            {
+              "step_number": 4,
+              "text": "Tap any photo to see it big.",
+              "image": null,
+              "image_alt": "Photo opened"
+            }
+          ],
+          "tips": [
+            "In Google Photos, use Search and type a word like dog."
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "free-up-storage",
+      "title": "Free Up Phone Storage",
+      "description": "Make space when your phone says storage is full.",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "storage full",
+        "storage",
+        "full",
+        "no space",
+        "free space",
+        "memory full",
+        "gallery",
+        "delete",
+        "photos"
+      ],
+      "settings_search_term": "storage",
+      "platform_guides": {
+        "ios": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General iPhone. Menu names can move with updates - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open Settings, then tap General, then iPhone Storage.",
+              "image": null,
+              "image_alt": "Storage screen",
+              "genz_note": "Making space — you ate that."
+            },
+            {
+              "step_number": 2,
+              "text": "Wait. The phone shows what is using space.",
+              "image": null,
+              "image_alt": "Storage list"
+            },
+            {
+              "step_number": 3,
+              "text": "Delete photos and videos you do not need.",
+              "image": null,
+              "image_alt": "Deleting old photos"
+            },
+            {
+              "step_number": 4,
+              "text": "Delete apps you never open.",
+              "image": null,
+              "image_alt": "Deleting an app"
+            }
+          ],
+          "tips": [
+            "Photos and videos use the most space. Start there."
+          ]
+        },
+        "android": {
+          "verification": {
+            "status": "needs_checking",
+            "source_type": "general",
+            "sources": [],
+            "applies_to": "General Android. Menu names differ by brand - not yet verified.",
+            "tested_on_device": false,
+            "last_checked": "2026-11-08"
+          },
+          "steps": [
+            {
+              "step_number": 1,
+              "text": "Open Settings, then look for Storage.",
+              "image": null,
+              "image_alt": "Storage in Settings",
+              "genz_note": "Making space — you ate that."
+            },
+            {
+              "step_number": 2,
+              "text": "Wait. The phone shows what is using space.",
+              "image": null,
+              "image_alt": "Storage list"
+            },
+            {
+              "step_number": 3,
+              "text": "Delete photos and videos you do not need.",
+              "image": null,
+              "image_alt": "Deleting old files"
+            },
+            {
+              "step_number": 4,
+              "text": "Delete apps you never open.",
+              "image": null,
+              "image_alt": "Deleting an app"
+            }
+          ],
+          "tips": [
+            "Photos and videos use the most space. Start there."
+          ]
+        }
+      },
+      "brand_guides": {}
     }
   ]
 }

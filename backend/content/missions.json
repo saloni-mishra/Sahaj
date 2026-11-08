@@ -111,6 +111,38 @@
       "task": "Finish the Share a Photo guide.",
       "guide_id": "share-photo-whatsapp",
       "reward": "Family Star"
+    },
+    {
+      "id": "m15",
+      "emoji": "🧹",
+      "title": "Clean sweep",
+      "task": "Finish the Delete a Photo guide.",
+      "guide_id": "delete-a-photo",
+      "reward": "Tidy Star"
+    },
+    {
+      "id": "m16",
+      "emoji": "📷",
+      "title": "Say cheese",
+      "task": "Finish the Take a Photo guide.",
+      "guide_id": "take-a-photo",
+      "reward": "Photo Pro"
+    },
+    {
+      "id": "m17",
+      "emoji": "🔎",
+      "title": "Memory finder",
+      "task": "Finish the Find a Saved Photo guide.",
+      "guide_id": "find-saved-photo",
+      "reward": "Sharp Finder badge"
+    },
+    {
+      "id": "m18",
+      "emoji": "🧺",
+      "title": "Space maker",
+      "task": "Finish the Free Up Storage guide.",
+      "guide_id": "free-up-storage",
+      "reward": "Space Maker"
     }
   ]
 }

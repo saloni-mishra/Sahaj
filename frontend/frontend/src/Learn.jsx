@@ -177,9 +177,18 @@ export default function Learn() {
   const [searchParams] = useSearchParams();
   const lastAppliedGuide = useRef(null);
 
-  // Load brands + guides once. A ?guide= link (e.g. Next Guide) preselects it.
+  // Load brands + guides once. A ?guide= link (e.g. Next Guide) preselects it,
+  // plus ?brand= when the caller knows the brand.
   useEffect(() => {
-    fetch(`${API}/api/brands`).then((r) => r.json()).then(setBrands);
+    fetch(`${API}/api/brands`).then((r) => r.json()).then((brandsData) => {
+      setBrands(brandsData);
+      const b = searchParams.get("brand");
+      if (b && brandsData.some((x) => x.id === b)) {
+        const match = brandsData.find((x) => x.id === b);
+        setDeviceType(match.device_type);
+        setBrandId(b);
+      }
+    });
     fetch(`${API}/api/guides`).then((r) => r.json()).then((data) => {
       setGuides(data);
       const g = searchParams.get("guide");
@@ -191,12 +200,20 @@ export default function Learn() {
     });
   }, []);
 
-  // Follow ?guide= links while staying on the Learn page (Next Guide button).
+  // Follow ?guide= (&brand=) links while staying on the Learn page (Next Guide button).
   useEffect(() => {
     const g = searchParams.get("guide");
     if (g && g !== lastAppliedGuide.current && guides.some((x) => x.id === g)) {
       lastAppliedGuide.current = g;
-      setBrandId("");
+      const b = searchParams.get("brand");
+      const brandOk = b && brands.some((x) => x.id === b);
+      if (brandOk) {
+        const match = brands.find((x) => x.id === b);
+        setDeviceType(match.device_type);
+        setBrandId(b);
+      } else {
+        setBrandId("");
+      }
       setGuideId(g);
       setStepNum(1);
       setStep(null);

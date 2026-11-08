@@ -82,8 +82,12 @@ def get_guide_step(guide_id, brand_id, step_number):
     }
 
 
-def find_guides_for_question(question, limit=1):
-    """Match a free-text question to guides by keyword + title words."""
+def find_guides_for_question(question, limit=1, min_score=2):
+    """Match a free-text question to guides by keyword + title words.
+
+    Only matches scoring at least min_score are returned, so weak
+    single-word overlaps don't produce a misleading guide link.
+    """
     data = load_content()
     q = (question or "").lower()
     scored = []
@@ -103,7 +107,7 @@ def find_guides_for_question(question, limit=1):
             word_hits = sum(1 for w in q.split() if len(w) > 4 and w in hay)
             scored.append((score + word_hits, guide))
     scored.sort(key=lambda item: item[0], reverse=True)
-    return [guide for _, guide in scored[:limit]]
+    return [guide for score, guide in scored[:limit] if score >= min_score]
 
 
 def get_guide_context(guide):

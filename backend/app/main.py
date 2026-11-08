@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz, get_missions, get_genz_words
 from pydantic import BaseModel
 from app.safety import check_message
-from app.llm import explain_guide, ask_question, explain_receipt, show_sahaj, decode_chat, MAX_PHOTO_BYTES, ALLOWED_PHOTO_TYPES, sniff_image
+from app.llm import explain_guide, ask_question, explain_receipt, show_sahaj, decode_chat, ask_general, MAX_PHOTO_BYTES, ALLOWED_PHOTO_TYPES, sniff_image
 from fastapi.middleware.cors import CORSMiddleware
 from app.paypal import (
     get_access_token,
@@ -164,14 +164,24 @@ def ask(request: AskRequest):
         )
     matches = find_guides_for_question(question)
     guide = matches[0] if matches else None
-    context = get_guide_context(guide)
     mode = "genz" if request.mode == "genz" else "normal"
-    try:
-        answer = ask_question(
-            question, context, guide["title"] if guide else None, mode
-        )
-    except Exception:
-        answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
+    if guide is None:
+        # No guide passed the match threshold: general help, clearly labelled.
+        try:
+            answer = ask_general(question, mode)
+        except Exception:
+            answer = None
+        if not answer:
+            answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
+        context = ""
+    else:
+        context = get_guide_context(guide)
+        try:
+            answer = ask_question(
+                question, context, guide["title"] if guide else None, mode
+            )
+        except Exception:
+            answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
     return {
         "answer": answer,
         "guide_id": guide["id"] if guide else None,
