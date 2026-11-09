@@ -5,14 +5,12 @@
 
 Sahaj ("easy" in Hindi) is an AI tech buddy for older adults. It gives step-by-step phone and laptop help with pictures, and it is the safe first step into digital payments: users learn, pause and check, then practice a real **PayPal Sandbox** checkout with test money. It speaks like a friendly Gen Z grandkid, with a **Normal** mode for plain talk.
 
-Built for PayPal's **"Build What's Next with PayPal and AI"** hackathon.
-
 > **Practice Mode uses PayPal Sandbox test money.** No real money is charged or moved. Buyers sign in with a Sandbox test account, never a real PayPal account.
 
 ## Live demo
 
 - **App:** https://sahaj-iota.vercel.app
-- **API:** https://sahaj-b0ck.onrender.com 
+- **API:** https://sahaj-b0ck.onrender.com (Swagger docs at `/docs`)
 
 > The backend runs on Render's free plan and sleeps when idle. The first request can take up to a minute, so give the first page load a moment.
 
@@ -47,15 +45,44 @@ Paying online is where many older adults feel least confident, and scam messages
 | 3. **Practice Pay** | Real PayPal Sandbox checkout (create order, approve, capture) with test money | `/practice/payment/success` |
 | 4. **Prove it** | Animated *you → PayPal → seller* diagram, a plain-words receipt explanation, and a downloadable, shareable **Safe Payer certificate** | Success page and Home |
 
-The scam game, missions, photo help and Ask Sahaj all feed this loop.
+The scam game, missions, photo/screenshot help and Ask Sahaj all support the same learning loop.
 
 ## Features
 
 **Learn**
-- 12 guides across 6 device brands (iPhone, Samsung, Xiaomi, OPPO, Windows, MacBook).
+- 10 guides across 6 device brands (iPhone, Samsung, Xiaomi, OPPO, Windows, MacBook). Each brand gets only the guides that could be checked against an official support page.
+- Every guide block records its source links, the date it was last checked, and whether it was tested on a real device.
 - Steps are looked up by brand first, then by platform, so each brand can have its own pictures.
-- Read-aloud, a Gemini "Explain this step simply" button, per-step "Sahaj says" Gen Z notes, and "Ask family on WhatsApp" on every step.
+- Read-aloud, a Gemini "Explain this step simply" button, per-step "Sahaj says" Gen Z notes, and **Ask Family for Help** on every step.
 - Finishing a guide triggers a celebration screen and completes any linked mission.
+
+**Ask Family for Help**
+- Builds a short, friendly, editable WhatsApp message that names the current guide and step.
+- Opens the official `wa.me` click-to-chat link in a new tab. You choose the contact and press send yourself. Nothing is sent automatically.
+- An optional phone number is validated (10 to 15 digits) and kept only in memory, never saved.
+- Available on guide steps (English and Hindi), in the Ask Sahaj panel, and on screenshot help results.
+
+**Screenshot Help** (`/screenshot-help`)
+- This is the dedicated version of Show Sahaj, with a preview and follow-up controls.
+- Upload a PNG, JPG or WEBP (up to 4 MB), preview it, and send it only after pressing "Ask Sahaj". Browser screen capture is offered where supported.
+- Gemini returns a plain summary of the screen, one next action, where to tap, why, a confidence level, and a warning if the screen looks sensitive or suspicious.
+- If confidence is low, Sahaj asks a clarifying question instead of guessing. Sahaj only guides. It never claims to tap anything for you.
+- The image is not stored. The server limits requests per IP and masks long digit runs in the reply.
+- "Explain simpler", "Ask a follow-up", "Try another screenshot" and Ask Family for Help are available on the result.
+
+**My Digital Confidence** (`/confidence`)
+- Shows what you have actually done: guides finished, missions completed, Safe or Scam rounds, and the practice payment with Pause & Check. All counts come from real activity saved in the browser.
+- Suggests a next step only where there is a real gap, and links straight to it. A new user sees a friendly starting state, not made-up progress.
+
+**Scam help**
+- **Scam Emergency Mode** (`/scam-emergency`): immediate steps after a suspected scam — stop, protect your money, call 1930, report the fraud, and talk to someone you trust.
+- **Secure Bank** (`/secure-bank`): how to contact your bank safely, freeze cards or UPI access, and save the complaint reference number.
+- **Report Cyber Fraud** (`/report-cyber-fraud`): step-by-step help for filing a complaint on the official `cybercrime.gov.in` portal.
+- Hindi emergency help is at `/hindi/emergency`.
+
+**Hindi**
+- Home (`/hindi`), Learn (`/hindi/learn`), Missions (`/hindi/missions`), Safe or Scam (`/hindi/safe-or-scam`), Emergency (`/hindi/emergency`), Fun (`/hindi/fun`), and the Hindi Ask Sahaj buddy are available.
+
 
 **Safe or Scam?**
 - 16 shuffled scenarios shown as fake WhatsApp, SMS and UPI screens (5 genuine, 11 scams).
@@ -71,7 +98,7 @@ The scam game, missions, photo help and Ask Sahaj all feed this loop.
 - Questions pass through the safety checker first, and risky ones get a warning.
 
 **Missions and Fun**
-- 14 missions with a sticker collection, streak and "Today's mission".
+- 12 missions with a sticker collection, streak and "Today's mission".
 - Tech word of the day, Gen Z words with desi analogies, an emoji quiz, a group-chat decoder, and WhatsApp sharing.
 
 **Design**
@@ -90,7 +117,7 @@ flowchart LR
   P -->|return_url ?token=ORDER_ID| U
 ```
 
-**Tech stack:** FastAPI, Uvicorn, Pydantic, `google-genai`, `python-dotenv`, `httpx`, `python-multipart` on the backend. React 19, React Router 7, Vite 8 on the frontend. No UI library.
+**Tech stack:** FastAPI, Uvicorn, Pydantic, `google-genai`, `python-dotenv`, `httpx`, `python-multipart` on the backend. React 19, React Router 7, Vite 8 on the frontend. No UI library. Screenshot Help uses the browser Screen Capture API where available and a normal file upload everywhere else. No extra frontend packages were added.
 
 ### How the PayPal flow works
 1. The browser sends only an **item id**. Prices live on the server in `PRACTICE_ITEMS` (`practice-5` = $5.00, `chai-tip` = $1.00, `samosa-2` = $2.00).
@@ -102,8 +129,8 @@ flowchart LR
 | Real | Simulated or static |
 |---|---|
 | PayPal Sandbox order creation, approval and capture | The money is test money |
-| Gemini explanations, chat, photo help and decoding | Scam scenarios are written by hand with fake names and masked numbers |
-| Rule-based scam checker | Progress is browser-only (no accounts, no database) |
+| Gemini explanations, chat, photo help, screenshot help and decoding | Scam scenarios are written by hand with fake names and masked numbers |
+| Rule-based scam checker | Progress, streaks, confidence and Pay Pass are browser-only (no accounts, no database) |
 
 ## Run it locally
 
@@ -179,6 +206,7 @@ This fills each step's `image` field in `backend/content/guides.json` and saves 
 | POST | `/api/ask` | Ask Sahaj chat, with safety warning |
 | POST | `/api/safety/check` | Rule-based scam check |
 | POST | `/api/show-sahaj` | Photo help (multipart, never stored) |
+| POST | `/api/screenshot-help` | Screenshot analysis (PNG, JPG or WEBP up to 4 MB, never stored, rate limited) |
 | POST | `/api/decode` | Group-chat slang decoder |
 | GET | `/api/missions`, `/api/scam-quiz`, `/api/tips`, `/api/words`, `/api/genz`, `/api/emoji-quiz` | Content |
 | GET | `/api/paypal/items`, `/api/paypal/check` | Practice items, Sandbox connection check |
@@ -190,17 +218,24 @@ This fills each step's `image` field in `backend/content/guides.json` and saves 
 - Prices and secrets stay on the server. The browser only sends an item id.
 - Secrets come from environment variables only, and `.env` files are git-ignored.
 - CORS allows only `http://localhost:5173` and `FRONTEND_URL`.
-- Request inputs are validated and length-limited. Uploaded photos are type-, size- and content-checked, and are not stored or logged.
-- The server stores nothing. Progress, streaks and the Pay Pass live in the browser's `localStorage`.
+- Request inputs are validated and length-limited. Uploaded photos and screenshots are type-, size- and content-checked, and are not stored or logged.
+- The server stores nothing. Progress, streaks, the Pay Pass and My Digital Confidence live in the browser's `localStorage`.
+- Screenshots are sent to Gemini only after the user presses "Ask Sahaj", are not saved, and users are told to hide OTPs, PINs and bank details first.
+- Ask Family never stores a phone number and never sends a message for you.
 - AI prompts forbid asking for OTPs, PINs or passwords.
 
 ## Known limitations
 Honest list, so nothing here is oversold:
 
-- **Seven of the twelve guides** (payment request check, scan QR safely, pay online safely, block spam calls, volume and brightness, update an app, share a photo on WhatsApp) are marked `needs_checking`. They have no screenshots and are not brand-specific. The older guides mix `verified_official`, `community_sourced` and `needs_checking`.
+- **Guides were checked against official pages, not tested on every device.** Each is marked `verified_official`, but `tested_on_device` is `false` unless the steps were run on a real phone or laptop. Menu names can differ by model and software version. Screenshots exist only for Windows, MacBook and Samsung.
+- Some brands have gaps: there are no OPPO or Xiaomi flashlight guides and no MacBook Wi-Fi guide.
 - The scam checker is **English keyword-based**. Hindi or Hinglish scam text may score LOW, and the risk thresholds are arbitrary.
 - PayPal is **USD and Sandbox only**. There is no real-money path.
-- No authentication or rate limiting. This is a hackathon demo, not a production service.
+- No user accounts. The only rate limit is on Screenshot Help (6 requests per 10 minutes per IP), and it is in memory, so it resets when the server restarts.
+- Screenshot Help depends on Gemini returning valid JSON. If it fails, the app shows an error and asks you to retry.
+- Progress is stored in the browser only, so it does not follow a user to another device. Safe or Scam history in My Digital Confidence starts from when that feature was added.
+- My Digital Confidence and Screenshot Help are English only for now. Hindi pages do not link to them yet.
+- Browser screen capture is optional. Where it is unsupported, upload still works. Very large displays can produce captures above the 4 MB limit.
 - The certificate PNG falls back to system fonts, because web fonts do not embed in the canvas export.
 - The scam helpline details shown at the end of the game (**1930** and **cybercrime.gov.in**) should be re-verified before any real-world use.
 - Sahaj is a learning aid. It does not prevent fraud and is not financial advice.
@@ -213,7 +248,10 @@ backend/
   link_guide_images.py
 frontend/frontend/
   src/            App.jsx, Learn, SafeOrScam, ScamGame, ScamChecker, Missions,
-                  Fun, PauseCheck, ShowSahaj, PayPass, FloatingAsk, Mascot, copy
+                  Fun, PauseCheck, ShowSahaj, ScreenshotHelp, Confidence,
+                  AskFamilyHelp, PayPass, FloatingAsk, ScamEmergency,
+                  SecureBank, ReportCyberFraud, Mascot, copy, scamRounds,
+                  hindi/
   public/         guides/ (step images), logo/
   vercel.json     SPA rewrite for deployment
 ```
@@ -232,6 +270,20 @@ This project runs as two services:
   - Environment: `VITE_API_URL` set to the Render URL (no trailing slash). It is read at build time, so redeploy the frontend after changing it.
 
 `FRONTEND_URL` controls both CORS and PayPal's return and cancel URLs, so it must match the deployed frontend exactly. Vercel preview URLs are not allowed by CORS; use the production URL.
+
+## Try the practice payment
+Open the live app, tap Try a practice payment, tick the Pause & Check boxes, and pay with a PayPal Sandbox test buyer account. No real account or money is involved.
+
+Sandbox buyer email: sb-7ofl553774350@personal.example.com
+Sandbox buyer password: g9oYPk3=
+
+(These are Sandbox-only test credentials and cannot access any real PayPal account.)
+
+## AI and tools used
+- **Google Gemini (`gemini-2.5-flash`)**: explains guide steps in plain words, answers Ask Sahaj questions, reads screenshots and photos, decodes group-chat slang, and explains receipts. Without a key, every AI feature falls back to a short static message.
+- **PayPal Sandbox (Orders v2)**: create, approve and capture for the practice payment.
+- **Rule-based checker**: the scam message rating uses fixed rules, not AI.
+- **AI coding assistants** were used while building. All AI output was reviewed and tested by hand.
 
 ## Credits
 Built with FastAPI, React, PayPal Sandbox and Google Gemini.
