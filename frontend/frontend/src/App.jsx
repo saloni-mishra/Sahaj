@@ -181,11 +181,6 @@ function Home() {
               <Link className="link-more" to="/fun">{say(mode, "funCardLink")}</Link>
             </article>
           </div>
-          <p className="screenshot-help-link">
-            <Link className="link-more" to="/screenshot-help">
-              {tx(mode, "screenshotHelpLink")}
-            </Link>
-          </p>
         </section>
 
         <TipOfDay />

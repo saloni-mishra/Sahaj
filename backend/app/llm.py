@@ -1,5 +1,7 @@
 
+import json
 import os
+import re
 from dotenv import load_dotenv
 from google import genai
 load_dotenv()
@@ -198,6 +200,7 @@ def explain_receipt(order_id, status, amount, item, mode="normal"):
 
 
 MAX_PHOTO_BYTES = 2 * 1024 * 1024
+MAX_SCREENSHOT_BYTES = 4 * 1024 * 1024
 ALLOWED_PHOTO_TYPES = {"image/jpeg", "image/png", "image/webp"}
 
 
@@ -334,3 +337,120 @@ def show_sahaj(image_bytes, mime_type, mode="normal"):
         return response.text
     except Exception:
         return None
+
+
+def _short(value, limit):
+    return str(value or "").strip()[:limit]
+
+
+def _redact_numbers(value):
+    """Safety net: never echo OTP-like or card-like digit runs."""
+    return re.sub(r"\b\d{4,}\b", "[hidden]", value)
+
+
+def analyze_screenshot(image_bytes, mime_type, mode="normal"):
+    """Read a screenshot and return one safe, structured next step.
+
+    The image is sent to Gemini and never stored. The prompt is deliberately
+    strict about not repeating OTPs, PINs, passwords, or card numbers.
+    """
+    if client is None:
+        return None
+
+    prompt = f"""
+    {SYSTEM_NORMAL}
+
+    The user sent a screenshot of their phone or computer screen.
+    Your job is to help them understand it and take ONE safe next step.
+
+    Hard rules:
+    1. Never repeat any OTP, PIN, password, card number, account number, or
+       personal detail you see. Refer to it only as "the code", "the card", or
+       "the account".
+    2. Warn clearly if you see a payment request, money transfer, gift card,
+       remote-access app (such as AnyDesk or TeamViewer), a screen-sharing
+       request, or pressure to act fast. Tell the user to stop and check with a
+       trusted family member or official support before continuing.
+    3. If you are not sure what the screen is, or the image is blurry, set
+       confidence to "low" and make next_action ONE short clarifying question.
+       Do not guess.
+    4. Never claim that you performed an action. You only guide. Say
+       "You can tap..." not "I tapped...".
+    5. Keep instructions plain and simple. No slang in the next action.
+    6. Do not invent menus, buttons, or settings that are not visible.
+
+    Return ONLY a JSON object with exactly these fields:
+    {{
+      "screen_summary": "one short sentence about what this screen is",
+      "next_action": "one clear action the user can take now",
+      "where_to_tap": "where to look, for example Settings > Display, or empty string",
+      "reason": "one short sentence explaining why this is the next step",
+      "confidence": "low" or "medium" or "high",
+      "is_sensitive": true or false,
+      "warning": "a clear safety warning, or an empty string if none"
+    }}
+
+    Set is_sensitive to true if the screen shows anything private, payment
+    related, or remote access related.
+    """
+
+    try:
+        from google.genai import types
+        part = types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[part, prompt],
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json"
+            ),
+        )
+        text = (response.text or "").strip()
+        if text.startswith("```"):
+            text = text.strip("`").strip()
+            if text.lower().startswith("json"):
+                text = text[4:].strip()
+        data = json.loads(text)
+    except Exception:
+        return None
+
+    if not isinstance(data, dict):
+        return None
+
+    confidence = _short(data.get("confidence"), 10).lower()
+    if confidence not in ("low", "medium", "high"):
+        confidence = "low"
+
+    raw_sensitive = data.get("is_sensitive")
+    if isinstance(raw_sensitive, str):
+        is_sensitive = raw_sensitive.strip().lower() in ("true", "yes", "1")
+    else:
+        is_sensitive = bool(raw_sensitive)
+
+    screen_summary = _redact_numbers(_short(data.get("screen_summary"), 400))
+    next_action = _redact_numbers(_short(data.get("next_action"), 400))
+    where_to_tap = _redact_numbers(_short(data.get("where_to_tap"), 200))
+    reason = _redact_numbers(_short(data.get("reason"), 400))
+    warning = _redact_numbers(_short(data.get("warning"), 400))
+
+    if not screen_summary:
+        screen_summary = "Sahaj could not read this screen clearly."
+        confidence = "low"
+    if not next_action:
+        next_action = "Could you send a clearer screenshot with the full screen in it?"
+        confidence = "low"
+    if is_sensitive and not warning:
+        warning = (
+            "This screen may show private or payment details. Do not share "
+            "OTPs, PINs, passwords or card numbers. Check with a trusted "
+            "family member before paying."
+        )
+
+    return {
+        "screen_summary": screen_summary,
+        "next_action": next_action,
+        "where_to_tap": where_to_tap,
+        "reason": reason,
+        "confidence": confidence,
+        "is_sensitive": is_sensitive,
+        "warning": warning,
+    }

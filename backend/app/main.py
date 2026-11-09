@@ -1,8 +1,12 @@
-from fastapi import FastAPI, HTTPException, UploadFile, File, Form
+import time
+from collections import defaultdict, deque
+from threading import Lock
+
+from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
 from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz, get_missions, get_genz_words, get_hindi_words
 from pydantic import BaseModel
 from app.safety import check_message
-from app.llm import explain_guide, ask_question, explain_receipt, show_sahaj, decode_chat, ask_general, MAX_PHOTO_BYTES, ALLOWED_PHOTO_TYPES, sniff_image
+from app.llm import explain_guide, ask_question, explain_receipt, show_sahaj, analyze_screenshot, decode_chat, ask_general, MAX_PHOTO_BYTES, MAX_SCREENSHOT_BYTES, ALLOWED_PHOTO_TYPES, sniff_image
 from fastapi.middleware.cors import CORSMiddleware
 from app.paypal import (
     get_access_token,
@@ -23,6 +27,35 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Basic in-memory rate limit for the screenshot endpoint. Render runs one
+# small instance, so this is enough to stop accidental repeat uploads.
+SCREENSHOT_LIMIT = 6
+SCREENSHOT_WINDOW_SECONDS = 600
+_screenshot_hits = defaultdict(deque)
+_screenshot_lock = Lock()
+
+
+def _client_key(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for", "")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+def _check_screenshot_rate_limit(request: Request) -> None:
+    now = time.time()
+    key = _client_key(request)
+    with _screenshot_lock:
+        hits = _screenshot_hits[key]
+        while hits and now - hits[0] > SCREENSHOT_WINDOW_SECONDS:
+            hits.popleft()
+        if len(hits) >= SCREENSHOT_LIMIT:
+            raise HTTPException(
+                status_code=429,
+                detail="Too many screenshot requests. Please wait a few minutes and try again.",
+            )
+        hits.append(now)
 
 
 class MessageRequest(BaseModel):
@@ -293,6 +326,48 @@ async def show_sahaj_route(image: UploadFile = File(...), mode: str = Form("norm
         else:
             answer = "Sorry, I could not read that photo. Please try a clearer picture with the full screen in it."
     return {"answer": answer}
+
+
+@app.post("/api/screenshot-help")
+async def screenshot_help_route(
+    request: Request,
+    image: UploadFile = File(...),
+    mode: str = Form("normal"),
+):
+    # The image is read, forwarded to Gemini, and forgotten. Never stored.
+    _check_screenshot_rate_limit(request)
+    try:
+        data = await image.read()
+    except Exception:
+        raise HTTPException(status_code=400, detail="Could not read that screenshot.")
+
+    if not data:
+        raise HTTPException(status_code=400, detail="Please choose a screenshot first.")
+    if len(data) > MAX_SCREENSHOT_BYTES:
+        raise HTTPException(
+            status_code=413,
+            detail="Screenshot is too big. Please use one under 4 MB.",
+        )
+
+    content_type = (image.content_type or "").lower()
+    if content_type not in ALLOWED_PHOTO_TYPES or not sniff_image(data):
+        raise HTTPException(
+            status_code=415,
+            detail="Please send a PNG, JPG, or WEBP screenshot.",
+        )
+
+    use_mode = "genz" if mode == "genz" else "normal"
+    try:
+        result = analyze_screenshot(data, content_type, use_mode)
+    except Exception:
+        result = None
+
+    if not result:
+        raise HTTPException(
+            status_code=502,
+            detail="Sahaj could not read that screenshot right now. Please try again.",
+        )
+    return result
 
 
 @app.post("/api/decode")
