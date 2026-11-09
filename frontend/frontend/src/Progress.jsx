@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMode, say, tx } from "./copy.jsx";
+import { useLang, HI } from "./language.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 const KEY = "sahaj-completed-guides";
@@ -134,9 +135,11 @@ export function ProgressStrip() {
   const [guides, setGuides] = useState([]);
   const [done, setDone] = useState(loadCompleted());
   const mode = useMode();
+  const lang = useLang();
 
   useEffect(() => {
-    fetch(`${API}/api/guides`).then((r) => r.json()).then(setGuides).catch(() => {});
+    const url = lang === "hi" ? `${API}/api/guides?lang=hi` : `${API}/api/guides`;
+    fetch(url).then((r) => r.json()).then(setGuides).catch(() => {});
     function refresh() {
       setDone(loadCompleted());
     }
@@ -146,13 +149,19 @@ export function ProgressStrip() {
       window.removeEventListener("sahaj-progress", refresh);
       window.removeEventListener("storage", refresh);
     };
-  }, []);
+  }, [lang]);
 
   if (guides.length === 0) return null;
   return (
-    <div className="progress-strip" aria-label="My progress">
-      <h2>{say(mode, "myProgress")}</h2>
-      <p className="activities-sub">{done.length} {tx(mode, "ofWord")} {guides.length} {tx(mode, "guidesWord")} {tx(mode, "finishedWord")}. {say(mode, "collectAll")}</p>
+    <div className="progress-strip" aria-label={lang === "hi" ? "मेरी प्रगति" : "My progress"}>
+      <h2>{lang === "hi" ? HI.myProgress : say(mode, "myProgress")}</h2>
+      <p className="activities-sub">
+        {lang === "hi" ? (
+          <>{done.length} {HI.ofWord} {guides.length} {HI.guidesWord} {HI.finishedWord}। {HI.collectAll}</>
+        ) : (
+          <>{done.length} {tx(mode, "ofWord")} {guides.length} {tx(mode, "guidesWord")} {tx(mode, "finishedWord")}. {say(mode, "collectAll")}</>
+        )}
+      </p>
       <ul className="stamp-row">
         {guides.map((g) => {
           const has = done.includes(g.id);

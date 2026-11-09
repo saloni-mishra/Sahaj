@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
-from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz, get_missions, get_genz_words
+from app.content import get_brands, get_all_guides,  get_guide_step, find_guides_for_question, get_guide_context, get_scam_quiz, get_tips, get_words, get_emoji_quiz, get_missions, get_genz_words, get_hindi_words
 from pydantic import BaseModel
 from app.safety import check_message
 from app.llm import explain_guide, ask_question, explain_receipt, show_sahaj, decode_chat, ask_general, MAX_PHOTO_BYTES, ALLOWED_PHOTO_TYPES, sniff_image
@@ -27,6 +27,7 @@ app.add_middleware(
 
 class MessageRequest(BaseModel):
     message: str
+    lang: str = "en"
 
 
 class ExplainRequest(BaseModel):
@@ -35,11 +36,12 @@ class ExplainRequest(BaseModel):
     step: int = 1
     question: str = "Please explain this step in very simple words."
     mode: str = "normal"
-
+    lang: str = "en"
 
 class AskRequest(BaseModel):
     question: str
     mode: str = "normal"
+    lang: str = "en"
 
 
 class ExplainReceiptRequest(BaseModel):
@@ -66,13 +68,13 @@ def brands():
 
 
 @app.get("/api/guides")
-def guides():
-    return get_all_guides()
+def guides(lang: str = "en"):
+    return get_all_guides(lang)
 
 
 @app.get("/api/scam-quiz")
-def scam_quiz():
-    return get_scam_quiz()
+def scam_quiz(lang: str = "en"):
+    return get_scam_quiz(lang)
 
 
 @app.get("/api/tips")
@@ -85,14 +87,20 @@ def words():
     return get_words()
 
 
+@app.get("/api/hindi-words")
+def hindi_words():
+    # Everyday phone words for the separate Hindi Fun experience.
+    return get_hindi_words()
+
+
 @app.get("/api/emoji-quiz")
-def emoji_quiz():
-    return get_emoji_quiz()
+def emoji_quiz(lang: str = "en"):
+    return get_emoji_quiz(lang)
 
 
 @app.get("/api/missions")
-def missions():
-    return get_missions()
+def missions(lang: str = "en"):
+    return get_missions(lang)
 
 
 @app.get("/api/genz")
@@ -101,28 +109,30 @@ def genz():
 
 
 @app.get("/api/guide/{guide_id}")
-def guide(guide_id: str, brand: str, step: int = 1):
-    result = get_guide_step(guide_id, brand, step)
+def guide(guide_id: str, brand: str, step: int = 1, lang: str = "en"):
+    result = get_guide_step(guide_id, brand, step, lang)
 
     if result is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Guide, brand, or step not found"
-        )
+        raise HTTPException(404, "Guide or step not found")
 
     return result
 
 
 @app.post("/api/safety/check")
 def safety_check(request: MessageRequest):
-    result = check_message(request.message)
+    result = check_message(request.message, request.lang)
 
     return result
 
 
 @app.post("/api/guide/explain")
 def guide_explain(request: ExplainRequest):
-    step_data = get_guide_step(request.guide_id, request.brand, request.step)
+    step_data = get_guide_step(
+        request.guide_id,
+        request.brand,
+        request.step,
+        request.lang,
+    )
     if step_data is None:
         raise HTTPException(
             status_code=404,
@@ -131,9 +141,17 @@ def guide_explain(request: ExplainRequest):
     try:
         # Use the official step text as context so Gemini stays accurate.
         context = f"Step {step_data['step_number']} of {step_data['total_steps']}: {step_data['text']}"
-        mode = "genz" if request.mode == "genz" else "normal"
+        if request.mode == "hindi":
+            mode = "hindi"
+        elif request.mode == "genz":
+            mode = "genz"
+        else:
+            mode = "normal"
+        question = request.question
+        if mode == "hindi" and question.strip().lower() == "please explain this step in very simple words.":
+            question = "कृपया इस स्टेप को बहुत आसान हिंदी में समझाइए।"
         explanation = explain_guide(
-            request.question,
+            question,
             step_data["title"],
             context,
             step_data["text"],
@@ -141,7 +159,10 @@ def guide_explain(request: ExplainRequest):
         )
     except Exception:
         # Never crash: always return a friendly message instead.
-        explanation = "Sorry, I couldn't explain this right now. Please follow the instructions shown on screen."
+        if request.mode == "hindi":
+            explanation = "माफ़ कीजिए, अभी मैं इसे समझा नहीं पा रहा हूँ। कृपया स्क्रीन पर दिए गए निर्देशों का पालन करें।"
+        else:
+            explanation = "Sorry, I couldn't explain this right now. Please follow the instructions shown on screen."
     return {
         "guide_id": request.guide_id,
         "step_number": step_data["step_number"],
@@ -151,20 +172,38 @@ def guide_explain(request: ExplainRequest):
 
 @app.post("/api/ask")
 def ask(request: AskRequest):
+    is_hindi = request.mode == "hindi" or request.lang == "hi"
     question = (request.question or "").strip()
     if not question:
-        raise HTTPException(status_code=400, detail="Please ask a question.")
+        detail = "कृपया पहले एक सवाल लिखिए।" if is_hindi else "Please ask a question."
+        raise HTTPException(status_code=400, detail=detail)
+
     # Safety first: warn if the question smells like OTP/PIN/password sharing.
-    safety = check_message(question)
+    safety = check_message(question, "hi" if is_hindi else "en")
     safety_warning = None
     if safety.get("risk") in ("MEDIUM", "HIGH"):
-        safety_warning = (
-            "Safety note: never share your OTP, PIN, password, or bank details "
-            "with anyone. " + " ".join(safety.get("actions", []))
-        )
-    matches = find_guides_for_question(question)
+        if is_hindi:
+            safety_warning = (
+                "सुरक्षा की बात: अपना OTP, PIN, पासवर्ड या बैंक की जानकारी "
+                "किसी के साथ साझा न करें। " + " ".join(safety.get("actions", []))
+            )
+        else:
+            safety_warning = (
+                "Safety note: never share your OTP, PIN, password, or bank details "
+                "with anyone. " + " ".join(safety.get("actions", []))
+            )
+
+    matches = find_guides_for_question(
+        question, lang="hi" if is_hindi else "en"
+    )
     guide = matches[0] if matches else None
-    mode = "genz" if request.mode == "genz" else "normal"
+    mode = "hindi" if is_hindi else ("genz" if request.mode == "genz" else "normal")
+    fallback = (
+        "माफ़ कीजिए, अभी जवाब नहीं मिल पाया। फिर से कोशिश कीजिए, या सीखने वाले पेज पर क़दम देखिए।"
+        if is_hindi
+        else "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
+    )
+
     if guide is None:
         # No guide passed the match threshold: general help, clearly labelled.
         try:
@@ -172,7 +211,7 @@ def ask(request: AskRequest):
         except Exception:
             answer = None
         if not answer:
-            answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
+            answer = fallback
         context = ""
     else:
         context = get_guide_context(guide)
@@ -181,7 +220,7 @@ def ask(request: AskRequest):
                 question, context, guide["title"] if guide else None, mode
             )
         except Exception:
-            answer = "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
+            answer = fallback
     return {
         "answer": answer,
         "guide_id": guide["id"] if guide else None,

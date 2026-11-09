@@ -1791,3 +1791,515 @@ img {
     font-size: 1.375rem;
   }
 }
+
+/* ---------- Hindi experience polish (scoped to Hindi pages) ---------- */
+.hindi-mascot {
+  display: block;
+  object-fit: contain;
+  flex: 0 0 auto;
+  background: var(--paper-deep);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.hindi-mascot--hero {
+  width: 150px;
+  height: 150px;
+  padding: 8px;
+  background: var(--marigold);
+  box-shadow: var(--shadow-hard);
+}
+
+.hindi-mascot--celebrate {
+  width: 104px;
+  height: 104px;
+  padding: 6px;
+  background: var(--marigold);
+  box-shadow: var(--shadow-hard);
+}
+
+.hindi-mascot--inline {
+  width: 58px;
+  height: 58px;
+  padding: 4px;
+}
+
+.hindi-mascot--tiny {
+  width: 42px;
+  height: 42px;
+  padding: 3px;
+}
+
+/* Home hero mascot and dashboard spacing */
+.hindi-hero-note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hindi-hero-greeting {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px dashed var(--ink);
+}
+
+.hindi-hero-hi {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.hindi-hero-small {
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+}
+
+.hindi-hero-note h2,
+.hindi-hero-note ul {
+  margin: 0;
+}
+
+.hindi-dashboard {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.hindi-dashboard .progress-strip,
+.hindi-dashboard .mission-today {
+  margin: 0;
+}
+
+.hindi-home .activities-sub {
+  margin-bottom: var(--space-3);
+}
+
+.hindi-home .activity-card {
+  padding: var(--space-4);
+}
+
+.hindi-home .activity-card p {
+  margin-bottom: var(--space-2);
+}
+
+.hindi-home .activity-card .link-more {
+  margin-top: 0;
+}
+
+.hindi-home .activity-card .link-more + div {
+  margin-top: var(--space-2);
+}
+
+/* Hindi Learn guidance and tips */
+.sahaj-says .hindi-mascot,
+.hindi-tip-row .hindi-mascot {
+  flex-shrink: 0;
+}
+
+.hindi-tip-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+}
+
+.hindi-tip-row .step-tip {
+  flex: 1;
+  margin: 0;
+}
+
+.hindi-tip-row .hindi-mascot {
+  margin-top: 2px;
+}
+
+/* Hindi Scam Shield spacing and safe URL wrapping */
+.hindi-scam-page .hindi-quiz-section {
+  margin-top: var(--space-4);
+}
+
+.hindi-scam-page .quiz-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.hindi-scam-page .quiz-box h3,
+.hindi-scam-page .quiz-box .step-count {
+  margin: 0;
+}
+
+.hindi-scam-page .quiz-box .progress {
+  margin-bottom: var(--space-1);
+}
+
+.hindi-scam-page .wa-screen,
+.hindi-scam-page .sms-screen,
+.hindi-scam-page .upi-screen {
+  margin: var(--space-2) 0;
+}
+
+.hindi-scam-page .bubble-in,
+.hindi-scam-page .bubble-sms,
+.hindi-scam-page .upi-note {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hindi-scam-page .step-nav {
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.hindi-scam-page .hindi-answer-feedback,
+.hindi-fun .hindi-answer-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.hindi-scam-page .hindi-answer-feedback > span,
+.hindi-fun .hindi-answer-feedback > span {
+  flex: 1;
+  min-width: 0;
+}
+
+.hindi-scam-page .hindi-feedback-mascot,
+.hindi-fun .hindi-feedback-mascot {
+  margin-top: 2px;
+}
+
+.hindi-scam-page .hindi-quiz-mascot {
+  margin: 0 auto var(--space-1);
+}
+
+.hindi-scam-page .hindi-checker-card,
+.hindi-scam-page .hindi-reminder-card {
+  margin-top: var(--space-5);
+}
+
+.hindi-card-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.hindi-card-heading h2 {
+  margin: 0;
+}
+
+/* Hindi Emergency: clear cards, actions and final reminder */
+.hindi-emergency-intro {
+  margin-bottom: var(--space-3);
+}
+
+.hindi-emergency .fun-block {
+  margin-top: var(--space-4);
+  border-left: 8px solid var(--marigold);
+}
+
+.hindi-emergency-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+}
+
+.hindi-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.hindi-report-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  min-height: 56px;
+  padding: 12px 16px;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-small);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--terra);
+  text-underline-offset: 4px;
+}
+
+.hindi-report-link:hover {
+  background: var(--warn-bg);
+}
+
+.hindi-emergency .hindi-final-reminder {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  background: var(--safe-bg);
+  border-left: 8px solid var(--green);
+}
+
+.hindi-final-reminder p {
+  margin: 0;
+}
+
+/* Hindi Fun spacing and feedback */
+.hindi-fun .learn-sub {
+  margin-bottom: var(--space-4);
+}
+
+.hindi-fun .fun-pick {
+  margin-bottom: var(--space-4);
+}
+
+.hindi-fun .fun-block {
+  margin-top: var(--space-5);
+}
+
+.hindi-fun .fun-block h2 {
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+.hindi-fun .fun-block p {
+  margin-bottom: var(--space-2);
+}
+
+.hindi-fun .step-count {
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+.hindi-fun .hindi-quiz-options {
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+}
+
+.hindi-fun .hindi-quiz-options .big-btn {
+  width: 100%;
+  text-align: left;
+}
+
+.hindi-fun .hindi-activity-success {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.hindi-fun .hindi-activity-success .stamp {
+  margin-top: 0;
+}
+
+.hindi-fun .hindi-quiz-complete {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .hindi-hero-greeting {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .hindi-mascot--hero {
+    width: 112px;
+    height: 112px;
+  }
+
+  .hindi-emergency .fun-block {
+    padding: var(--space-3);
+  }
+
+  .hindi-call-btn,
+  .hindi-report-link {
+    max-width: none;
+  }
+
+  .hindi-fun .fun-block {
+    margin-top: var(--space-4);
+  }
+
+  .hindi-scam-page .hindi-quiz-section {
+    margin-top: var(--space-3);
+  }
+
+  .hindi-scam-page .quiz-box {
+    padding: var(--space-2);
+  }
+}
+
+/* ---------- Hindi floating buddy (Hindi pages only) ---------- */
+.hindi-buddy {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 54;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.hindi-buddy-bubble {
+  position: relative;
+  width: min(210px, calc(100vw - 92px));
+  padding: 12px 36px 12px 14px;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-hard);
+  pointer-events: auto;
+}
+
+.hindi-buddy-bubble p {
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.hindi-buddy-bubble strong {
+  color: var(--green-dark);
+}
+
+.hindi-buddy-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.hindi-buddy-btn {
+  width: 64px;
+  height: 64px;
+  padding: 4px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--marigold);
+  box-shadow: var(--shadow-hard);
+  cursor: pointer;
+  pointer-events: auto;
+  animation: hindi-buddy-bob 4s ease-in-out infinite;
+}
+
+.hindi-buddy-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.hindi-buddy-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.hindi-buddy-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-small);
+}
+
+@keyframes hindi-buddy-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Hindi scam-check result: show every warning and action clearly. */
+.hindi-scam-result > p {
+  margin: 0;
+}
+
+.hindi-scam-result .hindi-result-label {
+  margin-top: var(--space-2);
+  font-weight: 700;
+}
+
+.hindi-scam-result ul {
+  margin: 6px 0 0 22px;
+  padding: 0;
+}
+
+.hindi-scam-result li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.hindi-scam-result li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .hindi-buddy {
+    right: 10px;
+    bottom: 84px;
+  }
+
+  .hindi-buddy-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .hindi-buddy-bubble {
+    width: min(200px, calc(100vw - 76px));
+    padding: 10px 30px 10px 12px;
+  }
+
+  .hindi-buddy-bubble p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hindi-buddy-btn {
+    animation: none;
+  }
+}
+
+/* Hindi Ask Sahaj chat: same mascot and chat shell as English, Hindi-only copy. */
+.hindi-fab-bubble {
+  max-width: 230px;
+}
+
+.chat-actions.hindi-chat-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-actions.hindi-chat-actions .chat-mic {
+  flex: 0 0 auto;
+}
+
+.chat-actions.hindi-chat-actions .chat-send {
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  .hindi-fab-bubble {
+    max-width: 210px;
+  }
+}

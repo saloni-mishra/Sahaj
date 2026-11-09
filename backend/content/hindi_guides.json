@@ -1,0 +1,1137 @@
+{
+  "guides": [
+    {
+      "id": "increase_text_size",
+      "title": "फ़ोन के अक्षर (फ़ॉन्ट) बड़े करें",
+      "description": "स्क्रीन पर लिखे शब्दों का साइज़ बढ़ाइए, ताकि बिना आँखों पर ज़ोर डाले सब कुछ साफ़-साफ़ पढ़ा जा सके।",
+      "category": "Display",
+      "device_types": [
+        "phone",
+        "laptop"
+      ],
+      "keywords": [
+        "फ़ॉन्ट",
+        "अक्षर",
+        "बड़ा",
+        "पढ़ना",
+        "font",
+        "text",
+        "bigger",
+        "zoom"
+      ],
+      "settings_search_term": "font size",
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "अपने फ़ोन की Settings ऐप खोलिए।",
+              "image": null,
+              "image_alt": "Home स्क्रीन पर Settings ऐप का आइकन"
+            },
+            {
+              "text": "Display & Brightness पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Settings में Display & Brightness वाला विकल्प"
+            },
+            {
+              "text": "Text Size पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Text Size वाला विकल्प"
+            },
+            {
+              "text": "स्लाइडर को दाईं या बाईं तरफ़ खिसकाकर अपनी पसंद का साइज़ चुनिए।",
+              "image": null,
+              "image_alt": "फ़ॉन्ट साइज़ का स्लाइडर"
+            }
+          ],
+          "tips": [
+            "और बड़ा चाहिए? Settings > Accessibility > Display & Text Size में जाइए, Larger Text पर टैप कीजिए और स्लाइडर आगे बढ़ाइए।",
+            "अगर अक्षर इतने बड़े हो जाएँ कि बटन दबाना मुश्किल हो, तो वापस आकर साइज़ थोड़ा कम कर लीजिए।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "अपने फ़ोन की Settings खोलें।",
+              "image": null,
+              "image_alt": "Settings ऐप का आइकन"
+            },
+            {
+              "text": "ऊपर दिए गए Search बार में Font size टाइप करें और आए हुए विकल्प पर टैप करें।",
+              "image": null,
+              "image_alt": "Settings में सबसे ऊपर Search बार"
+            },
+            {
+              "text": "नीचे दिए गए स्लाइडर को दाईं तरफ़ खिसकाएँ, जब तक अक्षरों का साइज़ आपकी पसंद के मुताबिक न हो जाए।",
+              "image": null,
+              "image_alt": "फ़ॉन्ट साइज़ बदलने वाला स्लाइडर"
+            }
+          ],
+          "tips": [
+            "झटपट तरीक़ा: स्क्रीन को ऊपर से नीचे स्वाइप करें (Quick Settings)। अगर वहाँ Font Size का शॉर्टकट दिखे, तो सीधे वहीं से बदल लें।",
+            "सलाह: साइज़ उतना ही बड़ा रखें जितने में आराम रहे। बहुत ज़्यादा बड़ा करने पर कुछ ऐप्स में बटन या शब्द कट सकते हैं।"
+          ]
+        },
+        "windows": {
+          "steps": [
+            {
+              "text": "Start पर क्लिक कीजिए, फिर Settings, और फिर Accessibility चुनिए।",
+              "image": null,
+              "image_alt": "Windows में Accessibility की सेटिंग"
+            },
+            {
+              "text": "Text size पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "Vision के नीचे Text size वाला विकल्प"
+            },
+            {
+              "text": "Text size preview के नीचे दिए स्लाइडर को दाईं तरफ़ खींचकर अक्षर बड़े कीजिए।",
+              "image": null,
+              "image_alt": "प्रीव्यू के साथ Text size स्लाइडर"
+            },
+            {
+              "text": "अगर Apply बटन दिखे, तो उस पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "Apply बटन"
+            }
+          ],
+          "tips": [
+            "इससे सिर्फ़ लिखाई बड़ी होती है। तस्वीरें और ऐप्स भी बड़े करने हों, तो Text size पेज पर Related settings के नीचे Display खोलिए और Scale सूची में से कोई विकल्प चुनिए।"
+          ]
+        },
+        "macos": {
+          "steps": [
+            {
+              "text": "ऊपर बाईं तरफ़ Apple मेन्यू पर क्लिक कीजिए, फिर System Settings चुनिए।",
+              "image": null,
+              "image_alt": "Apple मेन्यू में System Settings"
+            },
+            {
+              "text": "बाईं तरफ़ की सूची में Accessibility पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "साइडबार में Accessibility"
+            },
+            {
+              "text": "Display पर क्लिक कीजिए। यह थोड़ा नीचे हो सकता है।",
+              "image": null,
+              "image_alt": "Accessibility के अंदर Display वाला विकल्प"
+            },
+            {
+              "text": "Text वाले हिस्से में Text size ढूँढिए और अपने हिसाब से पढ़ने का साइज़ चुनिए।",
+              "image": null,
+              "image_alt": "Text size बदलने का विकल्प"
+            }
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "अपने Samsung फ़ोन की Settings खोलें।",
+              "image": "/guides/samsung/increase_text_size/step1.jpeg",
+              "image_alt": "Samsung फ़ोन में Settings ऐप का आइकन"
+            },
+            {
+              "text": "थोड़ा नीचे स्क्रॉल करके Display वाले विकल्प पर टैप करें।",
+              "image": "/guides/samsung/increase_text_size/step2.jpeg",
+              "image_alt": "Settings मेन्यू में Display का विकल्प"
+            },
+            {
+              "text": "Font size and style पर टैप करें।",
+              "image": "/guides/samsung/increase_text_size/step3.jpeg",
+              "image_alt": "Display मेन्यू में Font size and style का विकल्प"
+            },
+            {
+              "text": "नीचे दिए गए नीले बिंदु (स्लाइडर) को दाईं तरफ़ खींचकर अक्षरों को बड़ा कर लें।",
+              "image": "/guides/samsung/increase_text_size/step4.jpeg",
+              "image_alt": "Font size बदलने वाला स्लाइडर"
+            }
+          ],
+          "tips": [
+            "अगर सिर्फ़ लिखाई ही नहीं, बल्कि बटन और पूरे ऐप आइकॉन भी बड़े करने हों, तो वापस Display मेन्यू में जाएँ और Screen zoom वाले स्लाइडर को बढ़ा लें।"
+          ]
+        },
+        "windows": {
+          "steps": [
+            {
+              "text": "Start पर क्लिक कीजिए, फिर Settings, और फिर Accessibility चुनिए।",
+              "image": "/guides/windows/increase_text_size/step1.png",
+              "image_alt": "Windows में Accessibility की सेटिंग"
+            },
+            {
+              "text": "Text size पर क्लिक कीजिए।",
+              "image": "/guides/windows/increase_text_size/step2.png",
+              "image_alt": "Vision के नीचे Text size वाला विकल्प"
+            },
+            {
+              "text": "Text size preview के नीचे दिए स्लाइडर को दाईं तरफ़ खींचकर अक्षर बड़े कीजिए।",
+              "image": "/guides/windows/increase_text_size/step3.png",
+              "image_alt": "प्रीव्यू के साथ Text size स्लाइडर"
+            },
+            {
+              "text": "अगर Apply बटन दिखे, तो उस पर क्लिक कीजिए।",
+              "image": "/guides/windows/increase_text_size/step4.png",
+              "image_alt": "Apply बटन"
+            }
+          ],
+          "tips": [
+            "इससे सिर्फ़ लिखाई बड़ी होती है। तस्वीरें और ऐप्स भी बड़े करने हों, तो Text size पेज पर Related settings के नीचे Display खोलिए और Scale सूची में से कोई विकल्प चुनिए।"
+          ]
+        },
+        "macbook": {
+          "steps": [
+            {
+              "text": "ऊपर बाईं तरफ़ Apple मेन्यू पर क्लिक कीजिए, फिर System Settings चुनिए।",
+              "image": "/guides/macbook/increase_text_size/step1.jpeg",
+              "image_alt": "Apple मेन्यू में System Settings"
+            },
+            {
+              "text": "बाईं तरफ़ की सूची में Accessibility पर क्लिक कीजिए।",
+              "image": "/guides/macbook/increase_text_size/step2.jpeg",
+              "image_alt": "साइडबार में Accessibility"
+            },
+            {
+              "text": "Display पर क्लिक कीजिए। यह थोड़ा नीचे हो सकता है।",
+              "image": "/guides/macbook/increase_text_size/step3.jpeg",
+              "image_alt": "Accessibility के अंदर Display वाला विकल्प"
+            },
+            {
+              "text": "Text वाले हिस्से में Text size ढूँढिए और अपने हिसाब से पढ़ने का साइज़ चुनिए।",
+              "image": "/guides/macbook/increase_text_size/step4.jpeg",
+              "image_alt": "Text size बदलने का विकल्प"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "take_screenshot",
+      "title": "स्क्रीनशॉट लेना सीखें",
+      "description": "स्क्रीन पर जो दिख रहा है, उसकी तस्वीर सेव कीजिए—जैसे कोई मैसेज या बिल।",
+      "category": "Basics",
+      "device_types": [
+        "phone",
+        "laptop"
+      ],
+      "keywords": [
+        "स्क्रीनशॉट",
+        "तस्वीर",
+        "screenshot",
+        "screen",
+        "capture"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "जिस स्क्रीन का स्क्रीनशॉट लेना है, उसे खोलिए।",
+              "image": null,
+              "image_alt": "जिस स्क्रीन की तस्वीर लेनी है"
+            },
+            {
+              "text": "साइड बटन और Volume Up बटन एक साथ दबाइए, फिर तुरंत छोड़ दीजिए।",
+              "image": null,
+              "image_alt": "साइड बटन और Volume Up बटन"
+            },
+            {
+              "text": "iOS 26 में स्क्रीनशॉट के साथ छोटे टूल दिखते हैं: सेव करने के लिए सेव बटन पर टैप कीजिए। iOS 18 और उससे पहले नीचे बाईं तरफ़ छोटी तस्वीर दिखती है: उसे खोलने के लिए टैप कीजिए, या हटाने के लिए बाईं तरफ़ स्वाइप कीजिए।",
+              "image": null,
+              "image_alt": "स्क्रीनशॉट का प्रीव्यू"
+            }
+          ],
+          "tips": [
+            "बाद में स्क्रीनशॉट ढूँढने के लिए: Photos खोलिए, Collections में जाइए, Media Types पर टैप कीजिए, फिर Screenshots चुनिए।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "जिस स्क्रीन का स्क्रीनशॉट लेना है, उसे खोलिए।",
+              "image": null,
+              "image_alt": "जिस स्क्रीन की तस्वीर लेनी है"
+            },
+            {
+              "text": "Power और Volume Down बटन एक साथ दबाइए।",
+              "image": null,
+              "image_alt": "Power और Volume Down बटन"
+            },
+            {
+              "text": "उसे देखने के लिए: Photos ऐप खोलिए, नीचे Collections पर टैप कीजिए, फिर On this device, और फिर Screenshots चुनिए।",
+              "image": null,
+              "image_alt": "Photos में Screenshots वाला फ़ोल्डर"
+            }
+          ],
+          "tips": [
+            "अगर ऐसा करने से न हो, तो Power बटन को कुछ सेकंड दबाए रखिए, फिर Screenshot पर टैप कीजिए।",
+            "पुराने Android फ़ोन में Photos ऐप न हो तो Gallery खोलिए और Screenshots फ़ोल्डर देखिए।"
+          ]
+        },
+        "windows": {
+          "steps": [
+            {
+              "text": "जिस स्क्रीन का स्क्रीनशॉट लेना है, उसे खोलिए।",
+              "image": null,
+              "image_alt": "जिस स्क्रीन की तस्वीर लेनी है"
+            },
+            {
+              "text": "Windows लोगो बटन + Shift + S एक साथ दबाइए, ताकि स्निपिंग ओवरले खुल जाए।",
+              "image": null,
+              "image_alt": "Windows, Shift और S बटन"
+            },
+            {
+              "text": "स्क्रीन थोड़ी धुँधली हो जाएगी। इसका मतलब है कि अब आप स्क्रीनशॉट लेने के लिए तैयार हैं।",
+              "image": null,
+              "image_alt": "स्क्रीनशॉट के लिए तैयार धुँधली स्क्रीन"
+            }
+          ],
+          "tips": [
+            "स्निप लेने के बाद वह Snipping Tool विंडो में दिखता है और अपने आप Screenshots फ़ोल्डर में सेव हो जाता है।",
+            "Print Screen (PrtSc) बटन दबाने से पूरी स्क्रीन की तस्वीर clipboard में कॉपी हो जाती है।"
+          ]
+        },
+        "macos": {
+          "steps": [
+            {
+              "text": "पूरी स्क्रीन का स्क्रीनशॉट लेने के लिए Shift, Command और 3 एक साथ दबाइए।",
+              "image": null,
+              "image_alt": "Shift, Command और 3 बटन"
+            },
+            {
+              "text": "स्क्रीन के किसी हिस्से का स्क्रीनशॉट लेने के लिए Shift, Command और 4 एक साथ दबाइए, फिर जिस हिस्से की तस्वीर चाहिए उस पर कर्सर खींचिए।",
+              "image": null,
+              "image_alt": "स्क्रीन के हिस्से को चुनता कर्सर"
+            },
+            {
+              "text": "स्क्रीनशॉट आम तौर पर Desktop पर सेव होते हैं। अगर कोने में छोटी तस्वीर दिखे, तो उसे क्लिक करके सुधार भी कर सकते हैं।",
+              "image": null,
+              "image_alt": "Desktop पर सेव स्क्रीनशॉट"
+            }
+          ],
+          "tips": [
+            "Shift, Command और 5 दबाने से Screenshot ऐप खुलता है। यह Applications फ़ोल्डर के Utilities में भी मिलता है।",
+            "स्क्रीनशॉट सेव करने के बजाय कॉपी करना हो, तो शॉर्टकट के साथ Control भी दबाइए (जैसे Control, Shift, Command और 3)।"
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "जिस स्क्रीन का स्क्रीनशॉट लेना है, उसे खोलिए।",
+              "image": null,
+              "image_alt": "जिस स्क्रीन की तस्वीर लेनी है"
+            },
+            {
+              "text": "Power (Side) बटन और Volume Down बटन एक साथ दबाए रखिए, फिर थोड़ी देर बाद छोड़ दीजिए।",
+              "image": null,
+              "image_alt": "Side बटन और Volume Down बटन"
+            },
+            {
+              "text": "स्क्रीन एक बार चमकेगी। उसे देखने के लिए: Gallery ऐप खोलिए, Albums पर टैप कीजिए, फिर Screenshots फ़ोल्डर खोलिए।",
+              "image": "/guides/samsung/take_screenshot/step3.jpeg",
+              "image_alt": "Screenshots एल्बम में स्क्रीनशॉट"
+            }
+          ],
+          "tips": [
+            "हथेली से भी ले सकते हैं: Quick panel खोलिए, गियर आइकन पर टैप कीजिए, Advanced features में जाइए, और Palm swipe to capture चालू कीजिए। फिर हाथ का किनारा स्क्रीन पर स्वाइप कीजिए।",
+            "स्क्रीनशॉट My Files के Images में भी मिल जाते हैं।"
+          ]
+        },
+        "xiaomi": {
+          "steps": [
+            {
+              "text": "जिस स्क्रीन का स्क्रीनशॉट लेना है, उसे खोलिए।",
+              "image": null,
+              "image_alt": "जिस स्क्रीन की तस्वीर लेनी है"
+            },
+            {
+              "text": "स्क्रीन के ऊपर स्टेटस बार से नीचे स्वाइप कीजिए, ताकि Control Center खुल जाए।",
+              "image": null,
+              "image_alt": "स्टेटस बार से नीचे स्वाइप"
+            },
+            {
+              "text": "Screenshot पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Control Center में Screenshot बटन"
+            }
+          ],
+          "tips": [
+            "स्क्रीन पर तीन उँगलियाँ नीचे खींचकर भी स्क्रीनशॉट ले सकते हैं। इसे चालू करने के लिए Settings > Additional settings > Gesture shortcuts > Take a screenshot खोलिए।"
+          ]
+        },
+        "windows": {
+          "steps": [
+            {
+              "text": "जिस स्क्रीन का स्क्रीनशॉट लेना है, उसे खोलिए।",
+              "image": "/guides/windows/take_screenshot/step1.png",
+              "image_alt": "जिस स्क्रीन की तस्वीर लेनी है"
+            },
+            {
+              "text": "Windows लोगो बटन + Shift + S एक साथ दबाइए, ताकि स्निपिंग ओवरले खुल जाए।",
+              "image": "/guides/windows/take_screenshot/step2.png",
+              "image_alt": "Windows, Shift और S बटन"
+            },
+            {
+              "text": "स्क्रीन थोड़ी धुँधली हो जाएगी। इसका मतलब है कि अब आप स्क्रीनशॉट लेने के लिए तैयार हैं।",
+              "image": "/guides/windows/take_screenshot/step3.png",
+              "image_alt": "स्क्रीनशॉट के लिए तैयार धुँधली स्क्रीन"
+            }
+          ],
+          "tips": [
+            "स्निप लेने के बाद वह Snipping Tool विंडो में दिखता है और अपने आप Screenshots फ़ोल्डर में सेव हो जाता है।",
+            "Print Screen (PrtSc) बटन दबाने से पूरी स्क्रीन की तस्वीर clipboard में कॉपी हो जाती है।"
+          ]
+        }
+      }
+    },
+    {
+      "id": "turn_on_flashlight",
+      "title": "फ़ोन की टॉर्च जलाएँ",
+      "description": "अंधेरे में अपने फ़ोन की टॉर्च इस्तेमाल करना सीखिए।",
+      "category": "Basics",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "टॉर्च",
+        "रोशनी",
+        "flashlight",
+        "torch",
+        "light"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "स्क्रीन के ऊपर दाईं तरफ़ से नीचे स्वाइप कीजिए, ताकि Control Center खुल जाए। Home बटन वाले iPhone में नीचे से ऊपर स्वाइप कीजिए।",
+              "image": null,
+              "image_alt": "ऊपर दाईं तरफ़ से स्वाइप"
+            },
+            {
+              "text": "Flashlight बटन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Control Center में Flashlight बटन"
+            },
+            {
+              "text": "बंद करने के लिए Flashlight बटन पर फिर से टैप कीजिए।",
+              "image": null,
+              "image_alt": "चालू होने पर Flashlight बटन"
+            }
+          ],
+          "tips": [
+            "Lock Screen पर नीचे बाईं तरफ़ Flashlight बटन को दबाए रखकर भी टॉर्च जला सकते हैं।",
+            "रोशनी कम या ज़्यादा करनी हो: Control Center खोलिए, Flashlight बटन दबाए रखिए, फिर स्लाइडर ऊपर-नीचे कीजिए।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "स्क्रीन के ऊपर से नीचे स्वाइप कीजिए, ताकि Quick settings खुल जाए।",
+              "image": null,
+              "image_alt": "Quick settings खोलने के लिए नीचे स्वाइप"
+            },
+            {
+              "text": "Flashlight या Torch आइकन ढूँढिए। अगर न दिखे, तो आइकन की सूची में बाईं या दाईं तरफ़ स्वाइप कीजिए।",
+              "image": null,
+              "image_alt": "Quick settings में Flashlight आइकन"
+            },
+            {
+              "text": "टॉर्च जलाने या बंद करने के लिए उस आइकन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "चालू होने पर Flashlight आइकन"
+            }
+          ],
+          "tips": [
+            "रोशनी कम या ज़्यादा करनी हो, तो Quick settings में Flashlight आइकन दबाए रखिए और दिखने वाले स्लाइडर को ऊपर-नीचे कीजिए।",
+            "कुछ फ़ोन में टॉर्च Camera ऐप के अंदर भी मिलती है।"
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "स्क्रीन के ऊपर दाईं तरफ़ से नीचे स्वाइप कीजिए, ताकि Quick settings खुल जाए।",
+              "image": null,
+              "image_alt": "Quick settings खोलने के लिए नीचे स्वाइप"
+            },
+            {
+              "text": "Flashlight आइकन ढूँढिए। अगर न दिखे, तो बाईं तरफ़ स्वाइप कीजिए।",
+              "image": "/guides/samsung/turn_on_flashlight/step2.jpeg",
+              "image_alt": "Quick settings में Flashlight आइकन"
+            },
+            {
+              "text": "टॉर्च जलाने या बंद करने के लिए Flashlight आइकन पर टैप कीजिए।",
+              "image": "/guides/samsung/turn_on_flashlight/step3.jpeg",
+              "image_alt": "चालू होने पर Flashlight आइकन"
+            }
+          ],
+          "tips": [
+            "रोशनी बदलनी हो: Quick settings खोलिए, Flashlight आइकन दबाए रखिए, स्विच से टॉर्च चालू कीजिए, फिर स्लाइडर खींचिए। जब तक टॉर्च चालू न हो, स्लाइडर धुँधला रहेगा।"
+          ]
+        }
+      }
+    },
+    {
+      "id": "connect_wifi",
+      "title": "Wi-Fi से जुड़िए",
+      "description": "घर के Wi-Fi से जुड़िए, ताकि मोबाइल डेटा खर्च न हो।",
+      "category": "Internet",
+      "device_types": [
+        "phone",
+        "laptop"
+      ],
+      "keywords": [
+        "वाईफ़ाई",
+        "इंटरनेट",
+        "wifi",
+        "network",
+        "internet"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "Settings ऐप खोलिए और Wi-Fi पर टैप कीजिए, फिर Wi-Fi चालू कीजिए।",
+              "image": null,
+              "image_alt": "Settings में सबसे ऊपर Wi-Fi"
+            },
+            {
+              "text": "जिस Wi-Fi नेटवर्क से जुड़ना है, उसका नाम टैप कीजिए।",
+              "image": null,
+              "image_alt": "आसपास के Wi-Fi नेटवर्क की सूची"
+            },
+            {
+              "text": "अगर पूछा जाए, तो नेटवर्क का पासवर्ड डालिए।",
+              "image": null,
+              "image_alt": "पासवर्ड डालने का बॉक्स"
+            },
+            {
+              "text": "नेटवर्क के नाम के आगे नीला चेकमार्क दिखे, तो समझिए कि आप जुड़ गए हैं।",
+              "image": null,
+              "image_alt": "नेटवर्क के आगे नीला चेकमार्क"
+            }
+          ],
+          "tips": [
+            "अगर पासवर्ड नहीं पता, तो जिसका Wi-Fi है उनसे पूछ लीजिए।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "अपने फ़ोन की Settings ऐप खोलिए।",
+              "image": null,
+              "image_alt": "Settings ऐप का आइकन"
+            },
+            {
+              "text": "Network & internet पर टैप कीजिए, फिर Internet पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Settings में Network & internet"
+            },
+            {
+              "text": "सूची में दिख रहे नेटवर्क पर टैप कीजिए। जिन नेटवर्क में पासवर्ड लगता है, उनके आगे ताले का निशान दिखता है।",
+              "image": null,
+              "image_alt": "आसपास के Wi-Fi नेटवर्क की सूची"
+            }
+          ],
+          "tips": [
+            "छोटा तरीक़ा: स्क्रीन के ऊपर से नीचे स्वाइप कीजिए, Internet पर टैप कीजिए, और खुलने वाले पैनल में से नेटवर्क चुनिए।"
+          ]
+        },
+        "windows": {
+          "steps": [
+            {
+              "text": "स्क्रीन के नीचे दाईं तरफ़ टास्कबार में Network, Sound या Battery आइकन पर क्लिक कीजिए, ताकि Quick settings खुल जाए।",
+              "image": null,
+              "image_alt": "टास्कबार में Network, Sound और Battery आइकन"
+            },
+            {
+              "text": "Wi-Fi वाले हिस्से में Manage Wi-Fi connections (उसके आगे का तीर) पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "Wi-Fi बटन के आगे का तीर"
+            },
+            {
+              "text": "अपना नेटवर्क चुनिए, फिर Connect पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "नेटवर्क की सूची और Connect बटन"
+            },
+            {
+              "text": "नेटवर्क का पासवर्ड डालिए और Next पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "पासवर्ड बॉक्स"
+            }
+          ],
+          "tips": [
+            "अगर आपका नेटवर्क सूची में न दिखे, तो नीचे दाईं तरफ़ Refresh network list बटन पर क्लिक कीजिए।"
+          ]
+        },
+        "macos": {
+          "steps": [
+            {
+              "text": "स्क्रीन के ऊपर दाईं तरफ़ मेन्यू बार में Wi-Fi आइकन पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "मेन्यू बार में Wi-Fi आइकन"
+            },
+            {
+              "text": "जिस Wi-Fi नेटवर्क से जुड़ना है, उसका नाम चुनिए।",
+              "image": null,
+              "image_alt": "आसपास के Wi-Fi नेटवर्क की सूची"
+            },
+            {
+              "text": "अगर पूछा जाए, तो नेटवर्क का पासवर्ड डालिए और Join पर क्लिक कीजिए।",
+              "image": null,
+              "image_alt": "पासवर्ड बॉक्स और Join बटन"
+            },
+            {
+              "text": "Wi-Fi आइकन भरा हुआ दिखे और नेटवर्क के आगे सही का निशान हो, तो समझिए कि आप जुड़ गए हैं।",
+              "image": null,
+              "image_alt": "जुड़े हुए नेटवर्क के आगे सही का निशान"
+            }
+          ],
+          "tips": [
+            "अगर नेटवर्क न दिखे, तो Wi-Fi बंद करके फिर चालू कीजिए और सूची को नया होने दीजिए।"
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "Settings ऐप खोलिए।",
+              "image": "/guides/samsung/connect_wifi/step1.jpeg",
+              "image_alt": "Settings ऐप का आइकन"
+            },
+            {
+              "text": "Connections पर टैप कीजिए।",
+              "image": "/guides/samsung/connect_wifi/step2.jpeg",
+              "image_alt": "Settings में Connections वाला विकल्प"
+            },
+            {
+              "text": "Wi-Fi पर टैप कीजिए। अगर बंद है, तो स्विच दबाकर चालू कीजिए।",
+              "image": "/guides/samsung/connect_wifi/step3.jpeg",
+              "image_alt": "Wi-Fi का स्विच"
+            },
+            {
+              "text": "जिस Wi-Fi से जुड़ना है, उसका नाम टैप कीजिए।",
+              "image": null,
+              "image_alt": "आसपास के Wi-Fi नेटवर्क की सूची"
+            },
+            {
+              "text": "अगर पूछा जाए, तो पासवर्ड टाइप कीजिए और Connect पर टैप कीजिए।",
+              "image": "/guides/samsung/connect_wifi/step5.jpeg",
+              "image_alt": "पासवर्ड बॉक्स और Connect बटन"
+            },
+            {
+              "text": "जुड़ने के बाद Current network के नीचे नेटवर्क का नाम और Connected लिखा दिखेगा।",
+              "image": "/guides/samsung/connect_wifi/step6.jpeg",
+              "image_alt": "Connected का संदेश"
+            }
+          ]
+        },
+        "windows": {
+          "steps": [
+            {
+              "text": "स्क्रीन के नीचे दाईं तरफ़ टास्कबार में Network, Sound या Battery आइकन पर क्लिक कीजिए, ताकि Quick settings खुल जाए।",
+              "image": "/guides/windows/connect_wifi/step1.png",
+              "image_alt": "टास्कबार में Network, Sound और Battery आइकन"
+            },
+            {
+              "text": "Wi-Fi वाले हिस्से में Manage Wi-Fi connections (उसके आगे का तीर) पर क्लिक कीजिए।",
+              "image": "/guides/windows/connect_wifi/step2.png",
+              "image_alt": "Wi-Fi बटन के आगे का तीर"
+            },
+            {
+              "text": "अपना नेटवर्क चुनिए, फिर Connect पर क्लिक कीजिए।",
+              "image": "/guides/windows/connect_wifi/step3.png",
+              "image_alt": "नेटवर्क की सूची और Connect बटन"
+            },
+            {
+              "text": "नेटवर्क का पासवर्ड डालिए और Next पर क्लिक कीजिए।",
+              "image": "/guides/windows/connect_wifi/step4.png",
+              "image_alt": "पासवर्ड बॉक्स"
+            }
+          ],
+          "tips": [
+            "अगर आपका नेटवर्क सूची में न दिखे, तो नीचे दाईं तरफ़ Refresh network list बटन पर क्लिक कीजिए।"
+          ]
+        }
+      }
+    },
+    {
+      "id": "whatsapp_video_call",
+      "title": "WhatsApp पर वीडियो कॉल कीजिए",
+      "description": "WhatsApp से परिवार और दोस्तों को देखकर बात कीजिए।",
+      "category": "Communication",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "वीडियो कॉल",
+        "व्हाट्सएप",
+        "whatsapp",
+        "video call",
+        "call"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "WhatsApp खोलिए।",
+              "image": null,
+              "image_alt": "WhatsApp ऐप का हरा आइकन"
+            },
+            {
+              "text": "जिससे वीडियो कॉल करनी है, उसकी चैट खोलिए।",
+              "image": null,
+              "image_alt": "चैट सूची में एक चैट"
+            },
+            {
+              "text": "ऊपर वीडियो कॉल वाले आइकन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "चैट के ऊपर वीडियो कॉल आइकन"
+            }
+          ],
+          "tips": [
+            "Calls टैब से भी वीडियो कॉल शुरू कर सकते हैं: WhatsApp खोलिए, Calls टैब पर टैप कीजिए, नई कॉल शुरू कीजिए, संपर्क चुनिए और वीडियो कॉल आइकन पर टैप कीजिए।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "WhatsApp खोलिए।",
+              "image": null,
+              "image_alt": "WhatsApp ऐप का हरा आइकन"
+            },
+            {
+              "text": "जिससे वीडियो कॉल करनी है, उसकी चैट खोलिए।",
+              "image": null,
+              "image_alt": "चैट सूची में एक चैट"
+            },
+            {
+              "text": "ऊपर वीडियो कॉल वाले आइकन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "चैट के ऊपर वीडियो कॉल आइकन"
+            }
+          ],
+          "tips": [
+            "Calls टैब से भी वीडियो कॉल शुरू कर सकते हैं: WhatsApp खोलिए, Calls टैब पर टैप कीजिए, नई कॉल शुरू कीजिए, संपर्क चुनिए और वीडियो कॉल आइकन पर टैप कीजिए।"
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "WhatsApp खोलिए।",
+              "image": "/guides/samsung/whatsapp_video_call/step1.jpeg",
+              "image_alt": "WhatsApp ऐप का हरा आइकन"
+            },
+            {
+              "text": "जिससे वीडियो कॉल करनी है, उसकी चैट खोलिए।",
+              "image": null,
+              "image_alt": "चैट सूची में एक चैट"
+            },
+            {
+              "text": "ऊपर वीडियो कॉल वाले आइकन पर टैप कीजिए।",
+              "image": "/guides/samsung/whatsapp_video_call/step3.jpeg",
+              "image_alt": "चैट के ऊपर वीडियो कॉल आइकन"
+            }
+          ],
+          "tips": [
+            "Calls टैब से भी वीडियो कॉल शुरू कर सकते हैं: WhatsApp खोलिए, Calls टैब पर टैप कीजिए, नई कॉल शुरू कीजिए, संपर्क चुनिए और वीडियो कॉल आइकन पर टैप कीजिए।"
+          ]
+        }
+      }
+    },
+    {
+      "id": "block-spam-calls",
+      "title": "परेशान करने वाली कॉल रोकिए",
+      "description": "बार-बार परेशान करने वाले नंबरों को ब्लॉक करना सीखिए।",
+      "category": "Safety",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "स्पैम",
+        "ब्लॉक",
+        "कॉल",
+        "spam",
+        "block",
+        "call"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "Phone ऐप खोलिए, Recents पर टैप कीजिए, फिर जिस नंबर या संपर्क को ब्लॉक करना है उस पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "हाल की कॉल की सूची"
+            },
+            {
+              "text": "उस कॉल के आगे Info (i) बटन खोलिए।",
+              "image": null,
+              "image_alt": "हाल की कॉल के आगे Info बटन"
+            },
+            {
+              "text": "नीचे स्क्रॉल कीजिए और Block Caller पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Block Caller वाला विकल्प"
+            }
+          ],
+          "tips": [
+            "iOS 26 में ब्लॉक किए नंबर देखने या अनब्लॉक करने के लिए: Settings > Privacy & Security > Blocked Contacts. Edit पर टैप कीजिए, संपर्क के आगे हटाने का निशान दबाइए, फिर Unblock पर टैप कीजिए।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "Phone ऐप खोलिए, More पर टैप कीजिए, फिर Call history पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "कॉल इतिहास की सूची"
+            },
+            {
+              "text": "जिस नंबर को ब्लॉक करना है, उसकी कॉल पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "कॉल इतिहास में चुनी हुई कॉल"
+            },
+            {
+              "text": "Block / report spam पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Block या report spam वाला विकल्प"
+            }
+          ],
+          "tips": [
+            "अनब्लॉक करने के लिए: Phone ऐप खोलिए, More पर टैप कीजिए, फिर Settings और फिर Blocked numbers खोलिए। नंबर के आगे Clear पर टैप कीजिए, फिर Unblock कीजिए।"
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "update-an-app",
+      "title": "ऐप को अपडेट कीजिए",
+      "description": "WhatsApp जैसे ऐप्स को नया रखिए, ताकि नई सुविधाएँ और सुरक्षा सुधार मिलते रहें।",
+      "category": "Apps",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "अपडेट",
+        "update",
+        "app",
+        "play store",
+        "app store"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "App Store खोलिए।",
+              "image": null,
+              "image_alt": "App Store का आइकन"
+            },
+            {
+              "text": "स्क्रीन के ऊपर My Account बटन या अपनी तस्वीर पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "App Store में प्रोफ़ाइल तस्वीर"
+            },
+            {
+              "text": "App Updates पर टैप कीजिए, फिर किसी ऐप के आगे Update दबाइए, या Update All दबाइए।",
+              "image": null,
+              "image_alt": "App Updates की सूची और Update बटन"
+            }
+          ],
+          "tips": [
+            "App Store के ऐप्स आम तौर पर अपने आप अपडेट होते रहते हैं। फिर भी ज़रूरत पड़े तो एक ऐप को हाथ से अपडेट कर सकते हैं।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "Play Store ऐप खोलिए।",
+              "image": null,
+              "image_alt": "Google Play Store का आइकन"
+            },
+            {
+              "text": "ऊपर दाईं तरफ़ अपने खाते के आइकन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Google Play में खाते का आइकन"
+            },
+            {
+              "text": "Manage apps & device पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Manage apps and device वाला विकल्प"
+            },
+            {
+              "text": "Updates available के नीचे See details पर टैप कीजिए। फिर किसी ऐप के आगे Update दबाइए, या Update all दबाइए।",
+              "image": null,
+              "image_alt": "Updates available वाला हिस्सा"
+            }
+          ],
+          "tips": [
+            "अपने आप होने वाले अपडेट बदलने के लिए: Settings > Network Preferences > Auto-update apps खोलिए। Wi-Fi पर, मोबाइल डेटा पर, सीमित मोबाइल डेटा पर, सिर्फ़ Wi-Fi पर, या बिल्कुल अपडेट न हो—अपनी सुविधा से चुनिए।"
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "volume-and-brightness",
+      "title": "आवाज़ और स्क्रीन की रोशनी",
+      "description": "स्क्रीन को आसानी से देखिए और फ़ोन की आवाज़ अपने हिसाब से कम या ज़्यादा कीजिए।",
+      "category": "Display",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "आवाज़",
+        "रोशनी",
+        "volume",
+        "brightness",
+        "sound"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "Control Center खोलिए: iPhone X या उससे नए में ऊपर दाईं तरफ़ से नीचे स्वाइप कीजिए। iPhone 8 या उससे पुराने में नीचे से ऊपर स्वाइप कीजिए।",
+              "image": null,
+              "image_alt": "iPhone में Control Center खोलना"
+            },
+            {
+              "text": "रोशनी वाली पट्टी को ऊपर या नीचे खींचिए।",
+              "image": null,
+              "image_alt": "Control Center में brightness बार"
+            },
+            {
+              "text": "या Settings खोलिए, Display & Brightness पर टैप कीजिए, और स्लाइडर को दाईं या बाईं तरफ़ खींचिए।",
+              "image": null,
+              "image_alt": "Display & Brightness में brightness स्लाइडर"
+            }
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "फ़ोन के किनारे दिए Volume बटन में से कोई एक दबाइए।",
+              "image": null,
+              "image_alt": "Android फ़ोन के Volume बटन"
+            },
+            {
+              "text": "आवाज़ वाली पट्टी के दाईं तरफ़ मेन्यू आइकन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "आवाज़ वाली पट्टी पर मेन्यू आइकन"
+            },
+            {
+              "text": "Media, Call, Ring, Notification और Alarm—जिनकी आवाज़ बदलनी हो, उन स्लाइडर को अपनी पसंद पर ले जाइए।",
+              "image": null,
+              "image_alt": "आवाज़ के स्लाइडर"
+            },
+            {
+              "text": "रोशनी बदलनी हो, तो स्क्रीन के ऊपर से नीचे स्वाइप करके Quick Settings खोलिए।",
+              "image": null,
+              "image_alt": "Android का Quick Settings पैनल"
+            },
+            {
+              "text": "स्क्रीन धीमी करने के लिए brightness स्लाइडर बाईं तरफ़ और तेज़ करने के लिए दाईं तरफ़ खींचिए।",
+              "image": null,
+              "image_alt": "Quick Settings में brightness स्लाइडर"
+            }
+          ],
+          "tips": [
+            "पुराने Android में आवाज़ वाली पट्टी पर नीचे का तीर दबाइए, फिर Media, Ring या Alarm चुनिए।",
+            "Settings > Sound में भी आवाज़ बदल सकते हैं।"
+          ]
+        }
+      },
+      "brand_guides": {}
+    },
+    {
+      "id": "delete-a-photo",
+      "title": "फ़ोटो हटाइए (और वापस लाइए)",
+      "description": "अनचाही फ़ोटो हटाना सीखिए, और गलती से हट गई हो तो उसे वापस पाना भी।",
+      "category": "Photos",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "फ़ोटो",
+        "हटाएँ",
+        "delete",
+        "photo",
+        "restore"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "Photos खोलिए और जिस फ़ोटो को हटाना है उसे चुनिए।",
+              "image": null,
+              "image_alt": "Photos ऐप में खुली फ़ोटो"
+            },
+            {
+              "text": "Trash बटन पर टैप कीजिए, फिर Delete Photo पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Photos में Trash बटन"
+            },
+            {
+              "text": "अगर गलती से हट गई हो: Photos में ऊपर स्वाइप कीजिए और Utilities में Recently Deleted पर टैप कीजिए, फिर View Album पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Recently Deleted एल्बम"
+            },
+            {
+              "text": "Face ID या Touch ID से एल्बम खोलिए। फ़ोटो पर टैप कीजिए, फिर Recover पर टैप कीजिए (या Select दबाइए, फ़ोटो चुनिए, More दबाइए, फिर Recover) और पुष्टि कीजिए।",
+              "image": null,
+              "image_alt": "Recover वाला विकल्प"
+            }
+          ],
+          "tips": [
+            "Recently Deleted में फ़ोटो 30 दिन तक रहती हैं, उसके बाद हमेशा के लिए हट जाती हैं।",
+            "अगर iCloud Photos चालू है, तो एक फ़ोन से फ़ोटो हटाने पर उसी Apple Account वाले सभी फ़ोन से हट जाती है।"
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "Google Photos खोलिए। जिस फ़ोटो को हटाना है उसे दबाए रखिए।",
+              "image": null,
+              "image_alt": "Google Photos में चुनी हुई फ़ोटो"
+            },
+            {
+              "text": "नीचे Trash आइकन पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Google Photos में Trash आइकन"
+            },
+            {
+              "text": "वापस पाना हो: Collections पर टैप कीजिए, फिर Trash पर।",
+              "image": null,
+              "image_alt": "Google Photos में Trash"
+            },
+            {
+              "text": "फ़ोटो को दबाए रखिए, फिर नीचे Restore पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Restore बटन"
+            }
+          ],
+          "tips": [
+            "Trash में फ़ोटो 30 दिन तक रहती हैं, उसके बाद हमेशा के लिए हट जाती हैं।",
+            "Google Photos से हटाने पर वही फ़ोटो आपके फ़ोन से और बैकअप चालू वाले दूसरे फ़ोन से भी हट जाती है।"
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "Gallery खोलिए, Pictures या Albums पर टैप कीजिए, और फ़ोटो ढूँढिए। उसे चुनने के लिए टैप कीजिए।",
+              "image": null,
+              "image_alt": "Gallery में चुनी हुई फ़ोटो"
+            },
+            {
+              "text": "स्क्रीन के नीचे Delete पर टैप कीजिए, फिर Move to Trash पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Move to Trash वाला विकल्प"
+            },
+            {
+              "text": "वापस पाना हो: Gallery खोलिए, मेन्यू आइकन (तीन लाइनें) पर टैप कीजिए, फिर Trash पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Gallery में Trash"
+            },
+            {
+              "text": "फ़ोटो को दबाए रखिए, फिर स्क्रीन के नीचे Restore पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Restore बटन"
+            }
+          ],
+          "tips": [
+            "हटाई गई चीज़ें Trash में 30 दिन तक रहती हैं, उसके बाद हमेशा के लिए हट जाती हैं।"
+          ]
+        }
+      }
+    },
+    {
+      "id": "find-saved-photo",
+      "title": "अपने स्क्रीनशॉट ढूँढिए",
+      "description": "फ़ोन में लिए गए स्क्रीनशॉट कहाँ मिलेंगे, यह आसानी से समझिए।",
+      "category": "Photos",
+      "device_types": [
+        "phone"
+      ],
+      "keywords": [
+        "स्क्रीनशॉट",
+        "ढूँढिए",
+        "screenshot",
+        "find",
+        "photos"
+      ],
+      "platform_guides": {
+        "ios": {
+          "steps": [
+            {
+              "text": "Photos खोलिए।",
+              "image": null,
+              "image_alt": "Photos ऐप का आइकन"
+            },
+            {
+              "text": "Collections में जाइए और Media Types पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Collections में Media Types"
+            },
+            {
+              "text": "Screenshots पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Screenshots एल्बम"
+            }
+          ]
+        },
+        "android": {
+          "steps": [
+            {
+              "text": "Photos ऐप खोलिए।",
+              "image": null,
+              "image_alt": "Photos ऐप का आइकन"
+            },
+            {
+              "text": "नीचे Collections पर टैप कीजिए, फिर On this device पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Collections में On this device"
+            },
+            {
+              "text": "Screenshots पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Screenshots फ़ोल्डर"
+            }
+          ],
+          "tips": [
+            "पुराने Android फ़ोन में Photos ऐप न हो तो Gallery खोलिए और Screenshots फ़ोल्डर देखिए।"
+          ]
+        }
+      },
+      "brand_guides": {
+        "samsung": {
+          "steps": [
+            {
+              "text": "Gallery ऐप खोलिए।",
+              "image": null,
+              "image_alt": "Gallery ऐप का आइकन"
+            },
+            {
+              "text": "Albums पर टैप कीजिए।",
+              "image": null,
+              "image_alt": "Gallery में Albums टैब"
+            },
+            {
+              "text": "Screenshots फ़ोल्डर खोलिए।",
+              "image": null,
+              "image_alt": "Screenshots फ़ोल्डर"
+            }
+          ],
+          "tips": [
+            "स्क्रीनशॉट My Files के Images में भी मिल जाते हैं।"
+          ]
+        }
+      }
+    }
+  ]
+}

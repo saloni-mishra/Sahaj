@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { completeMission, markPayPass } from "./Progress.jsx";
 import { useMode, say, tx } from "./copy.jsx";
+import { useLang, HI } from "./language.jsx";
+import HindiMascot from "./hindi/HindiMascot.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
@@ -102,21 +104,26 @@ function ScreenMock({ item, answered }) {
 
 export default function ScamGame() {
   const mode = useMode();
+  const lang = useLang();
   const [quiz, setQuiz] = useState([]);
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [picked, setPicked] = useState(null); // true = said scam, false = said safe
   const [loadError, setLoadError] = useState("");
 
+  const t = (key) => (lang === "hi" ? (HI[key] ?? key) : tx(mode, key));
+  const praise = (key) => (lang === "hi" ? (HI[key] ?? key) : say(mode, key));
+
   useEffect(() => {
-    fetch(`${API}/api/scam-quiz`)
+    const url = lang === "hi" ? `${API}/api/scam-quiz?lang=hi` : `${API}/api/scam-quiz`;
+    fetch(url)
       .then(async (r) => {
         if (!r.ok) throw new Error("quiz missing");
         const data = await r.json();
         setQuiz(shuffle(data)); // fresh order every round
       })
-      .catch(() => setLoadError(tx(mode, "scamLoadError")));
-  }, [mode]);
+      .catch(() => setLoadError(lang === "hi" ? HI.scamLoadError : tx(mode, "scamLoadError")));
+  }, [mode, lang]);
 
   useEffect(() => {
     if (index >= quiz.length && quiz.length > 0) {
@@ -126,22 +133,29 @@ export default function ScamGame() {
   }, [index, quiz.length]);
 
   if (loadError) return <p role="alert">{loadError}</p>;
-  if (quiz.length === 0) return <p>{say(mode, "loadingGame")}</p>;
+  if (quiz.length === 0) return <p>{praise("loadingGame")}</p>;
 
   // Finished: score + badge + what-to-do-in-real-life card.
   if (index >= quiz.length) {
     return (
       <div className="quiz-box">
-        <h3>{say(mode, "gameOver")}</h3>
-        <p className="step-count">{score} {tx(mode, "ofWord")} {quiz.length} {tx(mode, "gotRightSuffix")}</p>
-        <p className="stamp">{say(mode, badgeKeyFor(score, quiz.length))}</p>
+        {lang === "hi" && (
+          <HindiMascot
+            variant="celebrate"
+            className="hindi-quiz-mascot"
+            alt="सहज बधाई दे रहा है"
+          />
+        )}
+        <h3>{praise("gameOver")}</h3>
+        <p className="step-count">{score} {t("ofWord")} {quiz.length} {t("gotRightSuffix")}</p>
+        <p className="stamp">{praise(badgeKeyFor(score, quiz.length))}</p>
         <div className="help-card">
-          <h4>🛡 {tx(mode, "scamHelpTitle")}</h4>
-          <p>{tx(mode, "scamHelpText")}</p>
+          <h4>🛡 {t("scamHelpTitle")}</h4>
+          <p>{t("scamHelpText")}</p>
         </div>
         <div className="step-nav">
           <button className="big-btn" onClick={() => { setQuiz(shuffle(quiz)); setIndex(0); setScore(0); setPicked(null); }}>
-            {say(mode, "playAgain")}
+            {praise("playAgain")}
           </button>
         </div>
       </div>
@@ -166,33 +180,42 @@ export default function ScamGame() {
 
   return (
     <div className="quiz-box">
-      <h3>{say(mode, "spotScam")}</h3>
-      <p className="step-count">{tx(mode, "messageWord")} {index + 1} {tx(mode, "ofWord")} {quiz.length} · {tx(mode, "scoreWord")}: {score}</p>
-      <div className="progress" role="progressbar" aria-valuenow={index + 1} aria-valuemin={1} aria-valuemax={quiz.length} aria-label={`${tx(mode, "messageWord")} ${index + 1} ${tx(mode, "ofWord")} ${quiz.length}`}>
+      <h3>{praise("spotScam")}</h3>
+      <p className="step-count">{t("messageWord")} {index + 1} {t("ofWord")} {quiz.length} · {t("scoreWord")}: {score}</p>
+      <div className="progress" role="progressbar" aria-valuenow={index + 1} aria-valuemin={1} aria-valuemax={quiz.length} aria-label={`${t("messageWord")} ${index + 1} ${t("ofWord")} ${quiz.length}`}>
         <div className="progress-fill" style={{ width: `${((index + 1) / quiz.length) * 100}%` }} />
       </div>
       <ScreenMock item={item} answered={answered} />
-      <p className="pretend-note">{tx(mode, "pretendCaption")}</p>
+      <p className="pretend-note">{t("pretendCaption")}</p>
       {!answered ? (
         <div className="step-nav">
-          <button className="big-btn" onClick={() => choose(true)}>{tx(mode, "isScam")}</button>
-          <button className="big-btn btn-ghost" onClick={() => choose(false)}>{tx(mode, "looksSafe")}</button>
+          <button className="big-btn" onClick={() => choose(true)}>{t("isScam")}</button>
+          <button className="big-btn btn-ghost" onClick={() => choose(false)}>{t("looksSafe")}</button>
         </div>
       ) : (
         <>
-          <p role="status" className={correct ? "scam-safe" : "scam-danger"}>
-            {correct ? say(mode, "correctFeedback") : tx(mode, "goodTryFeedback")}{item.why}
+          <p
+            role="status"
+            className={`${correct ? "scam-safe" : "scam-danger"}${lang === "hi" ? " hindi-answer-feedback" : ""}`}
+          >
+            {lang === "hi" && correct && (
+              <HindiMascot variant="tiny" alt="" className="hindi-feedback-mascot" />
+            )}
+            <span>
+              {correct ? praise("correctFeedback") : t("goodTryFeedback")}
+              {item.why}
+            </span>
           </p>
           {showLegend && (
             <p className="legend">
-              {(item.red_flags || []).length > 0 && <span className="legend-red">■ {tx(mode, "flagRed")}</span>}
-              {(item.safe_signs || []).length > 0 && <span className="legend-green">■ {tx(mode, "flagGreen")}</span>}
+              {(item.red_flags || []).length > 0 && <span className="legend-red">■ {t("flagRed")}</span>}
+              {(item.safe_signs || []).length > 0 && <span className="legend-green">■ {t("flagGreen")}</span>}
             </p>
           )}
-          <p className="step-tip">{tx(mode, "whatToDo")} {item.tip}</p>
+          <p className="step-tip">{t("whatToDo")} {item.tip}</p>
           <div className="step-nav">
             <button className="big-btn" onClick={next}>
-              {index + 1 === quiz.length ? say(mode, "seeBadge") : say(mode, "nextMessage")}
+              {index + 1 === quiz.length ? praise("seeBadge") : praise("nextMessage")}
             </button>
           </div>
         </>

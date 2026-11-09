@@ -10,6 +10,11 @@ export default function SafeOrScam() {
       <p><Link className="link-more" to="/">{tx(mode, "backLink")}</Link></p>
       <h1>{tx(mode, "safeOrScamTitle")}</h1>
       <p className="learn-sub">{say(mode, "safeOrScamSub")}</p>
+      <div style={{ marginBottom: "1rem" }}>
+  <Link to="/scam-emergency" className="link-more">
+    🚨 Have you been scammed? Emergency Help →
+  </Link>
+</div>
       <div className="phone-mock" role="img" aria-label="Example phone screen">
         <div className="phone-bar"><span>9:41</span><span>📶 🔋</span></div>
         <ScamGame />

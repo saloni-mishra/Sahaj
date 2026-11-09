@@ -10,10 +10,34 @@ import SafeOrScam from "./SafeOrScam.jsx";
 import FloatingAsk from "./FloatingAsk.jsx";
 import PauseCheck from "./PauseCheck.jsx";
 import { PayPass } from "./PayPass.jsx";
+import ScamEmergency from "./ScamEmergency.jsx";
+import SecureBank from "./SecureBank.jsx";
+import ReportCyberFraud from "./ReportCyberFraud.jsx";
+import HindiHome from "./hindi/HindiHome.jsx";
+import HindiLearn from "./hindi/HindiLearn.jsx";
+import HindiSafeOrScam from "./hindi/HindiSafeorScam.jsx";
+import HindiEmergency from "./hindi/HindiEmergency.jsx";
+import HindiFun from "./hindi/HindiFun.jsx";
+import HindiBuddy from "./hindi/HindiBuddy.jsx";
 import Mascot from "./Mascot.jsx";
+import { useLang, HI, LanguageSwitch } from "./language.jsx";
 
 function BottomNav() {
   const mode = useMode();
+  const lang = useLang();
+
+  if (lang === "hi") {
+    return (
+      <nav className="bottom-nav" aria-label="जल्दी पहुँच">
+        <Link to="/hindi">🏠<span>{HI.navHome}</span></Link>
+        <Link to="/hindi/learn">📖<span>{HI.navLearn}</span></Link>
+        <Link to="/hindi/missions">⭐<span>{HI.navMissions}</span></Link>
+        <Link to="/hindi/safe-or-scam">🛡<span>{HI.navSafe}</span></Link>
+        <Link to="/hindi/fun">🎮<span>{HI.navFun}</span></Link>
+      </nav>
+    );
+  }
+
   return (
     <nav className="bottom-nav" aria-label="Quick">
       <Link to="/">🏠<span>{tx(mode, "navHome")}</span></Link>
@@ -73,6 +97,7 @@ function Home() {
     <Link to="/safe-or-scam">{tx(mode, "navSafeLong")}</Link>
     <a href="/#practice">{tx(mode, "navPractice")}</a>
     <a href="#fun">{tx(mode, "navFun")}</a>
+    <LanguageSwitch className="" />
   </nav>
   <ModeToggle />
 </header>
@@ -110,7 +135,6 @@ function Home() {
               <li>{say(mode, "helper2")}</li>
               <li>{say(mode, "helper3")}</li>
             </ul>
-            <span className="stamp">{say(mode, "sandboxStamp")}</span>
           </aside>
         </section>
 
@@ -285,18 +309,28 @@ function PaymentCancel() {
 }
 
 function App() {
+  const lang = useLang();
   return (
     <>
       <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/hindi" element={<HindiHome />} />
+      <Route path="/hindi/learn" element={<HindiLearn />} />
+      <Route path="/hindi/missions" element={<Missions />} />
+      <Route path="/hindi/safe-or-scam" element={<HindiSafeOrScam />} />
+      <Route path="/hindi/emergency" element={<HindiEmergency />} />
+      <Route path="/hindi/fun" element={<HindiFun />} />
       <Route path="/learn" element={<Learn />} />
       <Route path="/missions" element={<Missions />} />
       <Route path="/safe-or-scam" element={<SafeOrScam />} />
+      <Route path="/scam-emergency" element={<ScamEmergency />} />
+      <Route path="/secure-bank" element={<SecureBank />} />
+      <Route path="/report-cyber-fraud" element={<ReportCyberFraud />} />
       <Route path="/fun" element={<Fun />} />
       <Route path="/practice/payment/success" element={<PaymentSuccess />} />
       <Route path="/practice/payment/cancel" element={<PaymentCancel />} />
       </Routes>
-      <FloatingAsk />
+      {lang === "hi" ? <HindiBuddy /> : <FloatingAsk />}
       <MissionToast />
       <BottomNav />
     </>

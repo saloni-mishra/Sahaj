@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMode, say, tx } from "./copy.jsx";
+import { useLang } from "./language.jsx";
 import { sendPhoto } from "./ShowSahaj.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -32,6 +33,7 @@ export default function FloatingAsk() {
   const inputRef = useRef(null);
   const photoRef = useRef(null);
   const mode = useMode();
+  const lang = useLang();
 
   const micOK =
     typeof window !== "undefined" &&
@@ -119,6 +121,11 @@ export default function FloatingAsk() {
     setPhotoReading(false);
     if (photoRef.current) photoRef.current.value = "";
   }
+
+  // The English Ask Sahaj chat is intentionally not shown inside the Hindi
+  // experience. Hindi help lives on the dedicated Hindi pages instead of
+  // displaying English answers on a Hindi screen.
+  if (lang === "hi") return null;
 
   return (
     <>

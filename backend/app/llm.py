@@ -27,11 +27,30 @@ Rules:
 5. Never ask for or repeat OTPs, PINs, passwords, or bank details.
 6. If the question is unrelated to phones or laptops, politely say you can only help with phone and laptop topics."""
 
+SYSTEM_HINDI = """आप 'सहज' हैं—एक विनम्र, धैर्यवान और मददगार साथी, जो बुज़ुर्गों को बिना किसी झिझक के फ़ोन और लैपटॉप चलाना सिखाते हैं।
+
+बातचीत के नियम:
+1. भाषा एकदम सहज, साफ़ और रोज़मर्रा की बोलचाल वाली हिंदी रखें। भारी-भरकम या किताबी शब्दों से बचें।
+2. हमेशा देवनागरी लिपि का ही इस्तेमाल करें।
+3. वाक्य छोटे, सीधे और समझने में आसान हों। एक बार में केवल एक ही बात कहें।
+4. तकनीकी शब्दों को आसान उदाहरणों से समझाएँ। फ़ोन के बटनों, मेन्यू और सेटिंग्स के नाम ठीक वैसे ही अंग्रेज़ी या लिप्यंतरण में लिखें जैसे वे स्क्रीन पर दिखाई देते हैं (उदा. Settings, Display, Bluetooth)।
+5. अपनी तरफ़ से कोई नया नियम, मेन्यू या मनगढ़ंत स्टेप न जोड़ें; केवल दी गई आधिकारिक गाइड की जानकारी पर ही टिके रहें।
+6. बात करने का लहज़ा हमेशा आदरपूर्ण, धीमा और अपनत्व भरा होना चाहिए—जैसे कोई बच्चा अपने दादा-दादी या माता-पिता को प्यार से समझा रहा हो। बनावटी उत्साह, स्लैंग या ट्रेंडी शब्दों का प्रयोग बिल्कुल न करें।
+7. सुरक्षा का कड़ा नियम: कभी भी OTP, ATM PIN, पासवर्ड, UPI पिन या बैंक से जुड़ी कोई भी निजी जानकारी न माँगें, न दर्ज करें और न ही दोहराएँ।
+8. अगर सवाल फ़ोन या लैपटॉप से संबंधित नहीं है, तो विनम्रता से कहें कि आप केवल फ़ोन और लैपटॉप के विषय में ही मदद कर सकते हैं।
+9. अगर गाइड में किसी चीज़ का रूप, रंग, निशान या जगह नहीं बताई गई है, तो उसके बारे में अपनी तरफ़ से जानकारी न जोड़ें।
+"""
+
 def explain_guide(question, guide_title, guide_steps, current_step, mode="normal"):
     if client is None:
         return "AI assistance is currently unavailable. Please follow the instructions shown on screen."
 
-    system = SYSTEM_GENZ if mode == "genz" else SYSTEM_NORMAL
+    if mode == "hindi":
+     system = SYSTEM_HINDI
+    elif mode == "genz":
+     system = SYSTEM_GENZ
+    else:
+     system = SYSTEM_NORMAL
     reaction_rule = (
         "You may add at most ONE short playful cheer at the very end, never inside the steps."
         if mode == "genz" else
@@ -51,9 +70,9 @@ def explain_guide(question, guide_title, guide_steps, current_step, mode="normal
     Current step: {current_step}
 
     Your task:
-    1. Explain the current step in very simple English.
+    1. Explain the current step in the same language as the system instructions.
     2. Use short, clear sentences.
-    3. Avoid technical words.
+    3. Avoid difficult technical words. Keep actual phone setting names in English when needed.
     4. Give only information supported by the official guide.
     5. Never invent phone settings or steps.
     6. If the question is unrelated to the guide, politely say that you can only help with this topic.
@@ -71,6 +90,8 @@ def explain_guide(question, guide_title, guide_steps, current_step, mode="normal
         return response.text
 
     except Exception:
+        if mode == "hindi":
+            return "माफ़ कीजिए, अभी मैं इसे समझा नहीं पा रहा हूँ। कृपया स्क्रीन पर दिए गए निर्देशों का पालन करें।"
         if mode == "genz":
             return "Hmm, let me cook — that did not work. Please follow the steps on the screen."
         return "Sorry, I couldn't explain this right now. Please follow the instructions shown on screen."
@@ -78,14 +99,34 @@ def explain_guide(question, guide_title, guide_steps, current_step, mode="normal
 
 def ask_question(question, context_text, guide_title=None, mode="normal"):
     if client is None:
+        if mode == "hindi":
+            return "माफ़ कीजिए, अभी एआई मदद उपलब्ध नहीं है। कृपया स्क्रीन पर दिए सीखने वाले क़दम देखिए।"
         return "AI help is off right now. Please try the Learn steps on this screen instead."
-    guide_line = f"Best matching guide: {guide_title}." if guide_title else "No matching guide found."
-    system = SYSTEM_GENZ if mode == "genz" else SYSTEM_NORMAL
-    reaction_rule = (
-        "You may add at most ONE short playful cheer at the very end, never inside the steps."
-        if mode == "genz" else
-        "Use a warm tone, like a kind grandchild. Use plain words only."
-    )
+
+    if mode == "hindi":
+        system = SYSTEM_HINDI
+        guide_line = (
+            f"सबसे मिलती-जुलती गाइड: {guide_title}।"
+            if guide_title
+            else "कोई मिलती-जुलती गाइड नहीं मिली।"
+        )
+        answer_rule = (
+            "उत्तर आसान, रोज़मर्रा की हिंदी (देवनागरी) में दीजिए। "
+            "फ़ोन के सेटिंग, बटन और मेन्यू के नाम अंग्रेज़ी में ही रखिए।"
+        )
+        reaction_rule = "लहज़ा अपनापन भरा और आदरपूर्ण रखिए। स्लैंग या मज़ाक़ न कीजिए।"
+    else:
+        system = SYSTEM_GENZ if mode == "genz" else SYSTEM_NORMAL
+        guide_line = (
+            f"Best matching guide: {guide_title}." if guide_title else "No matching guide found."
+        )
+        answer_rule = "Answer in very simple English, like explaining to a grandparent."
+        reaction_rule = (
+            "You may add at most ONE short playful cheer at the very end, never inside the steps."
+            if mode == "genz" else
+            "Use a warm tone, like a kind grandchild. Use plain words only."
+        )
+
     prompt = f"""
     {system}
 
@@ -96,7 +137,7 @@ def ask_question(question, context_text, guide_title=None, mode="normal"):
     {context_text}
 
     Rules:
-    1. Answer in very simple English, like explaining to a grandparent.
+    1. {answer_rule}
     2. Use short numbered steps (at most 5). No jargon, no abbreviations.
     3. Only use steps supported by the helper notes. Never invent phone settings.
     4. Never ask for or repeat OTPs, PINs, passwords, or bank details.
@@ -112,6 +153,8 @@ def ask_question(question, context_text, guide_title=None, mode="normal"):
         )
         return response.text
     except Exception:
+        if mode == "hindi":
+            return "माफ़ कीजिए, अभी जवाब नहीं मिल पाया। फिर से कोशिश कीजिए, या सीखने वाले पेज पर क़दम देखिए।"
         if mode == "genz":
             return "Hmm, let me cook — that did not work. Please try again, or follow the Learn steps."
         return "Sorry, I couldn't answer just now. Please try again, or follow the Learn steps."
@@ -206,22 +249,45 @@ def ask_general(question, mode="normal"):
     """General phone help when no official guide matches. Short, safe, honest."""
     if client is None:
         return None
-    system = SYSTEM_GENZ if mode == "genz" else SYSTEM_NORMAL
-    reaction_rule = (
-        "You may add at most ONE short playful cheer at the very end."
-        if mode == "genz" else
-        "Use a warm tone, like a kind grandchild. Use plain words only."
-    )
+
+    if mode == "hindi":
+        system = SYSTEM_HINDI
+        answer_rule = (
+            "उत्तर आसान, रोज़मर्रा की हिंदी (देवनागरी) में दीजिए। "
+            "फ़ोन के सेटिंग, बटन और मेन्यू के नाम अंग्रेज़ी में ही रखिए।"
+        )
+        start_line = "सामान्य क़दम — आपका फ़ोन थोड़ा अलग दिख सकता है।"
+        money_rule = (
+            "अगर सवाल पैसे, भुगतान, OTP, PIN, पासवर्ड, बैंक या UPI ऐप, "
+            "या खाता रिकवरी से जुड़ा हो, तो क़दम न दीजिए। कहिए कि भरोसेमंद "
+            "परिवार वाले या बैंक की आधिकारिक सहायता से मदद लें।"
+        )
+        end_rule = "अंत में पूछिए कि उनके पास कौन-सा फ़ोन है, ताकि अगली बार और सटीक मदद मिल सके।"
+        reaction_rule = "लहज़ा अपनापन भरा और आदरपूर्ण रखिए। स्लैंग या मज़ाक़ न कीजिए।"
+    else:
+        system = SYSTEM_GENZ if mode == "genz" else SYSTEM_NORMAL
+        answer_rule = "Answer in very simple English, like explaining to a grandparent."
+        start_line = "General steps - your phone may look a little different."
+        money_rule = (
+            "if the question involves money, payments, OTPs, PINs, passwords, "
+            "bank or UPI apps, or account recovery, do NOT give steps. Instead say: "
+            "please ask a trusted family member or the official support for help with this."
+        )
+        end_rule = "End by asking which phone brand and model they have, so you can be more specific next time."
+        reaction_rule = (
+            "You may add at most ONE short playful cheer at the very end."
+            if mode == "genz" else
+            "Use a warm tone, like a kind grandchild. Use plain words only."
+        )
+
     prompt = (
         system + "\n\nThe user asked:\n" + question + "\n\nYour task:\n"
-        "1. Answer in very simple English, like explaining to a grandparent.\n"
+        "1. " + answer_rule + "\n"
         "2. Give short numbered steps (at most 5) that work on most phones.\n"
-        "3. Start with the line: General steps - your phone may look a little different.\n"
-        "4. HARD RULE: if the question involves money, payments, OTPs, PINs, passwords, "
-        "bank or UPI apps, or account recovery, do NOT give steps. Instead say: "
-        "please ask a trusted family member or the official support for help with this.\n"
+        "3. Start with the line: " + start_line + "\n"
+        "4. HARD RULE: " + money_rule + "\n"
         "5. Never ask for or repeat OTPs, PINs, passwords, or bank details.\n"
-        "6. End by asking which phone brand and model they have, so you can be more specific next time.\n"
+        "6. " + end_rule + "\n"
         "7. " + reaction_rule + "\n\nReturn only the answer."
     )
     try:

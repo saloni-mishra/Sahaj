@@ -6,7 +6,10 @@
       "title": "Torch mode: unlocked",
       "task": "Turn on your phone flashlight and wave it at someone.",
       "guide_id": "turn_on_flashlight",
-      "reward": "Lowkey a Light Wizard"
+      "reward": "Lowkey a Light Wizard",
+      "title_hi": "टॉर्च जला दी!",
+      "task_hi": "अपने फ़ोन की टॉर्च जलाइए और किसी को रोशनी दिखाइए।",
+      "reward_hi": "रोशनी के उस्ताद"
     },
     {
       "id": "m2",
@@ -14,7 +17,10 @@
       "title": "Big text, big energy",
       "task": "Make your text bigger so you can actually read it.",
       "guide_id": "increase_text_size",
-      "reward": "Eagle Eyes badge"
+      "reward": "Eagle Eyes badge",
+      "title_hi": "अक्षर बड़े, पढ़ना आसान",
+      "task_hi": "फ़ोन के अक्षर बड़े कीजिए, ताकि बिना ज़ोर लगाए साफ़ पढ़ सकें।",
+      "reward_hi": "तेज़ नज़र वाला बैज"
     },
     {
       "id": "m3",
@@ -22,7 +28,10 @@
       "title": "Screenshot speedrun",
       "task": "Take a screenshot of anything on your phone.",
       "guide_id": "take_screenshot",
-      "reward": "Screenshot Pro"
+      "reward": "Screenshot Pro",
+      "title_hi": "स्क्रीनशॉट लेना सीखें",
+      "task_hi": "फ़ोन पर कुछ भी हो, उसका एक स्क्रीनशॉट लेकर देखिए।",
+      "reward_hi": "स्क्रीनशॉट प्रो"
     },
     {
       "id": "m4",
@@ -30,7 +39,10 @@
       "title": "Wi-Fi, but make it easy",
       "task": "Connect to Wi-Fi without asking anyone.",
       "guide_id": "connect_wifi",
-      "reward": "Connected, no cap"
+      "reward": "Connected, no cap",
+      "title_hi": "Wi-Fi से जुड़िए",
+      "task_hi": "बिना किसी की मदद लिए अपने Wi-Fi से जुड़िए।",
+      "reward_hi": "कनेक्टेड बैज"
     },
     {
       "id": "m5",
@@ -38,7 +50,10 @@
       "title": "Hello, grandkid!",
       "task": "Make a WhatsApp video call to family.",
       "guide_id": "whatsapp_video_call",
-      "reward": "Call Champ"
+      "reward": "Call Champ",
+      "title_hi": "परिवार से वीडियो कॉल",
+      "task_hi": "WhatsApp पर परिवार को वीडियो कॉल कीजिए।",
+      "reward_hi": "कॉल चैंपियन"
     },
     {
       "id": "m6",
@@ -46,7 +61,10 @@
       "title": "Scam detective",
       "task": "Finish one round of Spot the Scam.",
       "guide_id": null,
-      "reward": "Scam Spotter badge"
+      "reward": "Scam Spotter badge",
+      "title_hi": "ठगी पहचानने वाले जासूस",
+      "task_hi": "Spot the Scam का एक पूरा दौर खेलिए।",
+      "reward_hi": "सतर्क जासूस बैज"
     },
     {
       "id": "m7",
@@ -54,7 +72,10 @@
       "title": "Decode the slang",
       "task": "Learn today's Gen Z word and use it in a sentence.",
       "guide_id": null,
-      "reward": "Certified Cool"
+      "reward": "Certified Cool",
+      "title_hi": "आज का नया शब्द",
+      "task_hi": "आज का नया शब्द सीखिए और उसे अपने वाक्य में बोलिए।",
+      "reward_hi": "जिज्ञासु सीखने वाले"
     },
     {
       "id": "m11",
@@ -62,7 +83,10 @@
       "title": "Silence the noise",
       "task": "Finish the Block Spam Calls guide.",
       "guide_id": "block-spam-calls",
-      "reward": "Peace Keeper"
+      "reward": "Peace Keeper",
+      "title_hi": "परेशान करने वाली कॉल रोकिए",
+      "task_hi": "Block Spam Calls वाली गाइड पूरी कीजिए।",
+      "reward_hi": "शांति रखने वाले"
     },
     {
       "id": "m12",
@@ -70,7 +94,10 @@
       "title": "Loud and clear",
       "task": "Finish the Volume and Brightness guide.",
       "guide_id": "volume-and-brightness",
-      "reward": "Clear Sound badge"
+      "reward": "Clear Sound badge",
+      "title_hi": "आवाज़ अपने हिसाब से",
+      "task_hi": "Volume and Brightness वाली गाइड पूरी कीजिए।",
+      "reward_hi": "साफ़ आवाज़ वाला बैज"
     },
     {
       "id": "m13",
@@ -78,7 +105,10 @@
       "title": "Fresh and updated",
       "task": "Finish the Update an App guide.",
       "guide_id": "update-an-app",
-      "reward": "Up to Date star"
+      "reward": "Up to Date star",
+      "title_hi": "ऐप को नया रखिए",
+      "task_hi": "Update an App वाली गाइड पूरी कीजिए।",
+      "reward_hi": "अप-टू-डेट सितारा"
     },
     {
       "id": "m15",
@@ -86,7 +116,10 @@
       "title": "Clean sweep",
       "task": "Finish the Delete a Photo guide.",
       "guide_id": "delete-a-photo",
-      "reward": "Tidy Star"
+      "reward": "Tidy Star",
+      "title_hi": "फ़ोन की सफ़ाई",
+      "task_hi": "Delete a Photo वाली गाइड पूरी कीजिए।",
+      "reward_hi": "सफ़ाई का सितारा"
     },
     {
       "id": "m17",
@@ -94,7 +127,10 @@
       "title": "Screenshot finder",
       "task": "Finish the Find Your Screenshots guide.",
       "guide_id": "find-saved-photo",
-      "reward": "Sharp Finder badge"
+      "reward": "Sharp Finder badge",
+      "title_hi": "स्क्रीनशॉट ढूँढिए",
+      "task_hi": "Find Your Screenshots वाली गाइड पूरी कीजिए।",
+      "reward_hi": "तेज़ ढूँढने वाला बैज"
     }
   ]
 }
