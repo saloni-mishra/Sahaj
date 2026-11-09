@@ -57,30 +57,6 @@
       "reward": "Certified Cool"
     },
     {
-      "id": "m8",
-      "emoji": "🧾",
-      "title": "Pause like a pro",
-      "task": "Finish the Check a Payment Request guide.",
-      "guide_id": "check-payment-request",
-      "reward": "Pause Master"
-    },
-    {
-      "id": "m9",
-      "emoji": "🔍",
-      "title": "QR detective",
-      "task": "Finish the Scan a QR Code Safely guide.",
-      "guide_id": "scan-qr-safely",
-      "reward": "Sharp Eyes badge"
-    },
-    {
-      "id": "m10",
-      "emoji": "🛒",
-      "title": "Safe shopper",
-      "task": "Finish the Pay Online Safely guide.",
-      "guide_id": "pay-online-safely",
-      "reward": "Safe Shopper"
-    },
-    {
       "id": "m11",
       "emoji": "🚫",
       "title": "Silence the noise",
@@ -105,14 +81,6 @@
       "reward": "Up to Date star"
     },
     {
-      "id": "m14",
-      "emoji": "📸",
-      "title": "Family photographer",
-      "task": "Finish the Share a Photo guide.",
-      "guide_id": "share-photo-whatsapp",
-      "reward": "Family Star"
-    },
-    {
       "id": "m15",
       "emoji": "🧹",
       "title": "Clean sweep",
@@ -121,28 +89,12 @@
       "reward": "Tidy Star"
     },
     {
-      "id": "m16",
-      "emoji": "📷",
-      "title": "Say cheese",
-      "task": "Finish the Take a Photo guide.",
-      "guide_id": "take-a-photo",
-      "reward": "Photo Pro"
-    },
-    {
       "id": "m17",
       "emoji": "🔎",
-      "title": "Memory finder",
-      "task": "Finish the Find a Saved Photo guide.",
+      "title": "Screenshot finder",
+      "task": "Finish the Find Your Screenshots guide.",
       "guide_id": "find-saved-photo",
       "reward": "Sharp Finder badge"
-    },
-    {
-      "id": "m18",
-      "emoji": "🧺",
-      "title": "Space maker",
-      "task": "Finish the Free Up Storage guide.",
-      "guide_id": "free-up-storage",
-      "reward": "Space Maker"
     }
   ]
 }
