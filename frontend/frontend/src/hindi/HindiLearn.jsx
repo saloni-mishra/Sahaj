@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Confetti, saveCompleted, loadCompleted, completeMission, markPayPass } from "../Progress.jsx";
 import HindiMascot from "./HindiMascot.jsx";
+import AskFamilyHelp from "../AskFamilyHelp.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 const HINDI_TEXT = {
@@ -49,19 +50,6 @@ function pick(value) {
   return value || "";
 }
 
-
-function WhatsAppHelp({ step }) {
-  const mode = useMode();
-  const text = `नमस्ते! मुझे "${step.title}" समझने में मदद चाहिए। मैं अभी ${step.total_steps} में से ${step.step_number}वें कदम पर हूँ। ${step.text} क्या आप मेरी मदद कर सकते हैं? (सहज की ओर से भेजा गया)`;
-  const href = `https://wa.me/?text=${encodeURIComponent(text)}`;
-  return (
-    <div className="learn-row">
-      <a className="big-btn btn-ghost" href={href} target="_blank" rel="noreferrer">
-        {tx(mode, "whatsappHelp")}
-      </a>
-    </div>
-  );
-}
 
 // Per-step "Sahaj says" reaction line (guides.json field "genz_note", optional).
 // Shown only in Gen-Z mode. Slang is tap-to-reveal; instructions stay plain.
@@ -445,7 +433,11 @@ export default function HindiLearn() {
             </button>
           </div>
           {explanation && <p className="step-tip">{explanation}</p>}
-          <WhatsAppHelp step={step} />
+          <AskFamilyHelp
+            guideTitle={step.title}
+            stepNumber={step.step_number}
+            lang="hi"
+          />
           <div className="step-nav">
             <button
               className="big-btn"

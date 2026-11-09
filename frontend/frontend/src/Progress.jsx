@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useMode, say, tx } from "./copy.jsx";
 import { useLang, HI } from "./language.jsx";
 
@@ -162,6 +163,11 @@ export function ProgressStrip() {
           <>{done.length} {tx(mode, "ofWord")} {guides.length} {tx(mode, "guidesWord")} {tx(mode, "finishedWord")}. {say(mode, "collectAll")}</>
         )}
       </p>
+      {lang === "en" && (
+        <p className="confidence-link">
+          <Link className="link-more" to="/confidence">{tx(mode, "confidenceLink")}</Link>
+        </p>
+      )}
       <ul className="stamp-row">
         {guides.map((g) => {
           const has = done.includes(g.id);

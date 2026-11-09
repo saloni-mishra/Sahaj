@@ -13,6 +13,8 @@ import { PayPass } from "./PayPass.jsx";
 import ScamEmergency from "./ScamEmergency.jsx";
 import SecureBank from "./SecureBank.jsx";
 import ReportCyberFraud from "./ReportCyberFraud.jsx";
+import Confidence from "./Confidence.jsx";
+import ScreenshotHelp from "./ScreenshotHelp.jsx";
 import HindiHome from "./hindi/HindiHome.jsx";
 import HindiLearn from "./hindi/HindiLearn.jsx";
 import HindiSafeOrScam from "./hindi/HindiSafeOrScam.jsx";
@@ -97,6 +99,7 @@ function Home() {
     <Link to="/safe-or-scam">{tx(mode, "navSafeLong")}</Link>
     <a href="/#practice">{tx(mode, "navPractice")}</a>
     <a href="#fun">{tx(mode, "navFun")}</a>
+    <Link to="/confidence">{tx(mode, "navConfidence")}</Link>
     <LanguageSwitch className="" />
   </nav>
   <ModeToggle />
@@ -178,6 +181,11 @@ function Home() {
               <Link className="link-more" to="/fun">{say(mode, "funCardLink")}</Link>
             </article>
           </div>
+          <p className="screenshot-help-link">
+            <Link className="link-more" to="/screenshot-help">
+              {tx(mode, "screenshotHelpLink")}
+            </Link>
+          </p>
         </section>
 
         <TipOfDay />
@@ -323,6 +331,8 @@ function App() {
       <Route path="/learn" element={<Learn />} />
       <Route path="/missions" element={<Missions />} />
       <Route path="/safe-or-scam" element={<SafeOrScam />} />
+      <Route path="/confidence" element={<Confidence />} />
+      <Route path="/screenshot-help" element={<ScreenshotHelp />} />
       <Route path="/scam-emergency" element={<ScamEmergency />} />
       <Route path="/secure-bank" element={<SecureBank />} />
       <Route path="/report-cyber-fraud" element={<ReportCyberFraud />} />

@@ -3,21 +3,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Confetti, saveCompleted, loadCompleted, completeMission, markPayPass } from "./Progress.jsx";
 import { useMode, say, tx, pick } from "./copy.jsx";
 import Mascot from "./Mascot.jsx";
+import AskFamilyHelp from "./AskFamilyHelp.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
-
-function WhatsAppHelp({ step }) {
-  const mode = useMode();
-  const text = `Namaste! I need help with "${step.title}", step ${step.step_number} of ${step.total_steps}: ${step.text}. Can you help me? (sent from Sahaj)`;
-  const href = `https://wa.me/?text=${encodeURIComponent(text)}`;
-  return (
-    <div className="learn-row">
-      <a className="big-btn btn-ghost" href={href} target="_blank" rel="noreferrer">
-        {tx(mode, "whatsappHelp")}
-      </a>
-    </div>
-  );
-}
 
 // Per-step "Sahaj says" reaction line (guides.json field "genz_note", optional).
 // Shown only in Gen-Z mode. Slang is tap-to-reveal; instructions stay plain.
@@ -384,7 +372,10 @@ export default function Learn() {
             </button>
           </div>
           {explanation && <p className="step-tip">{explanation}</p>}
-          <WhatsAppHelp step={step} />
+          <AskFamilyHelp
+            guideTitle={step.title}
+            stepNumber={step.step_number}
+          />
           <div className="step-nav">
             <button
               className="big-btn"

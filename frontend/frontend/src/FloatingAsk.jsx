@@ -4,6 +4,7 @@ import { useMode, say, tx } from "./copy.jsx";
 import { useLang } from "./language.jsx";
 import { sendPhoto } from "./ShowSahaj.jsx";
 import Mascot from "./Mascot.jsx";
+import AskFamilyHelp from "./AskFamilyHelp.jsx";
 
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 const BUBBLE_KEY = "sahaj-ask-seen";
@@ -192,6 +193,16 @@ export default function FloatingAsk() {
               <button className="big-btn chat-send" onClick={() => send()} disabled={loading || !q.trim()}>
                 {say(mode, "askButton")}
               </button>
+            </div>
+            <div className="chat-family">
+              <AskFamilyHelp compact overlay />
+              <Link
+                className="link-more chat-shot-link"
+                to="/screenshot-help"
+                onClick={() => setOpen(false)}
+              >
+                {tx(mode, "screenshotHelpLink")}
+              </Link>
             </div>
             <input
               ref={photoRef}

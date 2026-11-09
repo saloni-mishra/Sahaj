@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-import { completeMission, markPayPass } from "./Progress.jsx";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { completeMission, loadPayPass, markPayPass } from "./Progress.jsx";
+import { recordScamRound } from "./scamRounds.js";
 import { useMode, say, tx } from "./copy.jsx";
 import { useLang, HI } from "./language.jsx";
 import HindiMascot from "./hindi/HindiMascot.jsx";
@@ -110,6 +111,7 @@ export default function ScamGame() {
   const [score, setScore] = useState(0);
   const [picked, setPicked] = useState(null); // true = said scam, false = said safe
   const [loadError, setLoadError] = useState("");
+  const roundRecorded = useRef(false);
 
   const t = (key) => (lang === "hi" ? (HI[key] ?? key) : tx(mode, key));
   const praise = (key) => (lang === "hi" ? (HI[key] ?? key) : say(mode, key));
@@ -127,8 +129,18 @@ export default function ScamGame() {
 
   useEffect(() => {
     if (index >= quiz.length && quiz.length > 0) {
+      // Read the old flag before marking this round, so older saved progress
+      // counts as at least one prior round.
+      const hadPriorRound = !!loadPayPass()["scam-round"];
       completeMission("m6"); // Scam detective: finish one round
       markPayPass("scam-round"); // Sahaj Pay Pass stop
+      // Count each finished round once, even if the effect runs again.
+      if (!roundRecorded.current) {
+        roundRecorded.current = true;
+        recordScamRound(hadPriorRound ? 1 : 0);
+      }
+    } else {
+      roundRecorded.current = false;
     }
   }, [index, quiz.length]);
 
