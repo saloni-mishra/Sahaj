@@ -15,7 +15,7 @@ import SecureBank from "./SecureBank.jsx";
 import ReportCyberFraud from "./ReportCyberFraud.jsx";
 import HindiHome from "./hindi/HindiHome.jsx";
 import HindiLearn from "./hindi/HindiLearn.jsx";
-import HindiSafeOrScam from "./hindi/HindiSafeorScam.jsx";
+import HindiSafeOrScam from "./hindi/HindiSafeOrScam.jsx";
 import HindiEmergency from "./hindi/HindiEmergency.jsx";
 import HindiFun from "./hindi/HindiFun.jsx";
 import HindiBuddy from "./hindi/HindiBuddy.jsx";
